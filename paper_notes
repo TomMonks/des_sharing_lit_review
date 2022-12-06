@@ -1,0 +1,164 @@
+# Sim web extensions
+
+## Literature review update
+
+### Sharing of discrete-event simulation models in health
+
+* It is well documented that sharing of model code and files has historically been poor in modelling and simulation. 
+* Cite papers - these are in STRESS and Open Science paper
+* Janson (2020) paper on modelling covers off ABS. Key finding was that of 7500 papers 11% shared the model in some way. Trend increasing over time - around 18% in 2018
+* We adopt the sharing classification Jansson et al (2020): Archive (Zenodo, Figshare, Open science framework (OSF), Dataverse, Datadryd, CoMSES, Uni archives); Repository (Github/Lab/Bitbucket, sourceforge, google code), Journal supplementary material, Personal and orgnanisational (own website, dropbox, researchgate, googledrive, Amazon cloudfront); and Platform (e.g. vendor website - for us this would be simul8 cloud, simio cloud, run the model .com for anylogic etc. This might also include free infrastructure to support FOSS StreamLit.io, RShiney.io Binder or paid infrastructure like code ocean.
+    * Jansson handled "model code is available upon request" by emailing authors directly;
+* We review discrete-event simulation papers 2019-2022. We use 2019 as a earliest date as provides time for the March 2018 publication of the Strengthening the Reporting of Empirical Simulation Studies (STRESS) guidlelines to take effect. STRESS includes the requirement to include a code access statement (section 6).  This also follows publication of a Open Science checklist (Taylor et al. 2017),the Feb 2019 release of the Turing Way - a guide to reproducible research published by the UK's national institute for Data Science.      
+* Jansson et al acknowledge that just because a publication excludes mention of model code location, this doesn't mean that code is not available somewhere.They recieved a 1% response to the requests.  OF the same number of responses recieved some authors provided URLs that shared code, while other authors reported they no longer had access to the code used to produce the results of their paper.  Given the low response rate found in the Jansson et al. study we did not follow up in this study.  We found n papers where authors stated the model was available on request.
+*  Table of results giving n and % breakdown of sharing method
+
+
+### Search criteria
+* Scopus?  I'm totally out of date on my searching. Is that good enough?
+* Jansson used ISI Web of Science - is there a coverage difference?
+
+The 2022 search was conducted on the 26th October 2022. 90 items.
+
+Scopus search strategy for Covid-19 simulation models 2020/22
+
+XX = 19, 20, 21 or 22.  
+ 
+
+TITLE-ABS-KEY ( ( health  AND  discrete  AND  event  AND  simulation )  OR  ( healthcare  AND  discrete  AND  event  AND  simulation ) )  AND  ( LIMIT-TO ( PUBSTAGE ,  "final" ) )  AND  ( EXCLUDE ( DOCTYPE ,  "le" )  OR  EXCLUDE ( DOCTYPE ,  "no" )  OR  EXCLUDE ( DOCTYPE ,  "cr" )  OR  EXCLUDE ( DOCTYPE ,  "ed" )  OR  EXCLUDE ( DOCTYPE ,  "sh" )  OR  EXCLUDE ( DOCTYPE ,  "dp" )  OR  EXCLUDE ( DOCTYPE ,  "er" ) )  AND  ( LIMIT-TO ( PUBYEAR ,  20XX ) )
+
+* 2/12/2022 - re-checked scopus. 90-> 107 papers
+
+* Help with doctyes when explaining search strategy.
+
+> Entering DOCTYPE(ar) will return documents classified as articles.
+
+> > Article-ar / Abstract Report-ab / Book-bk / Book Chapter-ch / Business Article-bz / Conference Paper-cp / Conference Review-cr / Data Paper - dp / Editorial-ed / Erratum-er / Letter-le / Note-no / Press Release-pr / Report-rp / Retracted-tb / Review-re / Short Survey-sh
+
+
+#### Pubmed
+
+ (((discrete[Title/Abstract]) AND (event[Title/Abstract])) AND (simulation[Title/Abstract])) AND (("2019"[Date - Publication] : "2022"[Date - Publication]))
+
+
+
+### Returned (scopus):
+* 534 returned 2019 - 2022 (search date 26/10/22).
+* 2 duplicates
+* Total after removing duplicates 532
+* Screened in = 401
+* Screened out = 131
+* Total = 532
+* Percentage screened in = 401 / 532 = 75%
+
+2019 - 105/132 (may be wrong due to merging duplicates)
+
+
+### Pubmed results
+* Search date: 19th November 2022 
+* 2019 - 2022
+* Returned 407 results
+* Duplicates with scopus 2019-2022 = 208
+* New candidate papers = 199
+* Unique = 83
+* Percentage screened in = 83 / 199 = 42%
+
+
+
+ 
+### Tags used in initial screening:
+* Yes - included
+* No - excluded
+* Yesp - included from Pubmed
+* Nop - excluded from Pubmed
+
+**Other tags:**
+* Hybrid - screened in if includes DES, but can be filtered out (may have missed some)
+* WSC (definitely missed some)
+ 
+
+## Procedure
+
+Where possible we always viewed papers at the publishers site so we could identify, download, and access any supplementary material or information that may not be directly included in the article PDF. If an article built on and cited previously published work/models we followed up the paper in attempt to complete data extraction.   
+
+We extracted the following data from each article:
+* Type of article: journal, conference (e.g. Winter Simulation Conference), or book. 
+* Name of reporting guidelines used (if present)
+* Name of simulation software 
+* If the software was commerically or FOSS licenced
+* Methods of sharing (to add details)
+* Licence for shared model (if present!)
+
+
+### cost effectiveness papers
+
+Look for 
+
+    D.M. Eddy, W. Hollingworth, J.J. Caro, J. Tsevat, K.M. McDonald, J.B. Wong
+    Model transparency and validation: a report of the ISPOR-SMDM modeling good research practices task Force-7
+    Med. Decis. Making, 32 (5) (2012), pp. 733-743
+    
+    
+https://journals.sagepub.com/doi/10.1177/0272989X12454579    
+
+
+Also the older paper that gives some guidance on reporting
+
+    J. Karnon, et al.
+    Modeling using discrete event simulation: a report of the ISPOR-SMDM modeling good research practices task force-4
+    10.1016/j.jval.2012.04.013
+    Value Health, 15 (2012), pp. 821-827
+    
+https://journals.sagepub.com/doi/full/10.1177/0272989X12455462
+    
+Small number of papers may cite (we should check this manually to make sure we got them all)
+
+https://www.sciencedirect.com/science/article/pii/S1098301520300401?via%3Dihub#bib19
+
+Another cost effectiveness checklist
+
+    Sanders GD, Neumann PJ, Basu A, Brock DW, Feeny D, Krahn M, Kuntz KM, Meltzer DO, Owens DK, Prosser LA, et al. Recommendations for conduct, methodological practices, and reporting of cost-effectiveness analyses: second panel on cost-effectiveness in health and medicine.JAMA. 2016; 316:1093–1103. doi: 10.1001/jama.2016.12195
+    
+
+
+## Notes:
+
+* 1 article stated the model was available as supplementary material, but the journal provided no link to it (HCMS) - we found the model by located a pre-print of the article on ResearchGate. 
+* Some authors used GitHub as if it were an archive and uploaded a zip file containing their model. 
+* Some articles linked to other articles where the model was developed.  These were sometimes a related publication, but not actual model development paper.  In most cases the article did not link to any computer model research artefact.
+* A small number of articles were funded by the NIHR, at least one using FOSS software, and did not make the computational model available.
+* Due to journal policy, we expected articles published in open science championing journals such as PLOS1 to include links to model artefacts.  However, this was not always the case. In some cases we found an appendix with a table of input data was found. Nor did these journals enforce reporting guidelines. It may be that authors and editors do not consider these requirements to extend to computational artefacts such as DES models.
+
+
+## general review for comparison
+https://www.mdpi.com/1660-4601/18/22/12262
+
+### To do:
+* Include a prisma flow diagram
+* Include a database of papers found - like Jansson this could be archived in Zenodo; for others to reference. - currently in zenodo
+* Simon indicated that Scopus can lag behind a bit. So we could run 2022 few times to update it.  Depending on date of publication we can list as a potential limitation for tail end of 2022.
+
+
+
+## Additional research artefacts
+
+* Should all of this be put under a section on "advanced sharing options"?
+
+* Packaging of python sim model independent deployment
+    * via PyPi 
+    * TM to package Nelson model and deploy to PyPi (quick and easy)
+
+* Containerisation
+    * docker container + Linux OS deploy
+        * For deployment in the cloud via a service such as Heroku
+        * Local deployument on NHS machine
+            * barrier = requires local install of docker
+        * Dockerhub (also Microsoft Azure container registry)
+        * Benefit all dependencies managed, Heroku is scalable (for a fee). Easiliy managed via Windows and Mac
+        * Downsides = slightly more coimplicated - requires knowledge of container builds (although well supported and many examples available online)
+        * Licensing fees for what docker classes as government agencies - point to Podman as a FOSS alternative?  Or maybe we need to talked about containerisation and say dockers has a fee and give podman example?
+        * TM to produce two examples:
+            * Container deployed from dockerhub? (podman as alternative?)
+            * Heroku free hosting of container and streamlit app
+
+* Point raised by Dan about conda - Anconda (licensing issue?) versus mini-forge
