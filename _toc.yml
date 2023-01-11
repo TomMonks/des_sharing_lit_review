@@ -3,9 +3,9 @@ root: content/01_welcome
 parts:
 - caption: Introduction
   chapters:
-  - file: content/02_license
+  - file: content/01_intro/02_license
 - caption: Results
   chapters:
-  - file: content/prisma
-  - file: content/analysis
+  - file: content/03_results/prisma
+  - file: content/03_results/analysis
 
