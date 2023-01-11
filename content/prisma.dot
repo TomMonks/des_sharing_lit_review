@@ -1,0 +1,45 @@
+digraph G {
+	fontsize=14
+	A [label="Records identified from: 
+Scopus (n = 534) 
+PubMed (n = 407)" shape=rectangle]
+	B [label="Records removed before screening:
+duplicates (n = 210)" shape=rectangle]
+	C [label="Records screened
+ (n = 731)" shape=rectangle]
+	D [label="Records excluded
+ (n = 247)" shape=rectangle]
+	E [label="Papers sought for retrieval
+ (n = 484)" shape=rectangle]
+	F [label="Papers not retrieved
+ (n = ?)" shape=rectangle]
+	G [label="Papers assessed for eligibility
+(n = 338 so far)" shape=rectangle]
+	H [label="Studies included in review
+(n = 288 so far)" shape=rectangle]
+	I [label="Studies excluded:
+Reason 1 (n = ?)
+Reason 2 (n = ?)
+Reason 3 (n = ?)" shape=rectangle]
+	A -> B
+	A -> C
+	C -> D
+	C -> E
+	E -> F
+	E -> G
+	G -> H
+	G -> I
+	H0 [label="Available models
+ n = 27"]
+	H1 [label="Included studies 
+ n = 288 so far"]
+	H2 [label="Percentage of models shared 
+ ~9%"]
+	subgraph cluster_1 {
+		node [style=filled]
+		color=blue
+		H0 -> H2
+		H1 -> H2
+		label="Interim results"
+	}
+}
