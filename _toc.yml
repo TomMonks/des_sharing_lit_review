@@ -4,6 +4,10 @@ parts:
 - caption: Introduction
   chapters:
   - file: content/01_intro/02_license
+- caption: Methods
+  chapters:
+  - file: content/02_methods/01_search_strategy  
+  - file: content/02_methods/02_extraction
 - caption: Results
   chapters:
   - file: content/03_results/prisma
