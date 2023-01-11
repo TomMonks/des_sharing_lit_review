@@ -1,0 +1,14 @@
+name: des_review
+channels:
+  - conda-forge
+dependencies:
+  - jupyterlab=3.5.2
+  - jupyterlab-spellchecker=0.7.2
+  - matplotlib=3.6.2
+  - numpy=1.24.1
+  - pandas=1.5.2
+  - pip=22.2.2
+  - pydot=1.4.2
+  - python=3.9.15
+  - python-graphviz=0.20.1
+  - scipy==1.10.0
