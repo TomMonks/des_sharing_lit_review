@@ -1,0 +1,11 @@
+format: jb-book
+root: content/01_welcome
+parts:
+- caption: Introduction
+  chapters:
+  - file: content/02_license
+- caption: Results
+  chapters:
+  - file: content/prisma
+  - file: content/analysis
+
