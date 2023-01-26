@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Sharing of models" href="analysis.html" />
-    <link rel="prev" title="Review and data extraction process summary" href="../02_methods/02_extraction.html" />
+    <link rel="prev" title="Dataset pre-processing" href="01_preprocessing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -143,6 +143,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_preprocessing.html">
+   Dataset pre-processing
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Prisma Diagram
@@ -378,18 +383,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview-of-notebook">
+   Overview of notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
-   Imports
+   1. Imports
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-to-create-diagram">
-   Functions to create diagram
+   2. Functions to create diagram
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagram-data-input">
-   Diagram Data Input
+   3. Diagram Data Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-diagram">
+   4. Create Diagram
   </a>
  </li>
 </ul>
@@ -412,18 +427,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview-of-notebook">
+   Overview of notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
-   Imports
+   1. Imports
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-to-create-diagram">
-   Functions to create diagram
+   2. Functions to create diagram
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagram-data-input">
-   Diagram Data Input
+   3. Diagram Data Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-diagram">
+   4. Create Diagram
   </a>
  </li>
 </ul>
@@ -438,12 +463,18 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="prisma-diagram">
 <h1>Prisma Diagram<a class="headerlink" href="#prisma-diagram" title="Permalink to this headline">#</a></h1>
+<p>Here we provide a <strong>P</strong>referred <strong>R</strong>eporting <strong>I</strong>tems for <strong>S</strong>ystematic Reviews and <strong>M</strong>eta-<strong>A</strong>nalyses (PRISMA) diagram.  PRSIMA aims to improve the reporting of systematic reviews.  Full details of the PRISMA statement can be found on at <a class="reference external" href="https://prisma-statement.org">https://prisma-statement.org</a></p>
+<p>The flow diagram  generated visualises the manuscripts returned from multiple database searches, duplicates, titles/abstracts screened in/out; and manuscripts included excluded during full text screening.</p>
+<section id="overview-of-notebook">
+<h2>Overview of notebook<a class="headerlink" href="#overview-of-notebook" title="Permalink to this headline">#</a></h2>
+<p>This notebook uses the <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> library to generate a flow diagram.  It is separated into four sections: imports; a function to create the flow diagram; a script to populate a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with the findings from our study; and the code to run function and save the image to file.</p>
+</section>
 <section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<p>We have generated our PRSIMA diagram using <code class="docutils literal notranslate"><span class="pre">graphviz</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># graphviz is bundled with colab</span>
-<span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Digraph</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Digraph</span>
 <span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Graph</span>
 <span class="kn">import</span> <span class="nn">pydot</span>
 </pre></div>
@@ -452,7 +483,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="functions-to-create-diagram">
-<h2>Functions to create diagram<a class="headerlink" href="#functions-to-create-diagram" title="Permalink to this headline">#</a></h2>
+<h2>2. Functions to create diagram<a class="headerlink" href="#functions-to-create-diagram" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;prisma.dot&#39;</span><span class="p">):</span>
@@ -465,6 +496,10 @@ title="Print to PDF"
 <span class="sd">    -------</span>
 <span class="sd">    data: dict</span>
 <span class="sd">      Dictionary of data items</span>
+<span class="sd">      </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    Diagraph</span>
 
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
@@ -484,16 +519,19 @@ title="Print to PDF"
     <span class="n">node3_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Records screened</span><span class="se">\n</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_title_abstract&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node3</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">node3_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
-    <span class="n">node4_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Records excluded</span><span class="se">\n</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="n">node4_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Records excluded</span><span class="se">\n</span><span class="s2"> &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node4</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">node4_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
-    <span class="n">node5_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Papers sought for retrieval</span><span class="se">\n</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="n">node5_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Papers sought for retrieval</span><span class="se">\n</span><span class="s2"> &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node5</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">node5_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
     <span class="n">node6_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Papers not retrieved</span><span class="se">\n</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node6</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">node6_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
-    <span class="n">node6_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Papers assessed for eligibility</span><span class="se">\n</span><span class="s2">(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="n">node6_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Papers assessed for eligibility</span><span class="se">\n</span><span class="s2">&quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node6</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">node6_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
     <span class="n">node7_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Studies included in review</span><span class="se">\n</span><span class="s2">(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
@@ -501,8 +539,8 @@ title="Print to PDF"
 
     <span class="c1"># excluded reasons</span>
     <span class="n">node7_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Studies excluded:</span><span class="se">\n</span><span class="s2">&quot;</span> \
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span> \
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node7</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">node7_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
@@ -533,9 +571,9 @@ title="Print to PDF"
 </div>
 </section>
 <section id="diagram-data-input">
-<h2>Diagram Data Input<a class="headerlink" href="#diagram-data-input" title="Permalink to this headline">#</a></h2>
+<h2>3. Diagram Data Input<a class="headerlink" href="#diagram-data-input" title="Permalink to this headline">#</a></h2>
 <blockquote>
-<div><p>To be updated to read from data file.</p>
+<div><p>To be updated to read from data file. Part can be generated by analysis.ipynb. Bits like scopus_n and n_duplicates will be hardcoded.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -549,8 +587,8 @@ title="Print to PDF"
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_ft_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">401</span> <span class="o">+</span> <span class="mi">83</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;338 so far&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;288 so far&quot;</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;4&quot;</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;422&quot;</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Reason 1&quot;</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Reason 2&quot;</span>
@@ -558,19 +596,15 @@ title="Print to PDF"
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">27</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">38</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;~9%&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create Diagram</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="create-diagram">
+<h2>4. Create Diagram<a class="headerlink" href="#create-diagram" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -621,11 +655,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../02_methods/02_extraction.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_preprocessing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Review and data extraction process summary</p>
+            <p class="prev-next-title">Dataset pre-processing</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="analysis.html" title="next page">
