@@ -10,6 +10,8 @@ parts:
   - file: content/02_methods/02_extraction
 - caption: Results
   chapters:
-  - file: content/03_results/prisma
+  - file: content/03_results/00_prisma
+  - file: content/03_results/01_preprocessing
+  - file: content/03_results/02_sharing_hl_summary
   - file: content/03_results/analysis
 
