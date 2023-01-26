@@ -1,3 +1,7 @@
+# png and dot files to save space
+*.png
+*.dot
+
 #Jupyter book build
 _build/
 
