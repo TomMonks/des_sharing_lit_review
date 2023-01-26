@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Prisma Diagram" href="prisma.html" />
-    <link rel="prev" title="Review and data extraction process summary" href="../02_methods/02_extraction.html" />
+    <link rel="next" title="A high level summary of sharing of models" href="02_sharing_hl_summary.html" />
+    <link rel="prev" title="Prisma Diagram" href="00_prisma.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -143,14 +143,19 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_prisma.html">
+   Prisma Diagram
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Dataset pre-processing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="prisma.html">
-   Prisma Diagram
+  <a class="reference internal" href="02_sharing_hl_summary.html">
+   A high level summary of sharing of models
   </a>
  </li>
  <li class="toctree-l1">
@@ -580,12 +585,11 @@ title="Print to PDF"
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Loads a cleaned verion of the dataset</span>
 <span class="sd">    </span>
-<span class="sd">    1.  Drop row 1 which contains example data</span>
-<span class="sd">    2.  Trims the columns to only those relevant to the analysis</span>
-<span class="sd">    3.  Replaces space in the column names with &quot;_&quot;</span>
-<span class="sd">    4.  Converts all column names to lower case</span>
-<span class="sd">    5.  Convert relevant cols to Categorical data type</span>
-<span class="sd">    6.  Performs remaining type conversions.</span>
+<span class="sd">    1.  Trims the columns to only those relevant to the analysis</span>
+<span class="sd">    2.  Replaces space in the column names with &quot;_&quot;</span>
+<span class="sd">    3.  Converts all column names to lower case</span>
+<span class="sd">    4.  Convert relevant cols to Categorical data type</span>
+<span class="sd">    5.  Performs remaining type conversions.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Item Type&#39;</span><span class="p">:</span> <span class="s1">&#39;item_type&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Publication Year&#39;</span><span class="p">:</span> <span class="s1">&#39;pub_yr&#39;</span><span class="p">,</span>
@@ -598,7 +602,6 @@ title="Print to PDF"
                                                       <span class="s1">&#39;0&#39;</span><span class="p">:</span> <span class="s1">&#39;None&#39;</span><span class="p">}}</span>
 
     <span class="n">clean</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
-             <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
              <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">trim_columns</span><span class="p">)</span>
              <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> 
              <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">cols_to_lower</span><span class="p">)</span>
@@ -635,33 +638,33 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 483 entries, 1 to 483
+RangeIndex: 484 entries, 0 to 483
 Data columns (total 21 columns):
  #   Column                        Non-Null Count  Dtype   
 ---  ------                        --------------  -----   
- 0   key                           483 non-null    object  
- 1   item_type                     483 non-null    category
- 2   pub_yr                        483 non-null    int64   
- 3   author                        482 non-null    object  
- 4   title                         483 non-null    object  
- 5   pub_title                     459 non-null    object  
- 6   doi                           428 non-null    object  
- 7   url                           401 non-null    object  
- 8   study_included                483 non-null    category
- 9   model_code_available          429 non-null    category
- 10  reporting_guidelines_mention  428 non-null    category
- 11  covid                         431 non-null    category
- 12  sim_software                  430 non-null    object  
- 13  foss_sim                      429 non-null    category
+ 0   key                           484 non-null    object  
+ 1   item_type                     484 non-null    category
+ 2   pub_yr                        484 non-null    int64   
+ 3   author                        483 non-null    object  
+ 4   title                         484 non-null    object  
+ 5   pub_title                     460 non-null    object  
+ 6   doi                           429 non-null    object  
+ 7   url                           402 non-null    object  
+ 8   study_included                484 non-null    category
+ 9   model_code_available          430 non-null    category
+ 10  reporting_guidelines_mention  429 non-null    category
+ 11  covid                         432 non-null    category
+ 12  sim_software                  431 non-null    object  
+ 13  foss_sim                      430 non-null    category
  14  model_archive                 4 non-null      object  
  15  model_repo                    18 non-null     object  
- 16  model_journal_supp            5 non-null      object  
- 17  model_journal_supp            5 non-null      object  
+ 16  model_journal_supp            6 non-null      object  
+ 17  model_journal_supp            6 non-null      object  
  18  model_personal_org            5 non-null      object  
  19  model_platform                10 non-null     object  
  20  available_on_req              43 non-null     object  
 dtypes: category(6), int64(1), object(14)
-memory usage: 60.5+ KB
+memory usage: 60.7+ KB
 </pre></div>
 </div>
 </div>
@@ -716,6 +719,30 @@ memory usage: 60.5+ KB
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
+      <td>6CYNDDIL</td>
+      <td>journalArticle</td>
+      <td>2021</td>
+      <td>Saidani, M.; Kim, H.</td>
+      <td>A Discrete Event Simulation-Based Model to Opt...</td>
+      <td>Simulation in healthcare : journal of the Soci...</td>
+      <td>10.1097/SIH.0000000000000565</td>
+      <td>https://www.scopus.com/inward/record.uri?eid=2...</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>AnyLogic</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>File</td>
+      <td>File</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
       <th>1</th>
       <td>WJR7T7VY</td>
       <td>book</td>
@@ -731,30 +758,6 @@ memory usage: 60.5+ KB
       <td>0.0</td>
       <td>SimPy</td>
       <td>1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5I2TEDRL</td>
-      <td>journalArticle</td>
-      <td>2021</td>
-      <td>Olave-Rojas, D.; Nickel, S.</td>
-      <td>Modeling a pre-hospital emergency medical serv...</td>
-      <td>Simulation Modelling Practice and Theory</td>
-      <td>10.1016/j.simpat.2021.102302</td>
-      <td>https://www.scopus.com/inward/record.uri?eid=2...</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>AnyLogic</td>
-      <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -900,17 +903,17 @@ memory usage: 60.5+ KB
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../02_methods/02_extraction.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="00_prisma.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Review and data extraction process summary</p>
+            <p class="prev-next-title">Prisma Diagram</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="prisma.html" title="next page">
+    <a class='right-next' id="next-link" href="02_sharing_hl_summary.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Prisma Diagram</p>
+        <p class="prev-next-title">A high level summary of sharing of models</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
