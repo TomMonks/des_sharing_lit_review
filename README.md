@@ -2,11 +2,18 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://github.com/TomMonks/des_sharing_lit_review/main)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390+/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://tommonks.github.io/des_sharing_lit_review)
+[![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
+[![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 
 # DES model sharing in healthcare: an analysis of the published literature 2019-2022
 
 ## Overview 
 The materials and data in this repository support: Harper and Monks (2023).  *DES model sharing in healthcare: an analysis of the published literature 2019-2022*.  All materials are published under an [MIT permissive license](https://github.com/TomMonks/des_sharing_lit_review/blob/main/LICENSE). 
+
+## Author ORCIDs
+
+* [![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
+* [![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 
 ## Write up of study
 
