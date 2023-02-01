@@ -27,4 +27,38 @@ The overarching research aim is determine to what extent authors of DES health s
 6. What methods, tools, and resources did authors use to share their models and code?
 7. To what extent can the healthcare DES community improve its sharing of models?
 
+## Dependencies
 
+Code is written in Python 3.9.
+
+All dependencies can be found in [`binder/environment.yml`]() and are pulled from conda-forge.  To run the code locally, we recommend install [mini-conda](https://docs.conda.io/en/latest/miniconda.html); navigating your terminal (or cmd prompt) to the directory containing the repo and issuing the following command:
+
+> `conda env create -f binder/environment.yml`
+
+**Online Alternatives**:
+* Visit our [jupyter book]((https://tommonks.github.io/des_sharing_lit_review) for interactive code and explanatory text
+* Run out Jupyter notebooks in binder [![Binder](https://mybinder.org/badge_logo.svg)](https://github.com/TomMonks/des_sharing_lit_review/main)
+
+## Repo overview
+
+```bash
+.
+├── binder
+│   └── environment.yml
+├── _config.yml
+├── content
+│   ├── 01_intro
+│   ├── 02_methods
+│   └── 03_results
+├── data
+├── LICENSE
+├── README.md
+└── _toc.yml
+```
+* `binder` - contains the environment.yml file (des_review) and all dependencies managed via conda
+* `_config.yml` - configuration of our Jupyter Book
+* `content` - the analysis notebooks and markdown arranged by introductory, methods and results chapters.
+* `data` - directory containing data files used by analysis notebooks
+* `LICENSE` - details of the MIT permissive license of this work.
+* `README` - what you are reading now!
+* `_toc.yml` - the table of contents for our Jupyter Book.
