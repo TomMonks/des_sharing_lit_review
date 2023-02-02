@@ -13,5 +13,6 @@ parts:
   - file: content/03_results/00_prisma
   - file: content/03_results/01_preprocessing
   - file: content/03_results/02_sharing_hl_summary
-  - file: content/03_results/analysis
+  - file: content/03_results/03_article_type
+
 
