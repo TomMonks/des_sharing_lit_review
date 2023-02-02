@@ -4,6 +4,11 @@ These results accompany **Harper and Monks (2023).  DES model sharing in healthc
 
 > An early version of these results (2022 part) was presented at the WSC2022 conference for the panel on **Grand Challenges in Healthcare Simulation**.  Thanks goes to Prof Christine Currie for her support.
 
+## Author ORCIDs
+
+[![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
+[![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+
 ## Aim and research questions:
 
 The overarching research aim is determine to what extent authors of DES health studies share models and where models are shared how is this done.
