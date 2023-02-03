@@ -8,6 +8,7 @@ parts:
   chapters:
   - file: content/02_methods/01_search_strategy  
   - file: content/02_methods/02_extraction
+  - file: content/02_methods/03_quality_audit
 - caption: Results
   chapters:
   - file: content/03_results/00_prisma

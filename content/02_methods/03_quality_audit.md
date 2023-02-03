@@ -3,12 +3,14 @@
 
 We split our assessment of the quality of how models were shared into two groups: models developed using using a coding language or framework (e.g. MatLab, R, or Python based) and models developed in commercial off the shelf Visual Interactive Modelling software (VIM; e.g. Arena, Anylogic, or Simio).  
 
-We know of no general quality auditing tools for sharing of code and models. However, general guidance for open science and reproducible research is available from the Turing Way developed by The Alan Turing Institute: the UK's official institute for data science and AI. We reviewed the Turing Way checklists for Open Research, Licensing, Reproducible Environments, and Code Testing and selected relevant quality criteria.  We enhanced this list by adapting the high level open scholorship recommendations for modelling and simulation from \citep{taylor2017open}.
+We know of no general quality auditing tools for sharing of code and models. However, general guidance for open science and reproducible research is available from the Turing Way {cite}`the_turing_way_community_2022_7470333` developed by The Alan Turing Institute: the UK's official institute for data science and AI. We reviewed the Turing Way checklists for Open Research, Licensing, Reproducible Environments, and Code Testing and selected relevant quality criteria.  We enhanced this list by adapting the high level open scholarship recommendations for modelling and simulation from {cite:p}`taylor2017open`.
 
 We excluded some Turing checklists from our review as they were not relevant to the quality of model sharing.  For example, the Research Data Management checklist is focussed on raw data that in a typical DES study would have used to derive model parameters.  Our focus is on the sharing of the model itself and not underlying raw data. Another example is the Turing's recommendations to publish open notebooks containing all details of experiments. This was on the basis that the modelling and simulation community might adopt a large number of approaches and tools to managing their models and artefacts. Instead we included a broader item checking for instructions to execute experiments in any format.
 
-The metrics within our audit also overlap with what others have listed as requirements for reproducibility of computational studies \citep{venkatesh_code_2022}.  We list these in Table \ref{quality-criteria}, illustrate which data were extracted for the coding and VIM groups, and detail the provenance of the items.
+The metrics within our audit also overlap with what others have listed as requirements for reproducibility of computational studies {cite}`venkatesh_code_2022`.  We list these in Table {ref}`quality-criteria`, to illustrate which data were extracted for the coding and VIM groups, and detail the provenance of the items.
 
+```{table} Quality Audit: Metrics and Sources.
+:name: quality-criteria
 | Item                               | Description                                                                                                        | Code<sup>a</sup> | VIM<sup>b</sup> | Source(s)                                                                             |
 |------------------------------------|--------------------------------------------------------------------------------------------------------------------|------------------|-----------------|---------------------------------------------------------------------------------------|
 | Digital Object Identifier          | Does the model have a DOI and promise of persistence? Can it be cited?                                             | y                | y               | Section 6. item 3. Taylor et al (2017)  Turing Way: Open Research Checklist item 4    |
@@ -22,3 +24,18 @@ The metrics within our audit also overlap with what others have listed as requir
 | Code Testing                       | Is there any evidence of tests that have been applied to the code to check that it functions correctly?            | y                | n               | Turing Way: Code Testing Checklist item 1                                             |
 | Local execution                    | Can the simulation model and associated files be downloaded and in theory executed on a local machine              | y                | y               | Turing Way: Open Research Checklist item 5                                            |
 | Remote execution                   | Can the simulation model be executed online using free or commercial infrastructure?                               | y                | y               | Section 6. item 7. Taylor et al (2017)                                                |
+```
+
+## Turing Way - links to checklists.
+
+* [Open Research Checklist](https://the-turing-way.netlify.app/reproducible-research/open/open-checklist.html)
+* [Licensing checklist](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-checklist.html)
+* [Reproducible environment checklist](https://the-turing-way.netlify.app/reproducible-research/renv/renv-resources.html)
+* [Code Testing checklist](https://the-turing-way.netlify.app/reproducible-research/testing/testing-checklist.html)
+
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
