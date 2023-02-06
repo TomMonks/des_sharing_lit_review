@@ -15,5 +15,6 @@ parts:
   - file: content/03_results/01_preprocessing
   - file: content/03_results/02_sharing_hl_summary
   - file: content/03_results/03_article_type
+  - file: content/03_results/04_bpa_preprocessing
 
 
