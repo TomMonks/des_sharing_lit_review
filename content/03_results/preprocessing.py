@@ -146,15 +146,22 @@ def load_clean_bpa(file_name):
                        covid=lambda x: pd.Categorical(x['covid']),
                        foss_sim=lambda x: pd.Categorical(x['foss_sim']),
                        item_type=lambda x: pd.Categorical(x['item_type']),
-                       model_has_doi=lambda x: pd.Categorical(x['model_has_doi']),
+                       model_has_doi=lambda x: 
+                           pd.Categorical(x['model_has_doi']),
                        orcid=lambda x: pd.Categorical(x['orcid']),
                        readme=lambda x: pd.Categorical(x['readme']),
-                       link_to_paper=lambda x: pd.Categorical(x['link_to_paper']),
+                       link_to_paper=lambda x: 
+                           pd.Categorical(x['link_to_paper']),
                        steps_run=lambda x: pd.Categorical(x['steps_run']),
-                       formal_dep_mgt=lambda x: pd.Categorical(x['formal_dep_mgt']),
-                       informal_dep_mgt=lambda x: pd.Categorical(x['informal_dep_mgt']),
-                       evidence_testing=lambda x: pd.Categorical(x['evidence_testing']),
-                       downloadable=lambda x: pd.Categorical(x['downloadable']),
-                       interactive_online=lambda x: pd.Categorical(x['interactive_online']))
+                       formal_dep_mgt=lambda x: 
+                           pd.Categorical(x['formal_dep_mgt']),
+                       informal_dep_mgt=lambda x: 
+                           pd.Categorical(x['informal_dep_mgt']),
+                       evidence_testing=lambda x:
+                           pd.Categorical(x['evidence_testing']),
+                       downloadable=lambda x: 
+                           pd.Categorical(x['downloadable']),
+                       interactive_online=lambda x: 
+                           pd.Categorical(x['interactive_online']))
             )
     return clean
