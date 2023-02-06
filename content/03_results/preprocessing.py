@@ -141,7 +141,8 @@ def load_clean_bpa(file_name):
                .rename(columns=labels)
                .pipe(cols_to_lower)
                .pipe(drop_columns, COLS_TO_DROP)
-               .assign(reporting_guidelines_mention=lambda x: 
+               .assign(model_format=lambda x: pd.Categorical(x['model_format']),
+                       reporting_guidelines_mention=lambda x: 
                            pd.Categorical(x['reporting_guidelines_mention']),
                        covid=lambda x: pd.Categorical(x['covid']),
                        foss_sim=lambda x: pd.Categorical(x['foss_sim']),
