@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Quality Audit &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    <title>Best Practice Audit &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -138,13 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Quality Audit
+   Best Practice Audit
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Results
+  Results - Main Review
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -166,6 +166,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../03_results/03_article_type.html">
    Sharing by article type
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Best Practice Audit
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/04_bpa_preprocessing.html">
+   Best Practice Audit Preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/05_bpa_open_research.html">
+   Best Practice Audit Open Research.
   </a>
  </li>
 </ul>
@@ -364,7 +381,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quality Audit</h1>
+                <h1>Best Practice Audit</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -394,10 +411,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="quality-audit">
-<h1>Quality Audit<a class="headerlink" href="#quality-audit" title="Permalink to this headline">#</a></h1>
-<p>We split our assessment of the quality of how models were shared into two groups: models developed using using a coding language or framework (e.g. MatLab, R, or Python based) and models developed in commercial off the shelf Visual Interactive Modelling software (VIM; e.g. Arena, Anylogic, or Simio).</p>
-<p>We know of no general quality auditing tools for sharing of code and models. However, general guidance for open science and reproducible research is available from the Turing Way <span id="id1">[<a class="reference internal" href="#id7" title="The Turing Way Community. The Turing Way: A handbook for reproducible, ethical and collaborative research. July 2022. URL: https://doi.org/10.5281/zenodo.7470333, doi:10.5281/zenodo.7470333.">The Turing Way Community, 2022</a>]</span> developed by The Alan Turing Institute: the UK’s official institute for data science and AI. We reviewed the Turing Way checklists for Open Research, Licensing, Reproducible Environments, and Code Testing and selected relevant quality criteria.  We enhanced this list by adapting the high level open scholarship recommendations for modelling and simulation from <span id="id2">[<a class="reference internal" href="#id8" title="Simon JE Taylor, Anastasia Anagnostou, Adedeji Fabiyi, Christine Currie, Thomas Monks, Roberto Barbera, and Bruce Becker. Open science: approaches and benefits for modeling &amp; simulation. In 2017 Winter Simulation Conference (WSC), 535–549. IEEE, 2017.">Taylor <em>et al.</em>, 2017</a>]</span>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="best-practice-audit">
+<h1>Best Practice Audit<a class="headerlink" href="#best-practice-audit" title="Permalink to this headline">#</a></h1>
+<p>We split our assessment of the best practice of how models were shared into two groups: models developed using using a coding language or framework (e.g. MatLab, R, or Python based) and models developed in commercial off the shelf Visual Interactive Modelling software (VIM; e.g. Arena, Anylogic, or Simio).</p>
+<p>We know of no general best practice auditing tools for sharing of code and models. However, general guidance for open science and reproducible research is available from the Turing Way <span id="id1">[<a class="reference internal" href="#id7" title="The Turing Way Community. The Turing Way: A handbook for reproducible, ethical and collaborative research. July 2022. URL: https://doi.org/10.5281/zenodo.7470333, doi:10.5281/zenodo.7470333.">The Turing Way Community, 2022</a>]</span> developed by The Alan Turing Institute: the UK’s official institute for data science and AI. We reviewed the Turing Way checklists for Open Research, Licensing, Reproducible Environments, and Code Testing and selected relevant quality criteria.  We enhanced this list by adapting the high level open scholarship recommendations for modelling and simulation from <span id="id2">[<a class="reference internal" href="#id8" title="Simon JE Taylor, Anastasia Anagnostou, Adedeji Fabiyi, Christine Currie, Thomas Monks, Roberto Barbera, and Bruce Becker. Open science: approaches and benefits for modeling &amp; simulation. In 2017 Winter Simulation Conference (WSC), 535–549. IEEE, 2017.">Taylor <em>et al.</em>, 2017</a>]</span>.</p>
 <p>We excluded some Turing checklists from our review as they were not relevant to the quality of model sharing.  For example, the Research Data Management checklist is focussed on raw data that in a typical DES study would have used to derive model parameters.  Our focus is on the sharing of the model itself and not underlying raw data. Another example is the Turing’s recommendations to publish open notebooks containing all details of experiments. This was on the basis that the modelling and simulation community might adopt a large number of approaches and tools to managing their models and artefacts. Instead we included a broader item checking for instructions to execute experiments in any format.</p>
 <p>The metrics within our audit also overlap with what others have listed as requirements for reproducibility of computational studies <span id="id3">[<a class="reference internal" href="#id9" title="Kesavan Venkatesh, Samantha M. Santomartino, Jeremias Sulam, and Paul H. Yi. Code and Data Sharing Practices in the Radiology Artificial Intelligence Literature: A Meta-Research Study. Radiology: Artificial Intelligence, 4(5):e220081, August 2022. URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9530751/ (visited on 2023-01-04), doi:10.1148/ryai.220081.">Venkatesh <em>et al.</em>, 2022</a>]</span>.  We list these in Table <a class="reference internal" href="#quality-criteria"><span class="std std-ref">Quality Audit: Metrics and Sources.</span></a>, to illustrate which data were extracted for the coding and VIM groups, and detail the provenance of the items.</p>
 <table class="colwidths-auto table" id="quality-criteria">
