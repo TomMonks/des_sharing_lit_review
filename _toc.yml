@@ -9,12 +9,15 @@ parts:
   - file: content/02_methods/01_search_strategy  
   - file: content/02_methods/02_extraction
   - file: content/02_methods/03_quality_audit
-- caption: Results
+- caption: Results - Main Review
   chapters:
   - file: content/03_results/00_prisma
   - file: content/03_results/01_preprocessing
   - file: content/03_results/02_sharing_hl_summary
   - file: content/03_results/03_article_type
+- caption: Results - Best Practice Audit
+  chapters:
   - file: content/03_results/04_bpa_preprocessing
+  - file: content/03_results/05_bpa_open_research
 
 
