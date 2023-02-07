@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Best Practice Audit Open Research. &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    <title>Open Research &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Best Practice Audit Open Research.
+   Open Research
   </a>
  </li>
 </ul>
@@ -408,46 +408,88 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   1. Imports
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Open Research
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#standard">
-     1.1. Standard
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebook-aims">
+     Notebook aims
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preprocessing">
-     1.2 Preprocessing
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-used-in-analysis">
+     Data used in analysis
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports">
+     1. Imports
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#standard">
+       1.1. Standard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preprocessing">
+       1.2 Preprocessing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constants">
+     2. Constants
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-functions">
+     3. Analysis functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-and-inspect-dataset">
+     3. Load and inspect dataset
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     4. Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-the-share-model-artefacts-has-a-doi-and-guarantees-on-persistence">
+     4.1 What proportion of the share model artefacts has a DOI and guarantees on persistence?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-artefacts-are-linked-to-the-researcher-via-orcid-s">
+     4.2 What proportion of artefacts are linked to the researcher via ORCID(s)?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-models-have-an-open-license">
+     4.3 What proportion of models have an open license?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-a-model-is-licensed-what-was-the-most-popular-license">
+     4.4 When a model is licensed what was the most popular license?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-licenses-relate-to-approaches-to-sharing-models">
+     4.5 How do licenses relate to approaches to sharing models?
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constants">
-   2. Constants
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-and-inspect-dataset">
-   3. Load and inspect dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#results">
-   4. Results
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-proportion-of-the-share-model-artefacts-has-a-doi-and-guarantees-on-persistence">
-   4.1 What proportion of the share model artefacts has a DOI and guarantees on persistence?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-proportion-of-artefacts-are-linked-to-the-researcher-via-orcid-s">
-   4.2 What proportion of artefacts are linked to the researcher via ORCID(s)?
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-results">
+   5. Summary of results
   </a>
  </li>
 </ul>
@@ -459,7 +501,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Best Practice Audit Open Research.</h1>
+                <h1>Open Research</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -469,46 +511,88 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   1. Imports
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Open Research
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#standard">
-     1.1. Standard
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebook-aims">
+     Notebook aims
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preprocessing">
-     1.2 Preprocessing
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-used-in-analysis">
+     Data used in analysis
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports">
+     1. Imports
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#standard">
+       1.1. Standard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preprocessing">
+       1.2 Preprocessing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constants">
+     2. Constants
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-functions">
+     3. Analysis functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-and-inspect-dataset">
+     3. Load and inspect dataset
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     4. Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-the-share-model-artefacts-has-a-doi-and-guarantees-on-persistence">
+     4.1 What proportion of the share model artefacts has a DOI and guarantees on persistence?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-artefacts-are-linked-to-the-researcher-via-orcid-s">
+     4.2 What proportion of artefacts are linked to the researcher via ORCID(s)?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-models-have-an-open-license">
+     4.3 What proportion of models have an open license?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-a-model-is-licensed-what-was-the-most-popular-license">
+     4.4 When a model is licensed what was the most popular license?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-licenses-relate-to-approaches-to-sharing-models">
+     4.5 How do licenses relate to approaches to sharing models?
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constants">
-   2. Constants
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-and-inspect-dataset">
-   3. Load and inspect dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#results">
-   4. Results
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-proportion-of-the-share-model-artefacts-has-a-doi-and-guarantees-on-persistence">
-   4.1 What proportion of the share model artefacts has a DOI and guarantees on persistence?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-proportion-of-artefacts-are-linked-to-the-researcher-via-orcid-s">
-   4.2 What proportion of artefacts are linked to the researcher via ORCID(s)?
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-results">
+   5. Summary of results
   </a>
  </li>
 </ul>
@@ -521,25 +605,44 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="best-practice-audit-open-research">
-<h1>Best Practice Audit Open Research.<a class="headerlink" href="#best-practice-audit-open-research" title="Permalink to this headline">#</a></h1>
-<p>This notebook provides an overview of the code to read in the data extracted from the best practice audit of model sharing.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="open-research">
+<h1>Open Research<a class="headerlink" href="#open-research" title="Permalink to this headline">#</a></h1>
+<p>This notebook provides an analysis of the sharing of models against our best practices for open research.  In summary this is defined as:</p>
+<ol class="simple">
+<li><p>Shared models have their own DOI and hence guarantees on persistence;</p></li>
+<li><p>The authors of shared models and artefacts can be uniquely identified by ORCIDs;</p></li>
+<li><p>Models are shared with an open license that sets out how the model can be used/adapted, author liability and if credit is needed.</p></li>
+</ol>
+<section id="notebook-aims">
+<h2>Notebook aims<a class="headerlink" href="#notebook-aims" title="Permalink to this headline">#</a></h2>
+<p>The notebook analyses the following questions related to best practice:</p>
+<ol class="simple">
+<li><p>What proportion of the share model artefacts has a DOI and guarantees on persistence?</p></li>
+<li><p>What proportion of artefacts are linked to the researcher via ORCID(s)?</p></li>
+<li><p>What proportion of models have an open license?</p></li>
+<li><p>When a model is licensed what was the most popular license?</p></li>
+<li><p>How do licenses relate to approaches to sharing models?</p></li>
+</ol>
+</section>
+<section id="data-used-in-analysis">
+<h2>Data used in analysis<a class="headerlink" href="#data-used-in-analysis" title="Permalink to this headline">#</a></h2>
 <p>The dataset is a subset of the main review - limited to models shared.  The type of model shared is coded as <strong>Visual Interactive Modelling (VIM)</strong> based (e.g Anylogic, Simul8, Arena) versus <strong>CODE</strong> (e.g. Matlab, Python, SimPy, Java, R Simmer).</p>
-<p>Additional fields have been extracted as part of the best practice review.</p>
+<blockquote>
+<div><p>The data can be found here: <a class="reference external" href="https://raw.githubusercontent.com/TomMonks/des_sharing_lit_review/main/data/bp_audit.zip">https://raw.githubusercontent.com/TomMonks/des_sharing_lit_review/main/data/bp_audit.zip</a></p>
+</div></blockquote>
+<p>The following fields are analysed in this notebook.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">model_format</span></code> - VIM or CODE</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">model_has_doi</span></code>  - do the model artefacts have their own minted DOI? (0/1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">orcid</span></code> - do the researchers provide an ORCID with the model? (0/1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">license</span></code> - does the model have an explicit license defining how it can be used? (str)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">readme</span></code> - is there an obvious file(s) where a user would look first? (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">link_to_paper</span></code> - does the model repository contain a link back to the pre-print or peer reviewed article? (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">steps_run</span></code> - are there steps to run a model? (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">formal_dep_mgt</span></code> - has the model been shared with formal software dependency management? (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">informal_dep_mgt</span></code> - have any informal methods of dependency management been shared?  E.g. a list of software requirements. (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evidence_testing</span></code> - do the model and artefacts in the repository contain any evidence that they have been tested? (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">downloadable</span></code> - can the model and artefacts be downloaded and executed locally? (0/1)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">interactive_online</span></code> - can the model and its artefacts be executed online without local installation? (0/1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_archive</span></code> - name of archive if used (0/1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_repo</span></code> - name of model repo if used (0/1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_journal_supp</span></code> - what is stored in the journal supplementary material  (0/1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_personal_org</span></code> - name of personal or organisational website if used (0/1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_platform</span></code> - name of cloud platform used (e.g. Binder or Anylogic cloud) (0/1)|</p></li>
 </ul>
+</section>
 <section id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <section id="standard">
@@ -570,18 +673,86 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
     <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/bp_audit.zip&#39;</span>
+
+<span class="n">LICENSE_LABEL</span> <span class="o">=</span> <span class="s1">&#39;license&#39;</span>
+<span class="n">NONE_LABEL</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis-functions">
+<h2>3. Analysis functions<a class="headerlink" href="#analysis-functions" title="Permalink to this headline">#</a></h2>
+<p>A number of simple functions to conduct the analysis and format output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">balance_of_model_format</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;model_format&#39;</span><span class="p">],</span> 
+                                                 <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 3. Helper functions</span>
-
-<span class="k">def</span> <span class="nf">balance_of_model_format</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;model_format&#39;</span><span class="p">],</span> 
-                                                 <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">license_versus_no_license</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a tuple containined the (number of licensed models, not licensed)</span>
+<span class="sd">    contained with the dataset.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        A dataset to analyse.  Could be full dataset or a partial subset</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    tuple (int, int)</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">n_not_lincensed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">LICENSE_LABEL</span><span class="p">]</span><span class="o">==</span><span class="n">NONE_LABEL</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_not_lincensed</span><span class="p">,</span> <span class="n">n_not_lincensed</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">field_by_sharing_tools</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="n">LICENSE_LABEL</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return a DataFrame containing licenses (rows) by type of sharing</span>
+<span class="sd">    i.e. archive, cloud repo, journal supp , personal/org website, platform.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Contains data to analysis.  Eg.full dataset or subset</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    DataFrame (9, 6)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">selected_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;model_archive&#39;</span><span class="p">,</span> <span class="s1">&#39;model_repo&#39;</span><span class="p">,</span> <span class="s1">&#39;model_journal_supp&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;model_personal_org&#39;</span><span class="p">,</span> <span class="s1">&#39;model_platform&#39;</span><span class="p">]</span>
+    <span class="n">license_by_sharing</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">field</span><span class="p">)[</span><span class="n">selected_columns</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">license_by_sharing</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;model_repo&#39;</span><span class="p">,</span> 
+                                          <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_license_table</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Format the license table.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">column_headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Archive&#39;</span><span class="p">,</span> <span class="s1">&#39;Repository&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Journal&#39;</span><span class="p">,</span> <span class="s1">&#39;Personal/org&#39;</span><span class="p">,</span> <span class="s1">&#39;Platform&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_headers</span>
+    <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -649,9 +820,9 @@ memory usage: 6.2+ KB
 
 <span class="n">has_doi</span> <span class="o">=</span> <span class="n">counts_elements</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">has_doi_percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">has_doi</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;A total of </span><span class="si">{</span><span class="n">has_doi</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">has_doi_percent</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">\%) models &#39;</span> \
+<span class="n">doi_result</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;A total of </span><span class="si">{</span><span class="n">has_doi</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">has_doi_percent</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">\%) models &#39;</span> \
     <span class="o">+</span> <span class="s1">&#39;were provided with a DOI.&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doi_result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -671,9 +842,9 @@ memory usage: 6.2+ KB
 
 <span class="n">has_orcid</span> <span class="o">=</span> <span class="n">counts_elements</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">has_orcid_percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">has_orcid</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;A total of </span><span class="si">{</span><span class="n">has_orcid</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">has_orcid_percent</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">\%) models &#39;</span> \
+<span class="n">orcid_result</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;A total of </span><span class="si">{</span><span class="n">has_orcid</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">has_orcid_percent</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">\%) models &#39;</span> \
     <span class="o">+</span> <span class="s1">&#39;were provided were linked to a researcher via an ORCID.&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">orcid_result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -698,7 +869,344 @@ memory usage: 6.2+ KB
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">format_license_table</span><span class="p">(</span><span class="n">field_by_sharing_tools</span><span class="p">(</span><span class="n">orcids</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;orcid&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Archive</th>
+      <th>Repository</th>
+      <th>Journal</th>
+      <th>Personal/org</th>
+      <th>Platform</th>
+    </tr>
+    <tr>
+      <th>orcid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
+<section id="what-proportion-of-models-have-an-open-license">
+<h2>4.3 What proportion of models have an open license?<a class="headerlink" href="#what-proportion-of-models-have-an-open-license" title="Permalink to this headline">#</a></h2>
+<p>We extracted the type of license included with each shared model. When no license was included we recorded this as <code class="docutils literal notranslate"><span class="pre">None</span></code>. For one model shared as supplementary material with a journal we were unable to determine what license had been applied.  We labelled this as <code class="docutils literal notranslate"><span class="pre">Unknown</span></code>.  When a model was published as journal supplementary material we assigned the same license as applied to the paper if it was not explicitly stated.  For example, if a paper was published under a CC-BY 4.0 license and there was no explicit license attached to supplementary material we assumed the same license for the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">licensed</span><span class="p">,</span> <span class="n">not_licensed</span> <span class="o">=</span> <span class="n">license_versus_no_license</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">per_licensed</span><span class="p">,</span> <span class="n">per_not_licensed</span> <span class="o">=</span> <span class="p">(</span><span class="n">licensed</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="n">not_licensed</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">license_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Of the models shared a total of </span><span class="si">{</span><span class="n">licensed</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">per_licensed</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">\%)&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;had an open license attached.&#39;</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">license_txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Of the models shared a total of 18 (46.2\%)had an open license attached.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="when-a-model-is-licensed-what-was-the-most-popular-license">
+<h2>4.4 When a model is licensed what was the most popular license?<a class="headerlink" href="#when-a-model-is-licensed-what-was-the-most-popular-license" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">licenses</span><span class="p">,</span> <span class="n">n_license</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="n">LICENSE_LABEL</span><span class="p">],</span> 
+                               <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">license_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">licenses</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">n_license</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">license_results</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;License&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span>     
+<span class="n">license_results</span> <span class="o">=</span> <span class="n">license_results</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;License&#39;</span><span class="p">)</span>
+<span class="c1"># drop none from the results</span>
+<span class="n">license_results</span> <span class="o">=</span> <span class="n">license_results</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">NONE_LABEL</span><span class="p">)</span>
+<span class="n">license_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>License</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CC-BY 4.0</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>GPL-3</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>MIT</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Apache</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CC BY-NC-ND 4.0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CC BY-NC-SA 4.0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CC-BY-NC 4.0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Unknown</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Creative Commons (CC) type licenses are the most popular overall.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cc_licenses</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">license_results</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CC&#39;</span><span class="p">]</span>
+<span class="n">n_cc_licenses</span> <span class="o">=</span> <span class="n">license_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cc_licenses</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n_cc_licenses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_license</span> <span class="o">=</span> <span class="s1">&#39;The most popular type of license were the creative commons variants&#39;</span> \
+              <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39; with a total of </span><span class="si">{</span><span class="n">n_cc_licenses</span><span class="si">}</span><span class="s1"> out of </span><span class="si">{</span><span class="n">clean</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> models.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_license</span><span class="p">)</span>                                                                
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The most popular type of license were the creative commons variants with a total of 9 out of 39 models.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-do-licenses-relate-to-approaches-to-sharing-models">
+<h2>4.5 How do licenses relate to approaches to sharing models?<a class="headerlink" href="#how-do-licenses-relate-to-approaches-to-sharing-models" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Note that our results reflect that models might be shared by a combination of approaches.  For example Zenodo + Github.  The license may be attached to one e.g. Zenodo, but not visible in another e.g. Github.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">format_license_table</span><span class="p">(</span><span class="n">field_by_sharing_tools</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Archive</th>
+      <th>Repository</th>
+      <th>Journal</th>
+      <th>Personal/org</th>
+      <th>Platform</th>
+    </tr>
+    <tr>
+      <th>license</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>None</th>
+      <td>0</td>
+      <td>10</td>
+      <td>3</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>GPL-3</th>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>MIT</th>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Apache</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CC BY-NC-ND 4.0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CC BY-NC-SA 4.0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CC-BY 4.0</th>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CC-BY-NC 4.0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Unknown</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary-of-results">
+<h1>5. Summary of results<a class="headerlink" href="#summary-of-results" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary_txt</span> <span class="o">=</span> <span class="n">doi_result</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">orcid_result</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">license_txt</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">pop_license</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary_txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 6 (15.4\%) models were provided with a DOI. A total of 6 (15.4\%) models were provided were linked to a researcher via an ORCID. Of the models shared a total of 18 (46.2\%)had an open license attached. The most popular type of license were the creative commons variants with a total of 9 out of 39 models.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Section 4.5 illustrates that the majority of the models are shared via a cloud hosted code repository (e.g. github) do not have an open license.  This means the author has exclusive copyright and the code cannot legally be reused by anyone.  There are some minor exceptions; for example, code on GitHubs can be viewed and forked, but not edited or used. The majority of the remaining models also have no license (one in journal supplementary material is marked as an unknown as its unclear from the journal if it is open or not) including six that sit in a cloud platform.  CC-BY type licenses are supplied with eight models.  The Turing way considers these to be less suitable for data science artefacts such as code and models and recommends licenses such as GPL-3 or MIT.  One model was shared with a CC BY-NC-ND 4.0 i.e no derivative works.</p>
 </section>
 
     <script type="text/x-thebe-config">
