@@ -26,6 +26,10 @@ The metrics within our audit also overlap with what others have listed as requir
 | Remote execution                   | Can the simulation model be executed online using free or commercial infrastructure?                               | y                | y               | Section 6. item 7. Taylor et al (2017)                                                |
 ```
 
+## Licencing of models
+
+We extracted the type of license included with each shared model. For example, GPL-3 or MIT. When no license was included we recorded this as `None`. For one model shared as supplementary material with a journal we were unable to determine what license had been applied.  We labelled this as `Unknown`.  When a model was published as journal supplementary material we assigned the same license as applied to the paper if it was not explicitly stated.  For example, if a paper was published under a CC-BY 4.0 license and there was no explicit license attached to supplementary material we assumed the same license for the model.
+
 ## Turing Way - links to checklists.
 
 * [Open Research Checklist](https://the-turing-way.netlify.app/reproducible-research/open/open-checklist.html)
