@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A high level summary of sharing of models &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    <title>Analysis by year &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Sharing by article type" href="03_article_type.html" />
-    <link rel="prev" title="Dataset pre-processing" href="01_preprocessing.html" />
+    <link rel="next" title="Preprocessing" href="04_bpa_preprocessing.html" />
+    <link rel="prev" title="Use of reporting guidelines" href="03a_reporting_guidelines.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -158,8 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
    Dataset pre-processing
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_sharing_hl_summary.html">
    A high level summary of sharing of models
   </a>
  </li>
@@ -173,8 +173,8 @@ const thebe_selector_output = ".output, .cell_output"
    Use of reporting guidelines
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03a_year.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Analysis by year
   </a>
  </li>
@@ -264,7 +264,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/TomMonks/des_sharing_lit_review/main?urlpath=lab/tree/content/03_results/02_sharing_hl_summary.ipynb"
+        <a href="https://mybinder.org/v2/gh/TomMonks/des_sharing_lit_review/main?urlpath=lab/tree/content/03_results/03a_year.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -342,7 +342,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/03_results/02_sharing_hl_summary.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/03_results/03a_year.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -370,7 +370,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/03_results/02_sharing_hl_summary.ipynb"
+        <a href="../../_sources/content/03_results/03a_year.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -436,39 +436,27 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
-   Imports
+   1. Imports
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constants">
-   Constants
+   2. Constants
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-to-genereate-a-high-level-summary-table">
-   Functions to genereate a high level summary table.
+  <a class="reference internal nav-link" href="#functions">
+   3. Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-in-data">
-   Read in data
+   4. Read in data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#results">
-   Results
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-a-high-level-summary-of-the-main-dataset">
-     Create a high level summary of the main dataset
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-2-latex">
-   Table 2 LateX
+   5. Results
   </a>
  </li>
 </ul>
@@ -480,7 +468,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>A high level summary of sharing of models</h1>
+                <h1>Analysis by year</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -497,39 +485,27 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
-   Imports
+   1. Imports
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constants">
-   Constants
+   2. Constants
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functions-to-genereate-a-high-level-summary-table">
-   Functions to genereate a high level summary table.
+  <a class="reference internal nav-link" href="#functions">
+   3. Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-in-data">
-   Read in data
+   4. Read in data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#results">
-   Results
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-a-high-level-summary-of-the-main-dataset">
-     Create a high level summary of the main dataset
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-2-latex">
-   Table 2 LateX
+   5. Results
   </a>
  </li>
 </ul>
@@ -542,19 +518,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="a-high-level-summary-of-sharing-of-models">
-<h1>A high level summary of sharing of models<a class="headerlink" href="#a-high-level-summary-of-sharing-of-models" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-by-year">
+<h1>Analysis by year<a class="headerlink" href="#analysis-by-year" title="Permalink to this headline">#</a></h1>
 <section id="primary-research-questions">
 <h2>Primary research questions:<a class="headerlink" href="#primary-research-questions" title="Permalink to this headline">#</a></h2>
 <p>These results presented in this notebook the following questions</p>
 <ol class="simple">
-<li><p>What proportion of DES healthcare papers that share their models and code?</p></li>
-<li><p>What proportion of these papers that use Free and Open Source Simulation and of these what number are shared?</p></li>
-<li><p>What proportion of these papers that tackle covid-19 and share their models?</p></li>
+<li><p>What proportion of studies make use of a reporting guideline?</p></li>
 </ol>
 </section>
 <section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -574,24 +548,21 @@ title="Print to PDF"
 </div>
 </section>
 <section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
+<h2>2. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
     <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/share_sim_data_extract.zip&#39;</span>
+
+<span class="n">RG_LABEL</span> <span class="o">=</span> <span class="s1">&#39;reporting_guidelines_mention&#39;</span>
+<span class="n">NONE</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="functions-to-genereate-a-high-level-summary-table">
-<h2>Functions to genereate a high level summary table.<a class="headerlink" href="#functions-to-genereate-a-high-level-summary-table" title="Permalink to this headline">#</a></h2>
-<p>We include three functions to generate a high level summary table.</p>
-<ul class="simple">
-<li><p>The first calculates the summary metrics from the main table.</p></li>
-<li><p>The second function creates a tabular view of the data split by item type.</p></li>
-<li><p>The third function formats this as a table suitable for journal publication.  In our paper this is Table 2.</p></li>
-</ul>
+<section id="functions">
+<h2>3. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">high_level_metrics</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">):</span>
@@ -623,8 +594,10 @@ title="Print to PDF"
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_foss_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_foss_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_foss&#39;</span><span class="p">]</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_covid_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">]</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;reporting_guide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">included</span><span class="p">[</span><span class="n">included</span><span class="p">[</span><span class="s1">&#39;reporting_guidelines_mention&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;None&#39;</span><span class="p">])</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_reporting_guide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;reporting_guide&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;reporting_guide&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="nb">len</span><span class="p">(</span><span class="n">included</span><span class="p">[</span><span class="n">included</span><span class="p">[</span><span class="s1">&#39;reporting_guidelines_mention&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;None&#39;</span><span class="p">])</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_reporting_guide&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;reporting_guide&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -632,10 +605,10 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analysis_by_item_type</span><span class="p">(</span><span class="n">df_clean</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analysis_by_year</span><span class="p">(</span><span class="n">df_clean</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Conducts a high level analysis by item type: journal, conference, book</span>
-<span class="sd">    + overall.</span>
+<span class="sd">    Conducts a high level analysis by year of publication</span>
+<span class="sd">    2019-2022</span>
 <span class="sd">    </span>
 <span class="sd">    Params:</span>
 <span class="sd">    -------</span>
@@ -649,73 +622,21 @@ title="Print to PDF"
 <span class="sd">        </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">overall_results</span> <span class="o">=</span> <span class="n">high_level_metrics</span><span class="p">(</span><span class="n">df_clean</span><span class="p">,</span> <span class="s1">&#39;overall&#39;</span><span class="p">)</span>
-    <span class="n">article_type_results</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">article_types</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">article_type</span> <span class="ow">in</span> <span class="n">article_types</span><span class="p">:</span>
-        <span class="n">subset</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">article_type</span><span class="p">]</span>
-        <span class="n">article_type_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">high_level_metrics</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span> 
-                                                       <span class="n">name</span><span class="o">=</span><span class="n">article_type</span><span class="p">))</span>
-    <span class="n">article_type_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">overall_results</span><span class="p">]</span> <span class="o">+</span> <span class="n">article_type_results</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">article_type_results</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_table2</span><span class="p">(</span><span class="n">summary</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Create a formatted table 1 of results for manuscript.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">total_rows</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">,</span> <span class="s1">&#39;n_covid&#39;</span><span class="p">,</span> <span class="s1">&#39;n_foss&#39;</span><span class="p">]</span>
-    <span class="n">avail_rows</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n_avail&#39;</span><span class="p">,</span> <span class="s1">&#39;n_covid_avail&#39;</span><span class="p">,</span> <span class="s1">&#39;n_foss_avail&#39;</span><span class="p">]</span>
-    <span class="n">per_rows</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;per_avail&#39;</span><span class="p">,</span> <span class="s1">&#39;per_covid_avail&#39;</span><span class="p">,</span> <span class="s1">&#39;per_foss_avail&#39;</span><span class="p">]</span>
-    <span class="n">new_cols_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span> <span class="s1">&#39;overall&#39;</span><span class="p">,</span> <span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;per&#39;</span><span class="p">]</span>
-       
-    <span class="c1"># only work with the overall column</span>
-    <span class="n">selected_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span> <span class="c1"># , &#39;journalArticle&#39;, &#39;conferencePaper&#39;, &#39;book&#39;]</span>
-    <span class="n">overall</span> <span class="o">=</span> <span class="n">summary</span><span class="p">[</span><span class="n">selected_cols</span><span class="p">]</span>
-    
-    <span class="c1"># total number of papers</span>
-    <span class="n">totals</span> <span class="o">=</span> <span class="n">overall</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">total_rows</span><span class="p">]</span>
-    <span class="n">totals</span> <span class="o">=</span> <span class="n">totals</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">totals</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">totals</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
-    
-    <span class="c1"># no. models that are available from the total</span>
-    <span class="n">shared</span> <span class="o">=</span> <span class="n">overall</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">avail_rows</span><span class="p">]</span>
-    <span class="n">shared</span> <span class="o">=</span> <span class="n">shared</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    
-    <span class="c1"># percentage of papers </span>
-    <span class="n">per</span> <span class="o">=</span> <span class="n">overall</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">per_rows</span><span class="p">]</span>
-    <span class="n">per</span> <span class="o">=</span> <span class="n">per</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">per</span> <span class="o">=</span> <span class="n">per</span> <span class="o">*</span> <span class="mi">100</span>
-        
-    <span class="c1"># construct table and format columns in n (%) format</span>
-    <span class="n">t1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">totals</span><span class="p">,</span> <span class="n">shared</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">],</span> <span class="n">per</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]],</span> \
-                   <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="n">t1</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_cols_titles</span>
-    
-    <span class="n">t1</span><span class="p">[</span><span class="s1">&#39;shared n (\%)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[</span><span class="s1">&#39;shared&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span> \
-        <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="n">t1</span><span class="p">[</span><span class="s1">&#39;per&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
-    
-    <span class="c1">#t1[&#39;overall&#39;] = t1[&#39;overall&#39;].map(&#39;{:,.0f}&#39;)</span>
-    
-    <span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;per&#39;</span><span class="p">]</span>
-    <span class="n">t1</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">to_drop</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">t1</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Total&#39;</span>
-    <span class="n">t1</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;COVID-19&#39;</span>
-    <span class="n">t1</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;FOSS&#39;</span>
-    <span class="n">t1</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;metric&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">t1</span>
-    
+    <span class="n">year_results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;pub_yr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;pub_yr&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+        <span class="n">year_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">high_level_metrics</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)))</span>
+    <span class="n">year_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">overall_results</span><span class="p">]</span> <span class="o">+</span> <span class="n">year_results</span>
+    <span class="n">year_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">year_results</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">year_results</span><span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">year_results</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="read-in-data">
-<h2>Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h2>
+<h2>4. Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">)</span>
@@ -725,21 +646,12 @@ title="Print to PDF"
 </div>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
-<section id="create-a-high-level-summary-of-the-main-dataset">
-<h3>Create a high level summary of the main dataset<a class="headerlink" href="#create-a-high-level-summary-of-the-main-dataset" title="Permalink to this headline">#</a></h3>
-<p>In the manuscript table 2 provides a simple high level results</p>
+<h2>5. Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">analysis_by_item_type</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table2</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="n">table2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># overall</span>
+<span class="n">year_summary</span> <span class="o">=</span> <span class="n">analysis_by_year</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">year_summary</span>
 </pre></div>
 </div>
 </div>
@@ -762,56 +674,159 @@ title="Print to PDF"
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>2019</th>
+      <th>2020</th>
+      <th>2021</th>
+      <th>2022</th>
       <th>overall</th>
-      <th>shared n (\%)</th>
-    </tr>
-    <tr>
-      <th>metric</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Total</th>
-      <td>423</td>
-      <td>39 (9.2)</td>
+      <th>n_included</th>
+      <td>104.0000</td>
+      <td>113.0000</td>
+      <td>124.0000</td>
+      <td>82.0000</td>
+      <td>423.0000</td>
     </tr>
     <tr>
-      <th>COVID-19</th>
-      <td>52</td>
-      <td>14 (26.9)</td>
+      <th>n_foss</th>
+      <td>15.0000</td>
+      <td>17.0000</td>
+      <td>29.0000</td>
+      <td>19.0000</td>
+      <td>80.0000</td>
     </tr>
     <tr>
-      <th>FOSS</th>
-      <td>80</td>
-      <td>24 (30.0)</td>
+      <th>n_covid</th>
+      <td>1.0000</td>
+      <td>9.0000</td>
+      <td>30.0000</td>
+      <td>12.0000</td>
+      <td>52.0000</td>
+    </tr>
+    <tr>
+      <th>n_avail</th>
+      <td>5.0000</td>
+      <td>11.0000</td>
+      <td>14.0000</td>
+      <td>9.0000</td>
+      <td>39.0000</td>
+    </tr>
+    <tr>
+      <th>n_foss_avail</th>
+      <td>5.0000</td>
+      <td>5.0000</td>
+      <td>9.0000</td>
+      <td>5.0000</td>
+      <td>24.0000</td>
+    </tr>
+    <tr>
+      <th>n_covid_avail</th>
+      <td>0.0000</td>
+      <td>4.0000</td>
+      <td>10.0000</td>
+      <td>0.0000</td>
+      <td>14.0000</td>
+    </tr>
+    <tr>
+      <th>per_foss</th>
+      <td>0.1442</td>
+      <td>0.1504</td>
+      <td>0.2339</td>
+      <td>0.2317</td>
+      <td>0.1891</td>
+    </tr>
+    <tr>
+      <th>per_covid</th>
+      <td>0.0096</td>
+      <td>0.0796</td>
+      <td>0.2419</td>
+      <td>0.1463</td>
+      <td>0.1229</td>
+    </tr>
+    <tr>
+      <th>per_avail</th>
+      <td>0.0481</td>
+      <td>0.0973</td>
+      <td>0.1129</td>
+      <td>0.1098</td>
+      <td>0.0922</td>
+    </tr>
+    <tr>
+      <th>per_foss_avail</th>
+      <td>0.3333</td>
+      <td>0.2941</td>
+      <td>0.3103</td>
+      <td>0.2632</td>
+      <td>0.3000</td>
+    </tr>
+    <tr>
+      <th>per_covid_avail</th>
+      <td>0.0000</td>
+      <td>0.4444</td>
+      <td>0.3333</td>
+      <td>0.0000</td>
+      <td>0.2692</td>
+    </tr>
+    <tr>
+      <th>reporting_guide</th>
+      <td>9.0000</td>
+      <td>21.0000</td>
+      <td>8.0000</td>
+      <td>23.0000</td>
+      <td>61.0000</td>
+    </tr>
+    <tr>
+      <th>per_reporting_guide</th>
+      <td>0.0865</td>
+      <td>0.1858</td>
+      <td>0.0645</td>
+      <td>0.2805</td>
+      <td>0.1442</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-<section id="table-2-latex">
-<h2>Table 2 LateX<a class="headerlink" href="#table-2-latex" title="Permalink to this headline">#</a></h2>
-<p>Here we generate the LaTeX to insert into a journal publication.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">table2</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">to_latex</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_covid</span> <span class="o">=</span> <span class="n">year_summary</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">year_summary</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">]</span>
+<span class="n">non_covid</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{tabular}{lll}
- &amp; overall &amp; shared n (\%) \\
-metric &amp;  &amp;  \\
-Total &amp; 423 &amp; 39 (9.2) \\
-COVID-19 &amp; 52 &amp; 14 (26.9) \\
-FOSS &amp; 80 &amp; 24 (30.0) \\
-\end{tabular}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2019       103.0
+2020       104.0
+2021        94.0
+2022        70.0
+overall    371.0
+dtype: float64
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mf">0.50</span>       <span class="c1"># the width of the bars: can also be len(x) sequence</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">year_summary</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">non_covid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;General health models&#39;</span><span class="p">,</span>
+           <span class="n">width</span><span class="o">=</span><span class="n">WIDTH</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">year_summary</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">year_summary</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">],</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Covid models&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">WIDTH</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Models&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03a_year_14_0.png" src="../../_images/03a_year_14_0.png" />
 </div>
 </div>
 </section>
@@ -844,17 +859,17 @@ FOSS &amp; 80 &amp; 24 (30.0) \\
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_preprocessing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03a_reporting_guidelines.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Dataset pre-processing</p>
+            <p class="prev-next-title">Use of reporting guidelines</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03_article_type.html" title="next page">
+    <a class='right-next' id="next-link" href="04_bpa_preprocessing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Sharing by article type</p>
+        <p class="prev-next-title">Preprocessing</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
