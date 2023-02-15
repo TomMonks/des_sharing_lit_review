@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03_results/03a_year.html">
-   Analysis by year
+   Year of publication
   </a>
  </li>
 </ul>
@@ -383,13 +383,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#licencing-of-models">
-   Licencing of models
+  <a class="reference internal nav-link" href="#licensing-of-models">
+   Licensing of models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#turing-way-links-to-checklists">
    Turing Way - links to checklists.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-modelling-foundation">
+   Open Modelling Foundation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -417,13 +422,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#licencing-of-models">
-   Licencing of models
+  <a class="reference internal nav-link" href="#licensing-of-models">
+   Licensing of models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#turing-way-links-to-checklists">
    Turing Way - links to checklists.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-modelling-foundation">
+   Open Modelling Foundation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -444,16 +454,16 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="best-practice-audit">
 <h1>Best Practice Audit<a class="headerlink" href="#best-practice-audit" title="Permalink to this headline">#</a></h1>
 <p>We split our assessment of the best practice of how models were shared into two groups: models developed using using a coding language or framework (e.g. MatLab, R, or Python based) and models developed in commercial off the shelf Visual Interactive Modelling software (VIM; e.g. Arena, Anylogic, or Simio).</p>
-<p>We know of no general best practice auditing tools for sharing of code and models. However, general guidance for open science and reproducible research is available from the Turing Way <span id="id1">[<a class="reference internal" href="#id7" title="The Turing Way Community. The Turing Way: A handbook for reproducible, ethical and collaborative research. July 2022. URL: https://doi.org/10.5281/zenodo.7470333, doi:10.5281/zenodo.7470333.">The Turing Way Community, 2022</a>]</span> developed by The Alan Turing Institute: the UK’s official institute for data science and AI. We reviewed the Turing Way checklists for Open Research, Licensing, Reproducible Environments, and Code Testing and selected relevant quality criteria.  We enhanced this list by adapting the high level open scholarship recommendations for modelling and simulation from <span id="id2">[<a class="reference internal" href="#id8" title="Simon JE Taylor, Anastasia Anagnostou, Adedeji Fabiyi, Christine Currie, Thomas Monks, Roberto Barbera, and Bruce Becker. Open science: approaches and benefits for modeling &amp; simulation. In 2017 Winter Simulation Conference (WSC), 535–549. IEEE, 2017.">Taylor <em>et al.</em>, 2017</a>]</span>.</p>
-<p>We excluded some Turing checklists from our review as they were not relevant to the quality of model sharing.  For example, the Research Data Management checklist is focussed on raw data that in a typical DES study would have used to derive model parameters.  Our focus is on the sharing of the model itself and not underlying raw data. Another example is the Turing’s recommendations to publish open notebooks containing all details of experiments. This was on the basis that the modelling and simulation community might adopt a large number of approaches and tools to managing their models and artefacts. Instead we included a broader item checking for instructions to execute experiments in any format.</p>
+<p>We know of no general best practice auditing tools for sharing of simulation code and models. However, general guidance for open science and reproducible research is available from the Turing Way <span id="id1">[<a class="reference internal" href="#id7" title="The Turing Way Community. The Turing Way: A handbook for reproducible, ethical and collaborative research. July 2022. URL: https://doi.org/10.5281/zenodo.7470333, doi:10.5281/zenodo.7470333.">The Turing Way Community, 2022</a>]</span> developed by The Alan Turing Institute: the UK’s official institute for data science and AI. The Turing Way is a data science community project and at the time of writing (2023) has 290 contributors and reviewers. We reviewed the Turing Way checklists for Open Research, Licensing, Reproducible Environments, and Code Testing and selected relevant quality criteria.  We enhanced this list by validating it against two further sources of guidance related to open science.  First, we adapted the high level open scholarship recommendations for modelling and simulation from <span id="id2">[<a class="reference internal" href="#id8" title="Simon JE Taylor, Anastasia Anagnostou, Adedeji Fabiyi, Christine Currie, Thomas Monks, Roberto Barbera, and Bruce Becker. Open science: approaches and benefits for modeling &amp; simulation. In 2017 Winter Simulation Conference (WSC), 535–549. IEEE, 2017.">Taylor <em>et al.</em>, 2017</a>]</span>. Second, the Open Modelling Foundation’s (OMF) minimal and ideal reusability standards.  The OMF define reusability as “implicitly includ[ing] usability and focuses on the ability of humans and machines to execute, inspect, and understand the software so that it can be modified, built upon, or incorporated into other software”. These latter sources added two further items not specifically listed in the Turing Ways checklists.</p>
+<p>We excluded some Turing checklists from our review as they were not relevant to the quality of model sharing.  For example, the Research Data Management checklist is focussed on raw data that in a typical DES study would have used to derive model parameters.  Our focus is on the sharing of the model itself and not underlying raw data. Another example is the Turing’s recommendations to publish open notebooks containing all details of experiments. This was on the basis that the modelling and simulation community might adopt a large number of approaches and tools to managing their models and artefacts. Instead we included a broader item checking for instructions to execute experiments in any format.  We also excluded most of the OMF’s ideal reusability standards including the use of containerisation tools (such as docker or podman) in order to keep our best practice criteria simple for the M&amp;S community.</p>
 <p>The metrics within our audit also overlap with what others have listed as requirements for reproducibility of computational studies <span id="id3">[<a class="reference internal" href="#id9" title="Kesavan Venkatesh, Samantha M. Santomartino, Jeremias Sulam, and Paul H. Yi. Code and Data Sharing Practices in the Radiology Artificial Intelligence Literature: A Meta-Research Study. Radiology: Artificial Intelligence, 4(5):e220081, August 2022. URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9530751/ (visited on 2023-01-04), doi:10.1148/ryai.220081.">Venkatesh <em>et al.</em>, 2022</a>]</span>.  We list these in Table <a class="reference internal" href="#quality-criteria"><span class="std std-ref">Quality Audit: Metrics and Sources.</span></a>, to illustrate which data were extracted for the coding and VIM groups, and detail the provenance of the items.</p>
 <table class="colwidths-auto table" id="quality-criteria">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Quality Audit: Metrics and Sources.</span><a class="headerlink" href="#quality-criteria" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Description</p></th>
-<th class="head"><p>Code<sup>a</sup></p></th>
-<th class="head"><p>VIM<sup>b</sup></p></th>
+<th class="head"><p>Codea</p></th>
+<th class="head"><p>VIMb</p></th>
 <th class="head"><p>Source(s)</p></th>
 </tr>
 </thead>
@@ -462,19 +472,19 @@ title="Print to PDF"
 <td><p>Does the model have a DOI and promise of persistence? Can it be cited?</p></td>
 <td><p>y</p></td>
 <td><p>y</p></td>
-<td><p>Section 6. item 3. Taylor et al (2017)  Turing Way: Open Research Checklist item 4</p></td>
+<td><p>Section 6. item 3. Taylor et al (2017)   Turing Way: Open Research Checklist item 4 OMF Minimal Reusability Standards item 1</p></td>
 </tr>
 <tr class="row-odd"><td><p>Open Researcher and Contributor ID</p></td>
 <td><p>Is the model linked to one or more of the authors via an ORCID?</p></td>
 <td><p>y</p></td>
 <td><p>y</p></td>
-<td><p>Section 6. item 5.  Taylor et al (2017)</p></td>
+<td><p>Section 6. item 5.  Taylor et al (2017); OMF Minimal Reusability Standards item 4</p></td>
 </tr>
 <tr class="row-even"><td><p>Licence</p></td>
 <td><p>Does the repository have a recognised open license to control the use of code, liabilty and credit?</p></td>
 <td><p>y</p></td>
 <td><p>y</p></td>
-<td><p>Section 6. item 4. Taylor et al (2017); Turing Way: Licensing Checklist items 1 and 2</p></td>
+<td><p>Section 6. item 4. Taylor et al (2017);  Turing Way: Licensing Checklist items 1 and 2 OMF Minimal Reusability Standards item 2</p></td>
 </tr>
 <tr class="row-odd"><td><p>Readme file</p></td>
 <td><p>Is there an obvious file that provides an overview of the repository/model and it purpose?</p></td>
@@ -486,25 +496,25 @@ title="Print to PDF"
 <td><p>Do models shared externally from journal articles contain a link to the published article?</p></td>
 <td><p>y</p></td>
 <td><p>y</p></td>
-<td><p>Turing Way: Open Research Checklist item 12</p></td>
+<td><p>Turing Way: Open Research Checklist item 12 OMF Ideal Reusability Standards item 4</p></td>
 </tr>
 <tr class="row-odd"><td><p>Steps to run code</p></td>
 <td><p>Does the readme file or similar describe the steps required to execute the simulation model?</p></td>
 <td><p>y</p></td>
 <td><p>y</p></td>
-<td><p>Adapted from Turing Way Open Notebooks Checklist</p></td>
+<td><p>OMF Minimal Reusability Standards Item 6</p></td>
 </tr>
 <tr class="row-even"><td><p>Formal dependency management</p></td>
 <td><p>Has a formal tool, e.g. renv, conda, or poetry been used to manage software dependencies for the simulation model?</p></td>
 <td><p>y</p></td>
 <td><p>n</p></td>
-<td><p>Turing Way: Reproducible Environment Checklist items 1-3</p></td>
+<td><p>Turing Way: Reproducible Environment Checklist items 1-3 OMF Minimal Reusability Standards Item 5</p></td>
 </tr>
 <tr class="row-odd"><td><p>Informal dependency management</p></td>
 <td><p>Has an informal list or description of software, or OS dependencies been provided?</p></td>
 <td><p>y</p></td>
 <td><p>y</p></td>
-<td><p>Turing Way: Reproducible Environment Checklist items 1-3</p></td>
+<td><p>Turing Way: Reproducible Environment Checklist items 1-3 OMF Minimal Reusability Standards Item 5</p></td>
 </tr>
 <tr class="row-even"><td><p>Code Testing</p></td>
 <td><p>Is there any evidence of tests that have been applied to the code to check that it functions correctly?</p></td>
@@ -526,8 +536,8 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-<section id="licencing-of-models">
-<h2>Licencing of models<a class="headerlink" href="#licencing-of-models" title="Permalink to this headline">#</a></h2>
+<section id="licensing-of-models">
+<h2>Licensing of models<a class="headerlink" href="#licensing-of-models" title="Permalink to this headline">#</a></h2>
 <p>We extracted the type of license included with each shared model. For example, GPL-3 or MIT. When no license was included we recorded this as <code class="docutils literal notranslate"><span class="pre">None</span></code>. For one model shared as supplementary material with a journal we were unable to determine what license had been applied.  We labelled this as <code class="docutils literal notranslate"><span class="pre">Unknown</span></code>.  When a model was published as journal supplementary material we assigned the same license as applied to the paper if it was not explicitly stated.  For example, if a paper was published under a CC-BY 4.0 license and there was no explicit license attached to supplementary material we assumed the same license for the model.</p>
 </section>
 <section id="turing-way-links-to-checklists">
@@ -537,6 +547,12 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-checklist.html">Licensing checklist</a></p></li>
 <li><p><a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/renv/renv-resources.html">Reproducible environment checklist</a></p></li>
 <li><p><a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/testing/testing-checklist.html">Code Testing checklist</a></p></li>
+</ul>
+</section>
+<section id="open-modelling-foundation">
+<h2>Open Modelling Foundation<a class="headerlink" href="#open-modelling-foundation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.openmodelingfoundation.org/standards/reusability/">Minimal and ideal reusability standards</a></p></li>
 </ul>
 </section>
 <section id="references">
