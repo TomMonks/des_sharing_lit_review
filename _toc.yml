@@ -16,6 +16,7 @@ parts:
   - file: content/03_results/02_sharing_hl_summary
   - file: content/03_results/03_article_type
   - file: content/03_results/03a_reporting_guidelines
+  - file: content/03_results/03a_year
 - caption: Results - Best Practice Audit
   chapters:
   - file: content/03_results/04_bpa_preprocessing
