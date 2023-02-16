@@ -22,7 +22,7 @@ FILE_NAME = 'https://raw.githubusercontent.com/TomMonks/' \
 # used to drop redudant manuscript fields outputted by zotero 
 # e.g. keywords and abstracts.
 COLS_TO_KEEP = [2, 3, 4, 5, 6, 7, 10, 11, 44, 45, 46, 47, 
-                48, 49, 50, 51, 52, 52, 53, 54, 55]
+                48, 49, 50, 51, 52, 52, 53, 54, 55, 57]
 
 # used to drop redudant fields not needed in BEST PRACTICE analysis.
 COLS_TO_DROP = [5, 6, 8, 18, 24, 29, 33]
