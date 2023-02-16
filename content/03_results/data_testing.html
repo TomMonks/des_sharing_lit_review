@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data Testing &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Overall summary" href="07_bpa_summary.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Model and code sharing practices in healthcare discrete-event simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../01_welcome.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/02_license.html">
+   License
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/01_search_strategy.html">
+   Search Strategy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/02_extraction.html">
+   Review and data extraction process summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/03_quality_audit.html">
+   Best Practice Audit
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Main Review
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_prisma.html">
+   Prisma Diagram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_preprocessing.html">
+   Dataset pre-processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_sharing_hl_summary.html">
+   A high level summary of sharing of models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_article_type.html">
+   Sharing by article type
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_reporting_guidelines.html">
+   Use of reporting guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_year.html">
+   Year of publication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Best Practice Audit
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_bpa_preprocessing.html">
+   Preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_bpa_open_research.html">
+   Open Research
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_bpa_execution.html">
+   Model execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_bpa_summary.html">
+   Overall summary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Testing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Testing
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/TomMonks/des_sharing_lit_review/main?urlpath=lab/tree/content/03_results/data_testing.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/TomMonks/des_sharing_lit_review"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/03_results/data_testing.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/03_results/data_testing.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   1. Imports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-imports">
+     1.1. Standard Imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-imports">
+     1.2 Testing imports
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports-from-preprocessing-module">
+   1.2 Imports from preprocessing module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   2. Constants
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   3. Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#smoke-testing">
+   4. Smoke Testing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-files-exist">
+     4.1. Data Files Exist
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocessing-logic-returns-dataframe-containing-data">
+     4.2 Preprocessing logic returns DataFrame containing data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-data">
+   5. Read in data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-data-fields-and-subgroups">
+   6. Testing data fields and subgroups
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-coding-for-covid-19-models">
+     6.1 Check coding for Covid-19 models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#studies-included">
+   6.2 Studies included
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nan-fields-in-mandatory-data-extraction-fields">
+     6.3. NaN fields in mandatory data extraction fields
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary-fields-only-contain-0-or-1">
+     6.4 Binary fields only contain 0 or 1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Testing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   1. Imports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-imports">
+     1.1. Standard Imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-imports">
+     1.2 Testing imports
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports-from-preprocessing-module">
+   1.2 Imports from preprocessing module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   2. Constants
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   3. Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#smoke-testing">
+   4. Smoke Testing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-files-exist">
+     4.1. Data Files Exist
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocessing-logic-returns-dataframe-containing-data">
+     4.2 Preprocessing logic returns DataFrame containing data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-data">
+   5. Read in data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-data-fields-and-subgroups">
+   6. Testing data fields and subgroups
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-coding-for-covid-19-models">
+     6.1 Check coding for Covid-19 models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#studies-included">
+   6.2 Studies included
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nan-fields-in-mandatory-data-extraction-fields">
+     6.3. NaN fields in mandatory data extraction fields
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary-fields-only-contain-0-or-1">
+     6.4 Binary fields only contain 0 or 1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="data-testing">
+<h1>Data Testing<a class="headerlink" href="#data-testing" title="Permalink to this headline">#</a></h1>
+<p>This notebook contains some testing of our data sources to identify potential data coding errors in the main and best practice datasets.</p>
+<p>We include the following groupings for testing</p>
+<ul class="simple">
+<li><p>Smoke tests: These test that the data files exist and can be loaded for analysis. Nothing can run without passing these tests.</p></li>
+<li><p>Testing data fields and subgroups: These test that the data is coded correctly and completely.</p></li>
+</ul>
+<section id="imports">
+<h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<section id="standard-imports">
+<h3>1.1. Standard Imports<a class="headerlink" href="#standard-imports" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># used in smoke tests</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-imports">
+<h3>1.2 Testing imports<a class="headerlink" href="#testing-imports" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipytest</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="n">ipytest</span><span class="o">.</span><span class="n">autoconfig</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="imports-from-preprocessing-module">
+<h2>1.2 Imports from preprocessing module<a class="headerlink" href="#imports-from-preprocessing-module" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function for loading full dataset</span>
+<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">load_clean_dataset</span><span class="p">,</span> <span class="n">load_clean_bpa</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="constants">
+<h2>2. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME_MAIN</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/share_sim_data_extract.zip&#39;</span>
+
+<span class="n">FILE_NAME_BPA</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/bp_audit.zip&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions">
+<h2>3. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">num_covid_in_year</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the integer number of studies with a Covid-19 DES model</span>
+<span class="sd">    in a specified publication year.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">    -----</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Subgroup dataset</span>
+<span class="sd">        </span>
+<span class="sd">    year: int</span>
+<span class="sd">        Year of publication</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pub_yr&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;covid&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">num_included_in_year</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the integer number of studies included</span>
+<span class="sd">    in a specified publication year.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">    -----</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Subgroup dataset</span>
+<span class="sd">        </span>
+<span class="sd">    year: int</span>
+<span class="sd">        Year of publication</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pub_yr&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;study_included&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nan_fields</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the dataframe containing all rows</span>
+<span class="sd">    where study_included is NaN (empty)</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    -----</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Subgroup dataset</span>
+<span class="sd">        </span>
+<span class="sd">    field: str</span>
+<span class="sd">        The name of the field to check for NaNs</span>
+<span class="sd">        </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;study_included&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="smoke-testing">
+<h2>4. Smoke Testing<a class="headerlink" href="#smoke-testing" title="Permalink to this headline">#</a></h2>
+<section id="data-files-exist">
+<h3>4.1. Data Files Exist<a class="headerlink" href="#data-files-exist" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>First check if the data files exist at the specified URLs.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ipytest</span>
+@pytest.mark.parametrize(&#39;url&#39;, [
+    (FILE_NAME_MAIN),
+    (FILE_NAME_BPA),
+]) 
+def test_file_exists_at_url(url):
+    &#39;&#39;&#39;
+    Request data file from URL. Test is status code = 200 (exists)
+    
+    Params:
+    ------
+    url: str
+        URL to test
+    &#39;&#39;&#39;
+    r = requests.head(url, allow_redirects=True)
+    # if code = 200 then resource exists.
+    assert r.status_code == 200
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">..                                                                                           [100%]</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.72s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing-logic-returns-dataframe-containing-data">
+<h3>4.2 Preprocessing logic returns DataFrame containing data<a class="headerlink" href="#preprocessing-logic-returns-dataframe-containing-data" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Read in check for any data and that it loads into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ipytest</span>
+
+@pytest.mark.parametrize(&#39;url, func&#39;, [
+    (FILE_NAME_MAIN, load_clean_dataset),
+    (FILE_NAME_BPA, load_clean_bpa),
+]) 
+def test_load_dataframe(url, func):
+    &#39;&#39;&#39;
+    Test that the preprocessing function can return a populated dataframe
+    for the specified URL.
+    
+    tested by checking df has at least 1 row.
+    
+    Params:
+    ------
+    url: str
+        URL for file
+        
+    func: object
+        Python function containing preprocessing logic. Assume that it returns
+        a dataframe.
+    &#39;&#39;&#39;
+    df = func(url)
+    assert len(df) &gt; 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">..                                                                                           [100%]</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.24s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="read-in-data">
+<h2>5. Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FILE_NAME_MAIN</span><span class="p">)</span>
+<span class="n">clean_bpa</span> <span class="o">=</span> <span class="n">load_clean_bpa</span><span class="p">(</span><span class="n">FILE_NAME_BPA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-data-fields-and-subgroups">
+<h2>6. Testing data fields and subgroups<a class="headerlink" href="#testing-data-fields-and-subgroups" title="Permalink to this headline">#</a></h2>
+<section id="check-coding-for-covid-19-models">
+<h3>6.1 Check coding for Covid-19 models<a class="headerlink" href="#check-coding-for-covid-19-models" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>There should be no Covid-19 DES models pre-2020.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ipytest</span>
+
+@pytest.mark.parametrize(&#39;df, year, expected&#39;, [
+    (clean, 2019, 0),
+]) 
+def test_num_covid_in_year(df, year, expected):
+    assert num_covid_in_year(df, year) == expected
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">F                                                                                            [100%]</span>
+============================================= FAILURES =============================================
+<span class=" -Color -Color-Bold -Color-Bold-Red">________________________________ test_num_covid_in_year[df0-2019-0] ________________________________</span>
+
+df =           key       item_type  pub_yr  \
+0    6CYNDDIL  journalArticle    2021   
+1    WJR7T7VY            book    202...                 NaN  
+483            NaN  Data analysed in the present study is\nunable ...  
+
+[484 rows x 21 columns]
+year = 2019, expected = 0
+
+    <span class=" -Color -Color-White">@pytest</span>.mark.parametrize(<span class=" -Color -Color-Yellow">&#39;df, year, expected&#39;</span>, [
+        (clean, 2019, 0),
+    ])
+    def test_num_covid_in_year(df, year, expected):
+&gt;       assert num_covid_in_year(df, year) == expected
+<span class=" -Color -Color-Bold -Color-Bold-Red">E       assert 1 == 0</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E        +  where 1 = num_covid_in_year(          key       item_type  pub_yr  \\n0    6CYNDDIL  journalArticle    2021   \n1    WJR7T7VY            book    202...                 NaN  \n483            NaN  Data analysed in the present study is\nunable ...  \n\n[484 rows x 21 columns], 2019)</span>
+
+<span class=" -Color -Color-Bold -Color-Bold-Red">/tmp/ipykernel_156610/2394340822.py</span>:5: AssertionError
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">===================================== short test summary info ======================================</span>
+<span class=" -Color -Color-Red">FAILED</span> t_d4ef987d70ad4eb98d714a35cd94c680.py::<span class=" -Color -Color-Bold">test_num_covid_in_year[df0-2019-0]</span> - assert 1 == 0
+<span class=" -Color -Color-Bold -Color-Bold-Red">1 failed</span><span class=" -Color -Color-Red"> in 0.09s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="studies-included">
+<h2>6.2 Studies included<a class="headerlink" href="#studies-included" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Test each year has at least 1 study included.</p></li>
+<li><p>Test that there are no studies where the study included field is set to null.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ipytest</span>
+
+@pytest.mark.parametrize(&#39;df, year&#39;, [
+    (clean, 2019),
+    (clean, 2020),
+    (clean, 2021),
+    (clean, 2022),
+]) 
+def test_studies_included_in_year(df, year):
+    &#39;&#39;&#39;
+    Test the number of studies in a particular year
+    of a subgroup is at least 1.
+    &#39;&#39;&#39;
+    assert num_included_in_year(df, year) &gt;= 1
+    
+
+    
+def test_all_studies_considered():
+    &#39;&#39;&#39;
+    Test that all studies have been coded as 0 or 1
+    &#39;&#39;&#39;
+    assert len(clean[clean[&#39;study_included&#39;].isnull()]) == 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">.....                                                                                        [100%]</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">5 passed</span><span class=" -Color -Color-Green"> in 0.01s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="nan-fields-in-mandatory-data-extraction-fields">
+<h3>6.3. NaN fields in mandatory data extraction fields<a class="headerlink" href="#nan-fields-in-mandatory-data-extraction-fields" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Test that mandatory fields contain no NaN.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ipytest</span>
+
+@pytest.mark.parametrize(&#39;df, field&#39;, [
+    (clean, &#39;study_included&#39;),
+    (clean, &#39;covid&#39;),
+    (clean, &#39;foss_sim&#39;),
+    (clean, &#39;model_code_available&#39;),
+    (clean, &#39;reporting_guidelines_mention&#39;),
+    (clean, &#39;sim_software&#39;),
+]) 
+def test_no_nan_fields_included_studies(df, field):
+    &#39;&#39;&#39;
+    Test that a selected field contains no NaN data.
+    &#39;&#39;&#39;
+    assert nan_fields(df, field) == 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">....</span><span class=" -Color -Color-Red">F</span><span class=" -Color -Color-Green">.</span><span class=" -Color -Color-Red">                                                                                       [100%]</span>
+============================================= FAILURES =============================================
+<span class=" -Color -Color-Bold -Color-Bold-Red">______________ test_no_nan_fields_included_studies[df4-reporting_guidelines_mention] _______________</span>
+
+df =           key       item_type  pub_yr  \
+0    6CYNDDIL  journalArticle    2021   
+1    WJR7T7VY            book    202...                 NaN  
+483            NaN  Data analysed in the present study is\nunable ...  
+
+[484 rows x 21 columns]
+field = &#39;reporting_guidelines_mention&#39;
+
+    <span class=" -Color -Color-White">@pytest</span>.mark.parametrize(<span class=" -Color -Color-Yellow">&#39;df, field&#39;</span>, [
+        (clean, <span class=" -Color -Color-Yellow">&#39;study_included&#39;</span>),
+        (clean, <span class=" -Color -Color-Yellow">&#39;covid&#39;</span>),
+        (clean, <span class=" -Color -Color-Yellow">&#39;foss_sim&#39;</span>),
+        (clean, <span class=" -Color -Color-Yellow">&#39;model_code_available&#39;</span>),
+        (clean, <span class=" -Color -Color-Yellow">&#39;reporting_guidelines_mention&#39;</span>),
+        (clean, <span class=" -Color -Color-Yellow">&#39;sim_software&#39;</span>),
+    ])
+    def test_no_nan_fields_included_studies(df, field):
+        <span class=" -Color -Color-Yellow">&#39;&#39;&#39;</span>
+    <span class=" -Color -Color-Yellow">    Test that a selected field contains no NaN data.</span>
+    <span class=" -Color -Color-Yellow">    &#39;&#39;&#39;</span>
+&gt;       assert nan_fields(df, field) == 0
+<span class=" -Color -Color-Bold -Color-Bold-Red">E       AssertionError: assert 1 == 0</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E        +  where 1 = nan_fields(          key       item_type  pub_yr  \\n0    6CYNDDIL  journalArticle    2021   \n1    WJR7T7VY            book    202...                 NaN  \n483            NaN  Data analysed in the present study is\nunable ...  \n\n[484 rows x 21 columns], &#39;reporting_guidelines_mention&#39;)</span>
+
+<span class=" -Color -Color-Bold -Color-Bold-Red">/tmp/ipykernel_156610/3922094454.py</span>:13: AssertionError
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">===================================== short test summary info ======================================</span>
+<span class=" -Color -Color-Red">FAILED</span> t_d4ef987d70ad4eb98d714a35cd94c680.py::<span class=" -Color -Color-Bold">test_no_nan_fields_included_studies[df4-reporting_guidelines_mention]</span> - AssertionError: assert 1 == 0
+<span class=" -Color -Color-Bold -Color-Bold-Red">1 failed</span>, <span class=" -Color -Color-Green">5 passed</span><span class=" -Color -Color-Red"> in 0.04s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="binary-fields-only-contain-0-or-1">
+<h3>6.4 Binary fields only contain 0 or 1<a class="headerlink" href="#binary-fields-only-contain-0-or-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>covid and mode_code_available fields are mandatory 0 or 1.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">non_zero_one_coding</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> 
+                  <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;study_included&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">ipytest</span>
+
+@pytest.mark.parametrize(&#39;df, field&#39;, [
+    (clean, &#39;covid&#39;),
+    (clean, &#39;model_code_available&#39;),
+]) 
+def test_zero_one_coding(df, field):
+    assert non_zero_one_coding(df, field) == 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">..                                                                                           [100%]</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.01s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TomMonks/des_sharing_lit_review",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/03_results"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="07_bpa_summary.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Overall summary</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alison Harper and Thomas Monks<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
