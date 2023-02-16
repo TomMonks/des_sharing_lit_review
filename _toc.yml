@@ -23,5 +23,8 @@ parts:
   - file: content/03_results/05_bpa_open_research
   - file: content/03_results/06_bpa_execution
   - file: content/03_results/07_bpa_summary
+- caption: Testing
+  chapters:
+  - file: content/03_results/data_testing
 
 
