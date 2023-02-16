@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="data_testing.html">
+  <a class="reference internal" href="data_testing_bkp.html">
    Data Testing
   </a>
  </li>
@@ -447,23 +447,50 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
    1. Imports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphviz-imports">
+     1.1 Graphviz imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-imports">
+     1.2 Standard imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports-from-preprocessing-module">
+     1.3 Imports from preprocessing module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   2. Constants
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-to-create-diagram">
-   2. Functions to create diagram
+   3. Functions to create diagram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-data">
+   4. Read in data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagram-data-input">
    3. Diagram Data Input
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-diagram">
-   4. Create Diagram
   </a>
  </li>
 </ul>
@@ -491,23 +518,50 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
    1. Imports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphviz-imports">
+     1.1 Graphviz imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-imports">
+     1.2 Standard imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports-from-preprocessing-module">
+     1.3 Imports from preprocessing module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   2. Constants
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-to-create-diagram">
-   2. Functions to create diagram
+   3. Functions to create diagram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-data">
+   4. Read in data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagram-data-input">
    3. Diagram Data Input
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-diagram">
-   4. Create Diagram
   </a>
  </li>
 </ul>
@@ -523,13 +577,19 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="prisma-diagram">
 <h1>Prisma Diagram<a class="headerlink" href="#prisma-diagram" title="Permalink to this headline">#</a></h1>
 <p>Here we provide a <strong>P</strong>referred <strong>R</strong>eporting <strong>I</strong>tems for <strong>S</strong>ystematic Reviews and <strong>M</strong>eta-<strong>A</strong>nalyses (PRISMA) diagram.  PRSIMA aims to improve the reporting of systematic reviews.  Full details of the PRISMA statement can be found on at <a class="reference external" href="https://prisma-statement.org">https://prisma-statement.org</a></p>
-<p>The flow diagram  generated visualises the manuscripts returned from multiple database searches, duplicates, titles/abstracts screened in/out; and manuscripts included excluded during full text screening.</p>
+<p>The flow diagram generated visualises the manuscripts returned from multiple database searches, duplicates, titles/abstracts screened in/out; and manuscripts included excluded during full text screening.</p>
 <section id="overview-of-notebook">
 <h2>Overview of notebook<a class="headerlink" href="#overview-of-notebook" title="Permalink to this headline">#</a></h2>
 <p>This notebook uses the <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> library to generate a flow diagram.  It is separated into four sections: imports; a function to create the flow diagram; a script to populate a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with the findings from our study; and the code to run function and save the image to file.</p>
 </section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
+<p>Our published dataset contains all papers we <strong>attempted to retrieve</strong>.  This means we can only calculate statistics the full test screening stage of our review.  The number of papers retrieved from Scopus and Pubmed are hardcoded values.  We provide a notebook containing our search strings in order for to reproduce the exact search’s we used prior to title and abstract screening.</p>
+</section>
 <section id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<section id="graphviz-imports">
+<h3>1.1 Graphviz imports<a class="headerlink" href="#graphviz-imports" title="Permalink to this headline">#</a></h3>
 <p>We have generated our PRSIMA diagram using <code class="docutils literal notranslate"><span class="pre">graphviz</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -541,8 +601,156 @@ title="Print to PDF"
 </div>
 </div>
 </section>
+<section id="standard-imports">
+<h3>1.2 Standard imports<a class="headerlink" href="#standard-imports" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="imports-from-preprocessing-module">
+<h3>1.3 Imports from preprocessing module<a class="headerlink" href="#imports-from-preprocessing-module" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function for loading full dataset</span>
+<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">load_clean_dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="constants">
+<h2>2. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/share_sim_data_extract.zip&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="functions-to-create-diagram">
-<h2>2. Functions to create diagram<a class="headerlink" href="#functions-to-create-diagram" title="Permalink to this headline">#</a></h2>
+<h2>3. Functions to create diagram<a class="headerlink" href="#functions-to-create-diagram" title="Permalink to this headline">#</a></h2>
+<p>We provide functions to calculate basic statistics for the dataset i.e.</p>
+<ul class="simple">
+<li><p>number_studies_included</p></li>
+<li><p>studies_to_retrieve</p></li>
+<li><p>papers_not_retrieved</p></li>
+<li><p>excluded_count</p></li>
+<li><p>models_with_code</p></li>
+</ul>
+<p>And a function to create the <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> based prisma diagram.</p>
+<ul class="simple">
+<li><p>graph_prisma</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_studies_included</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the number of studies included after screening.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The dataframe - expected to be the full study</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;study_included&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">studies_to_retrieve</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the number of studies to retrieve after screening</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The dataframe - expected to be the full study</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">papers_not_retrieved</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the number of studies not retrieved.</span>
+<span class="sd">    These are labelled as &#39;Full Text Not Availabe&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The dataframe - expected to be the full study</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;excluded_reason&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Full Text Not Available&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">excluded_count</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">reason</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the number of studies excluded with a specific reason.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The dataframe - expected to be the full study</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;excluded_reason&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">reason</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">models_with_code</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the number of included studies that shared DES models.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The dataframe - expected to be the full study</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;study_included&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> 
+                   <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;model_code_available&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;prisma.dot&#39;</span><span class="p">):</span>
@@ -599,8 +807,7 @@ title="Print to PDF"
     <span class="c1"># excluded reasons</span>
     <span class="n">node7_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Studies excluded:</span><span class="se">\n</span><span class="s2">&quot;</span> \
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node7</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">node7_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
     <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">([</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="s1">&#39;AC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;CE&#39;</span><span class="p">,</span> <span class="s1">&#39;EF&#39;</span><span class="p">,</span> <span class="s1">&#39;EG&#39;</span><span class="p">,</span> <span class="s1">&#39;GH&#39;</span><span class="p">,</span> <span class="s1">&#39;GI&#39;</span><span class="p">])</span>
@@ -629,41 +836,58 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="diagram-data-input">
-<h2>3. Diagram Data Input<a class="headerlink" href="#diagram-data-input" title="Permalink to this headline">#</a></h2>
-<blockquote>
-<div><p>To be updated to read from data file. Part can be generated by analysis.ipynb. Bits like scopus_n and n_duplicates will be hardcoded.</p>
-</div></blockquote>
+<section id="read-in-data">
+<h2>4. Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  script for prisma</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;scopus_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">534</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;pubmed_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">407</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_duplicates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">208</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_title_abstract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">532</span> <span class="o">+</span> <span class="mi">199</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">131</span> <span class="o">+</span> <span class="p">(</span><span class="mi">199</span> <span class="o">-</span> <span class="mi">83</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_ft_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">401</span> <span class="o">+</span> <span class="mi">83</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;4&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;422&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Reason 1&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Reason 2&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Reason 3&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">38</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;~9%&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="create-diagram">
-<h2>4. Create Diagram<a class="headerlink" href="#create-diagram" title="Permalink to this headline">#</a></h2>
+<section id="diagram-data-input">
+<h2>3. Diagram Data Input<a class="headerlink" href="#diagram-data-input" title="Permalink to this headline">#</a></h2>
+<p>The constant below represent values obtained from searching Scopus and Pubmed and cannot be generated from our dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_SCOPUS</span> <span class="o">=</span> <span class="mi">534</span>
+<span class="n">N_PUBMED</span> <span class="o">=</span> <span class="mi">407</span>
+<span class="n">DUPLICATES</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">208</span>
+<span class="n">N_TITLE_ABSTRACTS</span> <span class="o">=</span> <span class="n">N_SCOPUS</span> <span class="o">+</span> <span class="n">N_PUBMED</span> <span class="o">-</span> <span class="n">DUPLICATES</span>
+<span class="n">N_ABSTRACTS_EXCLUDED</span> <span class="o">=</span> <span class="mi">131</span> <span class="o">+</span> <span class="p">(</span><span class="mi">199</span> <span class="o">-</span> <span class="mi">83</span><span class="p">)</span>
+
+<span class="n">EXCLUDED_REASON_1</span> <span class="o">=</span> <span class="s2">&quot;Not English&quot;</span>
+<span class="n">EXCLUDED_REASON_2</span> <span class="o">=</span> <span class="s2">&quot;Not DES&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  script for prisma</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;scopus_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_SCOPUS</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;pubmed_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_PUBMED</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_duplicates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DUPLICATES</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_title_abstract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_TITLE_ABSTRACTS</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_ABSTRACTS_EXCLUDED</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">papers_not_retrieved</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> <span class="o">-</span> <span class="n">papers_not_retrieved</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_1</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_2</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_1</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_2</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">models_with_code</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">models_with_code</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> <span class="o">/</span> \
+                         <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> \
+                        <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -672,7 +896,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/00_prisma_8_0.svg" src="../../_images/00_prisma_8_0.svg" /></div>
+<img alt="../../_images/00_prisma_21_0.svg" src="../../_images/00_prisma_21_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

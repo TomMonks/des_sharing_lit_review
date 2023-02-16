@@ -275,7 +275,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/TomMonks/des_sharing_lit_review/main?urlpath=lab/tree/content/03_results/data_testing.ipynb"
+        <a href="https://mybinder.org/v2/gh/TomMonks/des_sharing_lit_review/main?urlpath=lab/tree/content/03_results/data_testing_bkp.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -353,7 +353,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/03_results/data_testing.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/03_results/data_testing_bkp.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -381,7 +381,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/03_results/data_testing.ipynb"
+        <a href="../../_sources/content/03_results/data_testing_bkp.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -804,7 +804,7 @@ def test_file_exists_at_url(url):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">..                                                                                           [100%]</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.72s</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.54s</span>
 </pre></div>
 </div>
 </div>
@@ -846,7 +846,7 @@ def test_load_dataframe(url, func):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">..                                                                                           [100%]</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.24s</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.38s</span>
 </pre></div>
 </div>
 </div>
@@ -885,30 +885,8 @@ def test_num_covid_in_year(df, year, expected):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">F                                                                                            [100%]</span>
-============================================= FAILURES =============================================
-<span class=" -Color -Color-Bold -Color-Bold-Red">________________________________ test_num_covid_in_year[df0-2019-0] ________________________________</span>
-
-df =           key       item_type  pub_yr  \
-0    6CYNDDIL  journalArticle    2021   
-1    WJR7T7VY            book    202...                 NaN  
-483            NaN  Data analysed in the present study is\nunable ...  
-
-[484 rows x 21 columns]
-year = 2019, expected = 0
-
-    <span class=" -Color -Color-White">@pytest</span>.mark.parametrize(<span class=" -Color -Color-Yellow">&#39;df, year, expected&#39;</span>, [
-        (clean, 2019, 0),
-    ])
-    def test_num_covid_in_year(df, year, expected):
-&gt;       assert num_covid_in_year(df, year) == expected
-<span class=" -Color -Color-Bold -Color-Bold-Red">E       assert 1 == 0</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E        +  where 1 = num_covid_in_year(          key       item_type  pub_yr  \\n0    6CYNDDIL  journalArticle    2021   \n1    WJR7T7VY            book    202...                 NaN  \n483            NaN  Data analysed in the present study is\nunable ...  \n\n[484 rows x 21 columns], 2019)</span>
-
-<span class=" -Color -Color-Bold -Color-Bold-Red">/tmp/ipykernel_156610/2394340822.py</span>:5: AssertionError
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">===================================== short test summary info ======================================</span>
-<span class=" -Color -Color-Red">FAILED</span> t_d4ef987d70ad4eb98d714a35cd94c680.py::<span class=" -Color -Color-Bold">test_num_covid_in_year[df0-2019-0]</span> - assert 1 == 0
-<span class=" -Color -Color-Bold -Color-Bold-Red">1 failed</span><span class=" -Color -Color-Red"> in 0.09s</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">.                                                                                            [100%]</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">1 passed</span><span class=" -Color -Color-Green"> in 0.00s</span>
 </pre></div>
 </div>
 </div>
@@ -981,38 +959,8 @@ def test_no_nan_fields_included_studies(df, field):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">....</span><span class=" -Color -Color-Red">F</span><span class=" -Color -Color-Green">.</span><span class=" -Color -Color-Red">                                                                                       [100%]</span>
-============================================= FAILURES =============================================
-<span class=" -Color -Color-Bold -Color-Bold-Red">______________ test_no_nan_fields_included_studies[df4-reporting_guidelines_mention] _______________</span>
-
-df =           key       item_type  pub_yr  \
-0    6CYNDDIL  journalArticle    2021   
-1    WJR7T7VY            book    202...                 NaN  
-483            NaN  Data analysed in the present study is\nunable ...  
-
-[484 rows x 21 columns]
-field = &#39;reporting_guidelines_mention&#39;
-
-    <span class=" -Color -Color-White">@pytest</span>.mark.parametrize(<span class=" -Color -Color-Yellow">&#39;df, field&#39;</span>, [
-        (clean, <span class=" -Color -Color-Yellow">&#39;study_included&#39;</span>),
-        (clean, <span class=" -Color -Color-Yellow">&#39;covid&#39;</span>),
-        (clean, <span class=" -Color -Color-Yellow">&#39;foss_sim&#39;</span>),
-        (clean, <span class=" -Color -Color-Yellow">&#39;model_code_available&#39;</span>),
-        (clean, <span class=" -Color -Color-Yellow">&#39;reporting_guidelines_mention&#39;</span>),
-        (clean, <span class=" -Color -Color-Yellow">&#39;sim_software&#39;</span>),
-    ])
-    def test_no_nan_fields_included_studies(df, field):
-        <span class=" -Color -Color-Yellow">&#39;&#39;&#39;</span>
-    <span class=" -Color -Color-Yellow">    Test that a selected field contains no NaN data.</span>
-    <span class=" -Color -Color-Yellow">    &#39;&#39;&#39;</span>
-&gt;       assert nan_fields(df, field) == 0
-<span class=" -Color -Color-Bold -Color-Bold-Red">E       AssertionError: assert 1 == 0</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E        +  where 1 = nan_fields(          key       item_type  pub_yr  \\n0    6CYNDDIL  journalArticle    2021   \n1    WJR7T7VY            book    202...                 NaN  \n483            NaN  Data analysed in the present study is\nunable ...  \n\n[484 rows x 21 columns], &#39;reporting_guidelines_mention&#39;)</span>
-
-<span class=" -Color -Color-Bold -Color-Bold-Red">/tmp/ipykernel_156610/3922094454.py</span>:13: AssertionError
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">===================================== short test summary info ======================================</span>
-<span class=" -Color -Color-Red">FAILED</span> t_d4ef987d70ad4eb98d714a35cd94c680.py::<span class=" -Color -Color-Bold">test_no_nan_fields_included_studies[df4-reporting_guidelines_mention]</span> - AssertionError: assert 1 == 0
-<span class=" -Color -Color-Bold -Color-Bold-Red">1 failed</span>, <span class=" -Color -Color-Green">5 passed</span><span class=" -Color -Color-Red"> in 0.04s</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">......                                                                                       [100%]</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">6 passed</span><span class=" -Color -Color-Green"> in 0.01s</span>
 </pre></div>
 </div>
 </div>

@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="data_testing.html">
+  <a class="reference internal" href="data_testing_bkp.html">
    Data Testing
   </a>
  </li>
@@ -550,6 +550,7 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">model_journal_supp</span></code> - what is stored in the journal supplementary material</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">model_personal_org</span></code> - name of personal or organisational website if used</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">model_platform</span></code> - name of cloud platform used (e.g. Binder or Anylogic cloud)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">excluded_reason</span></code> - One of four reasons that the study was excluded.</p></li>
 </ul>
 <section id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
@@ -572,7 +573,7 @@ title="Print to PDF"
 <span class="c1"># used to drop redudant manuscript fields outputted by zotero </span>
 <span class="c1"># e.g. keywords and abstracts.</span>
 <span class="n">COLS_TO_KEEP</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> 
-                <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+                <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">57</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -693,7 +694,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 484 entries, 0 to 483
-Data columns (total 21 columns):
+Data columns (total 22 columns):
  #   Column                        Non-Null Count  Dtype   
 ---  ------                        --------------  -----   
  0   key                           484 non-null    object  
@@ -706,7 +707,7 @@ Data columns (total 21 columns):
  7   url                           402 non-null    object  
  8   study_included                484 non-null    category
  9   model_code_available          430 non-null    category
- 10  reporting_guidelines_mention  429 non-null    category
+ 10  reporting_guidelines_mention  430 non-null    category
  11  covid                         432 non-null    category
  12  sim_software                  431 non-null    object  
  13  foss_sim                      430 non-null    category
@@ -717,8 +718,9 @@ Data columns (total 21 columns):
  18  model_personal_org            5 non-null      object  
  19  model_platform                10 non-null     object  
  20  available_on_req              43 non-null     object  
-dtypes: category(6), int64(1), object(14)
-memory usage: 60.7+ KB
+ 21  excluded_reason               55 non-null     object  
+dtypes: category(6), int64(1), object(15)
+memory usage: 64.4+ KB
 </pre></div>
 </div>
 </div>
@@ -759,7 +761,6 @@ memory usage: 60.7+ KB
       <th>study_included</th>
       <th>model_code_available</th>
       <th>...</th>
-      <th>covid</th>
       <th>sim_software</th>
       <th>foss_sim</th>
       <th>model_archive</th>
@@ -769,6 +770,7 @@ memory usage: 60.7+ KB
       <th>model_personal_org</th>
       <th>model_platform</th>
       <th>available_on_req</th>
+      <th>excluded_reason</th>
     </tr>
   </thead>
   <tbody>
@@ -785,13 +787,13 @@ memory usage: 60.7+ KB
       <td>1</td>
       <td>1.0</td>
       <td>...</td>
-      <td>1.0</td>
       <td>AnyLogic</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>File</td>
       <td>File</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -809,9 +811,9 @@ memory usage: 60.7+ KB
       <td>1</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
       <td>SimPy</td>
       <td>1</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -822,7 +824,7 @@ memory usage: 60.7+ KB
     </tr>
   </tbody>
 </table>
-<p>2 rows × 21 columns</p>
+<p>2 rows × 22 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -861,7 +863,6 @@ memory usage: 60.7+ KB
       <th>study_included</th>
       <th>model_code_available</th>
       <th>...</th>
-      <th>covid</th>
       <th>sim_software</th>
       <th>foss_sim</th>
       <th>model_archive</th>
@@ -871,6 +872,7 @@ memory usage: 60.7+ KB
       <th>model_personal_org</th>
       <th>model_platform</th>
       <th>available_on_req</th>
+      <th>excluded_reason</th>
     </tr>
   </thead>
   <tbody>
@@ -887,9 +889,9 @@ memory usage: 60.7+ KB
       <td>1</td>
       <td>1.0</td>
       <td>...</td>
-      <td>0.0</td>
       <td>R</td>
       <td>1</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -911,7 +913,6 @@ memory usage: 60.7+ KB
       <td>1</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.0</td>
       <td>Unknown</td>
       <td>Unknown</td>
       <td>NaN</td>
@@ -921,10 +922,11 @@ memory usage: 60.7+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Data analysed in the present study is\nunable ...</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
-<p>2 rows × 21 columns</p>
+<p>2 rows × 22 columns</p>
 </div></div></div>
 </div>
 </section>
