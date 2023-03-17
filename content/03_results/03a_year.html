@@ -132,13 +132,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/02_extraction.html">
-   Review and data extraction process summary
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
+   Inclusion criteria
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/03_quality_audit.html">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
+   Data Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
    Best Practice Audit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
+   Analysis environment
   </a>
  </li>
 </ul>
@@ -160,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_sharing_hl_summary.html">
-   A high level summary of sharing of models
+   Main summary
   </a>
  </li>
  <li class="toctree-l1">
@@ -505,13 +515,6 @@ title="Print to PDF"
      5.3. Sharing of models by year of publication
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temp-section-to-be-be-removed-after-dataset-coding-error-is-fixed">
-   Temp section - to be be removed after dataset coding error is fixed.
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#all-sharing-subgroups-by-year-of-publication">
      5.4 All sharing subgroups by year of publication.
@@ -602,13 +605,6 @@ title="Print to PDF"
      5.3. Sharing of models by year of publication
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temp-section-to-be-be-removed-after-dataset-coding-error-is-fixed">
-   Temp section - to be be removed after dataset coding error is fixed.
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#all-sharing-subgroups-by-year-of-publication">
      5.4 All sharing subgroups by year of publication.
@@ -632,7 +628,7 @@ title="Print to PDF"
 <h2>Primary research questions:<a class="headerlink" href="#primary-research-questions" title="Permalink to this headline">#</a></h2>
 <p>These results presented in this notebook the following questions</p>
 <ol class="simple">
-<li><p>How have metrics changed in over the three years of the study?</p></li>
+<li><p>How have metrics changed over the four years of the study?</p></li>
 </ol>
 <blockquote>
 <div><p>Specifically we look at the number of shared models split into general health and Covid-19 subgroups.  We also analyse how the number of shared models as a proportion of the literature.</p>
@@ -721,7 +717,13 @@ title="Print to PDF"
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_covid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_foss_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_foss_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_foss&#39;</span><span class="p">]</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_covid_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># fix for 2019 as `n_covid` = 0</span>
+    <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_covid_avail&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid_avail&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;n_covid_avail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;reporting_guide&#39;</span><span class="p">]</span> <span class="o">=</span> \
         <span class="nb">len</span><span class="p">(</span><span class="n">included</span><span class="p">[</span><span class="n">included</span><span class="p">[</span><span class="s1">&#39;reporting_guidelines_mention&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;None&#39;</span><span class="p">])</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;per_reporting_guide&#39;</span><span class="p">]</span> <span class="o">=</span> \
@@ -880,7 +882,7 @@ title="Print to PDF"
                <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Covid-19&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">n_general_models</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
 
     <span class="n">_</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Shared Models&#39;</span><span class="p">)</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
     
     <span class="c1"># force integer values on y axis</span>
     <span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -1072,107 +1074,107 @@ title="Print to PDF"
   <tbody>
     <tr>
       <th>n_included</th>
-      <td>104.0000</td>
-      <td>113.0000</td>
-      <td>124.0000</td>
-      <td>82.0000</td>
-      <td>423.0000</td>
+      <td>114.0000</td>
+      <td>120.0000</td>
+      <td>140.0000</td>
+      <td>111.0000</td>
+      <td>485.0000</td>
     </tr>
     <tr>
       <th>n_foss</th>
-      <td>15.0000</td>
       <td>17.0000</td>
-      <td>29.0000</td>
-      <td>19.0000</td>
-      <td>80.0000</td>
+      <td>17.0000</td>
+      <td>30.0000</td>
+      <td>24.0000</td>
+      <td>88.0000</td>
     </tr>
     <tr>
       <th>n_covid</th>
-      <td>1.0000</td>
+      <td>0.0000</td>
       <td>9.0000</td>
-      <td>30.0000</td>
-      <td>12.0000</td>
-      <td>52.0000</td>
+      <td>31.0000</td>
+      <td>19.0000</td>
+      <td>59.0000</td>
     </tr>
     <tr>
       <th>n_avail</th>
       <td>5.0000</td>
       <td>11.0000</td>
       <td>14.0000</td>
-      <td>9.0000</td>
-      <td>39.0000</td>
+      <td>13.0000</td>
+      <td>43.0000</td>
     </tr>
     <tr>
       <th>n_foss_avail</th>
       <td>5.0000</td>
       <td>5.0000</td>
       <td>9.0000</td>
-      <td>5.0000</td>
-      <td>24.0000</td>
+      <td>7.0000</td>
+      <td>26.0000</td>
     </tr>
     <tr>
       <th>n_covid_avail</th>
       <td>0.0000</td>
       <td>4.0000</td>
       <td>10.0000</td>
-      <td>0.0000</td>
-      <td>14.0000</td>
+      <td>2.0000</td>
+      <td>16.0000</td>
     </tr>
     <tr>
       <th>per_foss</th>
-      <td>0.1442</td>
-      <td>0.1504</td>
-      <td>0.2339</td>
-      <td>0.2317</td>
-      <td>0.1891</td>
+      <td>0.1491</td>
+      <td>0.1417</td>
+      <td>0.2143</td>
+      <td>0.2162</td>
+      <td>0.1814</td>
     </tr>
     <tr>
       <th>per_covid</th>
-      <td>0.0096</td>
-      <td>0.0796</td>
-      <td>0.2419</td>
-      <td>0.1463</td>
-      <td>0.1229</td>
+      <td>0.0000</td>
+      <td>0.0750</td>
+      <td>0.2214</td>
+      <td>0.1712</td>
+      <td>0.1216</td>
     </tr>
     <tr>
       <th>per_avail</th>
-      <td>0.0481</td>
-      <td>0.0973</td>
-      <td>0.1129</td>
-      <td>0.1098</td>
-      <td>0.0922</td>
+      <td>0.0439</td>
+      <td>0.0917</td>
+      <td>0.1000</td>
+      <td>0.1171</td>
+      <td>0.0887</td>
     </tr>
     <tr>
       <th>per_foss_avail</th>
-      <td>0.3333</td>
       <td>0.2941</td>
-      <td>0.3103</td>
-      <td>0.2632</td>
+      <td>0.2941</td>
       <td>0.3000</td>
+      <td>0.2917</td>
+      <td>0.2955</td>
     </tr>
     <tr>
       <th>per_covid_avail</th>
-      <td>0.0000</td>
+      <td>NaN</td>
       <td>0.4444</td>
-      <td>0.3333</td>
-      <td>0.0000</td>
-      <td>0.2692</td>
+      <td>0.3226</td>
+      <td>0.1053</td>
+      <td>0.2712</td>
     </tr>
     <tr>
       <th>reporting_guide</th>
       <td>9.0000</td>
       <td>21.0000</td>
       <td>8.0000</td>
-      <td>23.0000</td>
-      <td>61.0000</td>
+      <td>26.0000</td>
+      <td>64.0000</td>
     </tr>
     <tr>
       <th>per_reporting_guide</th>
-      <td>0.0865</td>
-      <td>0.1858</td>
-      <td>0.0645</td>
-      <td>0.2805</td>
-      <td>0.1442</td>
+      <td>0.0789</td>
+      <td>0.1750</td>
+      <td>0.0571</td>
+      <td>0.2342</td>
+      <td>0.1320</td>
     </tr>
   </tbody>
 </table>
@@ -1213,88 +1215,6 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-</section>
-<section id="temp-section-to-be-be-removed-after-dataset-coding-error-is-fixed">
-<h2>Temp section - to be be removed after dataset coding error is fixed.<a class="headerlink" href="#temp-section-to-be-be-removed-after-dataset-coding-error-is-fixed" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Coding error in 2019 - fixed in new version of dataset.</span>
-<span class="n">clean</span><span class="p">[(</span><span class="n">clean</span><span class="p">[</span><span class="s1">&#39;pub_yr&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2019</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="s1">&#39;covid&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>key</th>
-      <th>item_type</th>
-      <th>pub_yr</th>
-      <th>author</th>
-      <th>title</th>
-      <th>pub_title</th>
-      <th>doi</th>
-      <th>url</th>
-      <th>study_included</th>
-      <th>model_code_available</th>
-      <th>...</th>
-      <th>covid</th>
-      <th>sim_software</th>
-      <th>foss_sim</th>
-      <th>model_archive</th>
-      <th>model_repo</th>
-      <th>model_journal_supp</th>
-      <th>model_journal_supp</th>
-      <th>model_personal_org</th>
-      <th>model_platform</th>
-      <th>available_on_req</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>169</th>
-      <td>4AY7MQIP</td>
-      <td>conferencePaper</td>
-      <td>2019</td>
-      <td>Bosch, P.</td>
-      <td>Mixed-Mode Pandemic Modeling</td>
-      <td>Proceedings - Winter Simulation Conference</td>
-      <td>10.1109/WSC40007.2019.9004801</td>
-      <td>https://www.scopus.com/inward/record.uri?eid=2...</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>Sage</td>
-      <td>1</td>
-      <td>NaN</td>
-      <td>GitHub</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>1 rows × 21 columns</p>
-</div></div></div>
-</div>
 <section id="all-sharing-subgroups-by-year-of-publication">
 <h3>5.4 All sharing subgroups by year of publication.<a class="headerlink" href="#all-sharing-subgroups-by-year-of-publication" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
@@ -1310,7 +1230,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03a_year_25_0.png" src="../../_images/03a_year_25_0.png" />
+<img alt="../../_images/03a_year_23_0.png" src="../../_images/03a_year_23_0.png" />
 </div>
 </div>
 </section>

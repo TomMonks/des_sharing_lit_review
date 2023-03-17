@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="A high level summary of sharing of models" href="02_sharing_hl_summary.html" />
+    <link rel="next" title="Main summary" href="02_sharing_hl_summary.html" />
     <link rel="prev" title="Prisma Diagram" href="00_prisma.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -132,13 +132,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/02_extraction.html">
-   Review and data extraction process summary
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
+   Inclusion criteria
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/03_quality_audit.html">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
+   Data Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
    Best Practice Audit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
+   Analysis environment
   </a>
  </li>
 </ul>
@@ -160,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_sharing_hl_summary.html">
-   A high level summary of sharing of models
+   Main summary
   </a>
  </li>
  <li class="toctree-l1">
@@ -693,34 +703,34 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 484 entries, 0 to 483
+RangeIndex: 566 entries, 0 to 565
 Data columns (total 22 columns):
  #   Column                        Non-Null Count  Dtype   
 ---  ------                        --------------  -----   
- 0   key                           484 non-null    object  
- 1   item_type                     484 non-null    category
- 2   pub_yr                        484 non-null    int64   
- 3   author                        483 non-null    object  
- 4   title                         484 non-null    object  
- 5   pub_title                     460 non-null    object  
- 6   doi                           429 non-null    object  
- 7   url                           402 non-null    object  
- 8   study_included                484 non-null    category
- 9   model_code_available          430 non-null    category
- 10  reporting_guidelines_mention  430 non-null    category
- 11  covid                         432 non-null    category
- 12  sim_software                  431 non-null    object  
- 13  foss_sim                      430 non-null    category
+ 0   key                           566 non-null    object  
+ 1   item_type                     566 non-null    category
+ 2   pub_yr                        566 non-null    int64   
+ 3   author                        565 non-null    object  
+ 4   title                         566 non-null    object  
+ 5   pub_title                     539 non-null    object  
+ 6   doi                           498 non-null    object  
+ 7   url                           442 non-null    object  
+ 8   study_included                566 non-null    category
+ 9   model_code_available          492 non-null    category
+ 10  reporting_guidelines_mention  492 non-null    category
+ 11  covid                         494 non-null    category
+ 12  sim_software                  493 non-null    object  
+ 13  foss_sim                      492 non-null    category
  14  model_archive                 4 non-null      object  
- 15  model_repo                    18 non-null     object  
+ 15  model_repo                    21 non-null     object  
  16  model_journal_supp            6 non-null      object  
  17  model_journal_supp            6 non-null      object  
  18  model_personal_org            5 non-null      object  
- 19  model_platform                10 non-null     object  
- 20  available_on_req              43 non-null     object  
- 21  excluded_reason               55 non-null     object  
+ 19  model_platform                11 non-null     object  
+ 20  available_on_req              49 non-null     object  
+ 21  excluded_reason               80 non-null     object  
 dtypes: category(6), int64(1), object(15)
-memory usage: 64.4+ KB
+memory usage: 75.2+ KB
 </pre></div>
 </div>
 </div>
@@ -877,51 +887,51 @@ memory usage: 64.4+ KB
   </thead>
   <tbody>
     <tr>
-      <th>482</th>
-      <td>KHQWDFJT</td>
-      <td>journalArticle</td>
-      <td>2019</td>
-      <td>Hoyer, Annika; Kaufmann, Sophie; Brinks, Ralph</td>
-      <td>Risk factors in the illness-death model: Simul...</td>
-      <td>PloS one</td>
-      <td>10.1371/journal.pone.0226554</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>R</td>
-      <td>1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>483</th>
-      <td>PUPDXVAB</td>
+      <th>564</th>
+      <td>QFBHLG5Q</td>
       <td>journalArticle</td>
       <td>2022</td>
-      <td>Hassanzadeh, Hamed; Khanna, Sankalp; Boyle, Ju...</td>
-      <td>New bed configurations and discharge timing po...</td>
-      <td>Emergency medicine Australasia : EMA</td>
-      <td>10.1111/1742-6723.14135</td>
+      <td>Britt, J.; Li, X.; Azab, A.; Baki, M.F.</td>
+      <td>Stochastic goal programming and metaheuristics...</td>
+      <td>International Journal of Operational Research</td>
+      <td>10.1504/IJOR.2022.121492</td>
+      <td>https://www.scopus.com/inward/record.uri?eid=2...</td>
+      <td>0</td>
       <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Full Text Not Available</td>
+    </tr>
+    <tr>
+      <th>565</th>
+      <td>Q9CS8U3G</td>
+      <td>book</td>
+      <td>2022</td>
+      <td>Elango, M.; Sivalingam, S.; Annamalai, A.; Kar...</td>
+      <td>Simulation Analysis for Minimizing Waiting Tim...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.scopus.com/inward/record.uri?eid=2...</td>
       <td>1</td>
       <td>0.0</td>
       <td>...</td>
-      <td>Unknown</td>
-      <td>Unknown</td>
+      <td>Arena</td>
+      <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Data analysed in the present study is\nunable ...</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -969,7 +979,7 @@ memory usage: 64.4+ KB
     <a class='right-next' id="next-link" href="02_sharing_hl_summary.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A high level summary of sharing of models</p>
+        <p class="prev-next-title">Main summary</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

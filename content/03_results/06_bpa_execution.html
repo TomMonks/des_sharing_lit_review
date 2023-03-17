@@ -132,13 +132,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/02_extraction.html">
-   Review and data extraction process summary
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
+   Inclusion criteria
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/03_quality_audit.html">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
+   Data Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
    Best Practice Audit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
+   Analysis environment
   </a>
  </li>
 </ul>
@@ -160,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_sharing_hl_summary.html">
-   A high level summary of sharing of models
+   Main summary
   </a>
  </li>
  <li class="toctree-l1">
@@ -766,39 +776,39 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 39 entries, 0 to 38
+RangeIndex: 43 entries, 0 to 42
 Data columns (total 27 columns):
  #   Column                        Non-Null Count  Dtype   
 ---  ------                        --------------  -----   
- 0   model_format                  39 non-null     category
- 1   key                           39 non-null     object  
- 2   item_type                     39 non-null     category
- 3   pub_yr                        39 non-null     int64   
- 4   author                        39 non-null     object  
- 5   doi                           38 non-null     object  
- 6   reporting_guidelines_mention  39 non-null     category
- 7   covid                         39 non-null     category
- 8   sim_software                  39 non-null     object  
- 9   foss_sim                      39 non-null     category
+ 0   model_format                  43 non-null     category
+ 1   key                           43 non-null     object  
+ 2   item_type                     43 non-null     category
+ 3   pub_yr                        42 non-null     float64 
+ 4   author                        43 non-null     object  
+ 5   doi                           42 non-null     object  
+ 6   reporting_guidelines_mention  43 non-null     category
+ 7   covid                         43 non-null     category
+ 8   sim_software                  43 non-null     object  
+ 9   foss_sim                      43 non-null     category
  10  model_archive                 4 non-null      object  
- 11  model_repo                    18 non-null     object  
+ 11  model_repo                    19 non-null     object  
  12  model_journal_supp            9 non-null      object  
  13  model_personal_org            5 non-null      object  
- 14  model_platform                8 non-null      object  
- 15  github_url                    16 non-null     object  
- 16  model_has_doi                 39 non-null     category
- 17  orcid                         39 non-null     category
- 18  license                       39 non-null     object  
- 19  readme                        39 non-null     category
- 20  link_to_paper                 29 non-null     category
- 21  steps_run                     39 non-null     category
- 22  formal_dep_mgt                39 non-null     category
- 23  informal_dep_mgt              39 non-null     category
- 24  evidence_testing              20 non-null     category
- 25  downloadable                  39 non-null     category
- 26  interactive_online            39 non-null     category
-dtypes: category(15), int64(1), object(11)
-memory usage: 6.2+ KB
+ 14  model_platform                11 non-null     object  
+ 15  github_url                    19 non-null     object  
+ 16  model_has_doi                 43 non-null     category
+ 17  orcid                         42 non-null     category
+ 18  license                       43 non-null     object  
+ 19  readme                        43 non-null     category
+ 20  link_to_paper                 33 non-null     category
+ 21  steps_run                     43 non-null     category
+ 22  formal_dep_mgt                43 non-null     category
+ 23  informal_dep_mgt              43 non-null     category
+ 24  evidence_testing              22 non-null     category
+ 25  downloadable                  43 non-null     category
+ 26  interactive_online            43 non-null     category
+dtypes: category(15), float64(1), object(11)
+memory usage: 6.7+ KB
 </pre></div>
 </div>
 </div>
@@ -845,52 +855,52 @@ memory usage: 6.2+ KB
   <tbody>
     <tr>
       <th>readme</th>
-      <td>18</td>
-      <td>6</td>
-      <td>69.2</td>
-      <td>46.2</td>
+      <td>20</td>
+      <td>7</td>
+      <td>71.4</td>
+      <td>46.7</td>
     </tr>
     <tr>
       <th>steps_run</th>
-      <td>10</td>
+      <td>12</td>
       <td>3</td>
-      <td>38.5</td>
-      <td>23.1</td>
+      <td>42.9</td>
+      <td>20.0</td>
     </tr>
     <tr>
       <th>formal_dep_mgt</th>
-      <td>6</td>
+      <td>7</td>
       <td>0</td>
-      <td>23.1</td>
+      <td>25.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>informal_dep_mgt</th>
-      <td>5</td>
+      <td>6</td>
       <td>8</td>
-      <td>19.2</td>
-      <td>61.5</td>
+      <td>21.4</td>
+      <td>53.3</td>
     </tr>
     <tr>
       <th>evidence_testing</th>
       <td>3</td>
       <td>0</td>
-      <td>11.5</td>
+      <td>10.7</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>downloadable</th>
-      <td>26</td>
-      <td>9</td>
+      <td>28</td>
+      <td>10</td>
       <td>100.0</td>
-      <td>69.2</td>
+      <td>66.7</td>
     </tr>
     <tr>
       <th>interactive_online</th>
-      <td>3</td>
-      <td>5</td>
-      <td>11.5</td>
-      <td>38.5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>14.3</td>
+      <td>40.0</td>
     </tr>
   </tbody>
 </table>
@@ -910,7 +920,7 @@ memory usage: 6.2+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -952,7 +962,7 @@ memory usage: 6.2+ KB
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
+      <th>31</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -960,7 +970,7 @@ memory usage: 6.2+ KB
       <td>AnyLogic Cloud</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>33</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -968,7 +978,7 @@ memory usage: 6.2+ KB
       <td>AnyLogic Cloud</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>37</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -976,7 +986,15 @@ memory usage: 6.2+ KB
       <td>Anylogic Cloud</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>38</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Anylogic Cloud</td>
+    </tr>
+    <tr>
+      <th>41</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1002,7 +1020,7 @@ memory usage: 6.2+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -1014,12 +1032,13 @@ memory usage: 6.2+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15    R Simmer
-19    R Simmer
-20           R
-25           R
-30       SimPy
-34       SimPy
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2     R Simmer
+6     R Simmer
+7            R
+12           R
+17       SimPy
+21       SimPy
+27       SimPy
 Name: sim_software, dtype: object
 </pre></div>
 </div>

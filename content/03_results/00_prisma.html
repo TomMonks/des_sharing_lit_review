@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Dataset pre-processing" href="01_preprocessing.html" />
-    <link rel="prev" title="Best Practice Audit" href="../02_methods/03_quality_audit.html" />
+    <link rel="prev" title="Analysis environment" href="../02_methods/05_analysis_env.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -132,13 +132,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/02_extraction.html">
-   Review and data extraction process summary
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
+   Inclusion criteria
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_methods/03_quality_audit.html">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
+   Data Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
    Best Practice Audit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
+   Analysis environment
   </a>
  </li>
 </ul>
@@ -160,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_sharing_hl_summary.html">
-   A high level summary of sharing of models
+   Main summary
   </a>
  </li>
  <li class="toctree-l1">
@@ -630,6 +640,14 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
     <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/share_sim_data_extract.zip&#39;</span>
+
+<span class="c1"># pre-screnning file locations</span>
+<span class="n">POST_FIX</span> <span class="o">=</span> <span class="s1">&#39;../../data/pre_screening/&#39;</span>
+<span class="n">SCOPUS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;2019&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2019.zip&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;2020&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2020.zip&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;2021&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2021.zip&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;2022&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2022_part.zip&#39;</span><span class="p">}</span>
+<span class="n">PUBMED</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;pubmed_part.zip&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -753,6 +771,31 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_from_scopus_after_dedup</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the number from scopus after deduplication.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">yr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2023</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">SCOPUS</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">yr</span><span class="p">)]))</span>
+    <span class="k">return</span> <span class="n">total</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_from_pubmed_before_dedup</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the number from scopus BEFORE deduplication.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PUBMED</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;prisma.dot&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Create PRISMA flow diagram for literature review</span>
@@ -807,7 +850,8 @@ title="Print to PDF"
     <span class="c1"># excluded reasons</span>
     <span class="n">node7_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Studies excluded:</span><span class="se">\n</span><span class="s2">&quot;</span> \
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node7</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">node7_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
     <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">([</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="s1">&#39;AC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;CE&#39;</span><span class="p">,</span> <span class="s1">&#39;EF&#39;</span><span class="p">,</span> <span class="s1">&#39;EG&#39;</span><span class="p">,</span> <span class="s1">&#39;GH&#39;</span><span class="p">,</span> <span class="s1">&#39;GI&#39;</span><span class="p">])</span>
@@ -851,14 +895,20 @@ title="Print to PDF"
 <p>The constant below represent values obtained from searching Scopus and Pubmed and cannot be generated from our dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_SCOPUS</span> <span class="o">=</span> <span class="mi">534</span>
-<span class="n">N_PUBMED</span> <span class="o">=</span> <span class="mi">407</span>
-<span class="n">DUPLICATES</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">208</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># duplicates identified and removed via zotero</span>
+<span class="n">SCOPUS_DUPLICATES</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">30</span> <span class="c1"># when pooled with pubmed dataset</span>
+<span class="n">PUBMED_DUPLICATES</span> <span class="o">=</span> <span class="mi">208</span>  <span class="c1"># when records pooled with scopus dataset</span>
+<span class="n">DUPLICATES</span> <span class="o">=</span> <span class="n">SCOPUS_DUPLICATES</span> <span class="o">+</span> <span class="n">PUBMED_DUPLICATES</span>
+
+<span class="n">N_SCOPUS</span> <span class="o">=</span> <span class="n">returned_from_scopus_after_dedup</span><span class="p">()</span> <span class="o">+</span> <span class="n">SCOPUS_DUPLICATES</span> <span class="c1">#534</span>
+<span class="n">N_PUBMED</span> <span class="o">=</span> <span class="n">returned_from_pubmed_before_dedup</span><span class="p">()</span>
+
 <span class="n">N_TITLE_ABSTRACTS</span> <span class="o">=</span> <span class="n">N_SCOPUS</span> <span class="o">+</span> <span class="n">N_PUBMED</span> <span class="o">-</span> <span class="n">DUPLICATES</span>
 <span class="n">N_ABSTRACTS_EXCLUDED</span> <span class="o">=</span> <span class="mi">131</span> <span class="o">+</span> <span class="p">(</span><span class="mi">199</span> <span class="o">-</span> <span class="mi">83</span><span class="p">)</span>
 
 <span class="n">EXCLUDED_REASON_1</span> <span class="o">=</span> <span class="s2">&quot;Not English&quot;</span>
 <span class="n">EXCLUDED_REASON_2</span> <span class="o">=</span> <span class="s2">&quot;Not DES&quot;</span>
+<span class="n">EXCLUDED_REASON_3</span> <span class="o">=</span> <span class="s2">&quot;Not Health&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -878,8 +928,10 @@ title="Print to PDF"
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_1</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_2</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_3</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_1</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_2</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_3</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">models_with_code</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">models_with_code</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> <span class="o">/</span> \
                          <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> \
@@ -896,7 +948,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/00_prisma_21_0.svg" src="../../_images/00_prisma_21_0.svg" /></div>
+<img alt="../../_images/00_prisma_23_0.svg" src="../../_images/00_prisma_23_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -938,11 +990,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../02_methods/03_quality_audit.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../02_methods/05_analysis_env.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Best Practice Audit</p>
+            <p class="prev-next-title">Analysis environment</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="01_preprocessing.html" title="next page">
