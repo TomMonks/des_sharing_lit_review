@@ -28,5 +28,11 @@ parts:
 - caption: Testing
   chapters:
   - file: content/03_results/data_testing_bkp
+- caption: PRISMA reporting checklist
+  chapters:
+  - file: content/04_prisma/01_title
+  - file: content/04_prisma/02_abstract
+  - file: content/04_prisma/03_intro
+  - file: content/04_prisma/04_methods
 
 
