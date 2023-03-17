@@ -35,5 +35,7 @@ parts:
   - file: content/04_prisma/03_intro
   - file: content/04_prisma/04_methods
   - file: content/04_prisma/05_results
+  - file: content/04_prisma/06_discussion
+  - file: content/04_prisma/07_other
 
 
