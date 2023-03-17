@@ -1,4 +1,4 @@
-## Review and data extraction process summary
+# Review and data extraction process summary
 
 Where possible we always viewed papers at the publishers' site so we could identify, download, and access any supplementary material or information that may not be directly included in the article PDF. If an article built on and cited previously published work/models we followed up the paper in attempt to complete data extraction. Any uncertainty was managed by dual review and an additional proportion of papers were reviewed by both authors. \cite{janssen2020code} handled "model code is available upon request" by emailing authors directly. Given the low response rate found in their study ($<$ 1\%) we chose not to follow up in this study.
 
