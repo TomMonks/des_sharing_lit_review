@@ -56,7 +56,8 @@ All dependencies can be found in [`binder/environment.yml`]() and are pulled fro
 ├── content
 │   ├── 01_intro
 │   ├── 02_methods
-│   └── 03_results
+│   ├── 03_results
+│   └── 04_prisma
 ├── data
 ├── LICENSE
 ├── README.md
@@ -64,7 +65,7 @@ All dependencies can be found in [`binder/environment.yml`]() and are pulled fro
 ```
 * `binder` - contains the environment.yml file (des_review) and all dependencies managed via conda
 * `_config.yml` - configuration of our Jupyter Book
-* `content` - the analysis notebooks and markdown arranged by introductory, methods and results chapters.
+* `content` - the analysis notebooks and markdown arranged by introductory, methods, results, and PRISMA reporting checklist chapters.
 * `data` - directory containing data files used by analysis notebooks
 * `LICENSE` - details of the MIT permissive license of this work.
 * `README` - what you are reading now!
