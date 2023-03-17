@@ -7,8 +7,10 @@ parts:
 - caption: Methods
   chapters:
   - file: content/02_methods/01_search_strategy  
-  - file: content/02_methods/02_extraction
-  - file: content/02_methods/03_quality_audit
+  - file: content/02_methods/02_inclusion
+  - file: content/02_methods/03_extraction
+  - file: content/02_methods/04_quality_audit
+  - file: content/02_methods/05_analysis_env
 - caption: Results - Main Review
   chapters:
   - file: content/03_results/00_prisma
