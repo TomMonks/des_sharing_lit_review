@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Search Strategy &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    <title>Results &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Study selection" href="02_inclusion.html" />
-    <link rel="prev" title="License" href="../01_intro/02_license.html" />
+    <link rel="prev" title="Methods" href="04_methods.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -125,29 +124,29 @@ const thebe_selector_output = ".output, .cell_output"
   Methods
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/01_search_strategy.html">
    Search Strategy
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02_inclusion.html">
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
    Study selection
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_extraction.html">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
    Data Extraction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04_quality_audit.html">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
    Best Practice Audit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05_analysis_env.html">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
    Analysis environment
   </a>
  </li>
@@ -233,29 +232,29 @@ const thebe_selector_output = ".output, .cell_output"
   PRISMA reporting checklist
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../04_prisma/01_title.html">
+  <a class="reference internal" href="01_title.html">
    Title
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../04_prisma/02_abstract.html">
+  <a class="reference internal" href="02_abstract.html">
    Abstract
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../04_prisma/03_intro.html">
+  <a class="reference internal" href="03_intro.html">
    Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../04_prisma/04_methods.html">
+  <a class="reference internal" href="04_methods.html">
    Methods
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04_prisma/05_results.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Results
   </a>
  </li>
@@ -349,7 +348,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/02_methods/01_search_strategy.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/04_prisma/05_results.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -377,7 +376,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/02_methods/01_search_strategy.md"
+        <a href="../../_sources/content/04_prisma/05_results.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -437,23 +436,72 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scopus-search-string">
-   Scopus search string
+  <a class="reference internal nav-link" href="#study-selection">
+   16. Study selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-prisma-flow-diagram">
+     16.a PRISMA flow diagram
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-cite-studies-that-appear-to-meet-inclusion-criteria-but-were-excluded">
+     16b. Cite studies that appear to meet inclusion criteria, but were excluded.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#study-characteristics">
+   17. Study characteristics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pubmed-search-string">
-   Pubmed search string
+  <a class="reference internal nav-link" href="#risk-of-bias-in-studies">
+   18. Risk of bias in studies
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acm-digital-library-search-string">
-   ACM Digital Library search string
+  <a class="reference internal nav-link" href="#results-of-individual-studies">
+   19. Results of individual studies
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#web-of-science-search-string">
-   Web of Science search string
+  <a class="reference internal nav-link" href="#results-of-syntheses">
+   20. Results of syntheses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-briefly-summarise-characteristics-for-each-synthesis">
+     20a. Briefly summarise characteristics for each synthesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-present-all-statistical-syntheses">
+     20b. Present all statistical syntheses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-heterogeneity-results">
+     20c. Heterogeneity results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-sensitivity-analyses">
+     20d. Sensitivity analyses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reporting-biases">
+   21. Reporting biases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#certainty-of-evidence">
+   22 Certainty of Evidence
   </a>
  </li>
 </ul>
@@ -465,7 +513,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Search Strategy</h1>
+                <h1>Results</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -476,23 +524,72 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scopus-search-string">
-   Scopus search string
+  <a class="reference internal nav-link" href="#study-selection">
+   16. Study selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-prisma-flow-diagram">
+     16.a PRISMA flow diagram
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-cite-studies-that-appear-to-meet-inclusion-criteria-but-were-excluded">
+     16b. Cite studies that appear to meet inclusion criteria, but were excluded.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#study-characteristics">
+   17. Study characteristics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pubmed-search-string">
-   Pubmed search string
+  <a class="reference internal nav-link" href="#risk-of-bias-in-studies">
+   18. Risk of bias in studies
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acm-digital-library-search-string">
-   ACM Digital Library search string
+  <a class="reference internal nav-link" href="#results-of-individual-studies">
+   19. Results of individual studies
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#web-of-science-search-string">
-   Web of Science search string
+  <a class="reference internal nav-link" href="#results-of-syntheses">
+   20. Results of syntheses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-briefly-summarise-characteristics-for-each-synthesis">
+     20a. Briefly summarise characteristics for each synthesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-present-all-statistical-syntheses">
+     20b. Present all statistical syntheses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-heterogeneity-results">
+     20c. Heterogeneity results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-sensitivity-analyses">
+     20d. Sensitivity analyses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reporting-biases">
+   21. Reporting biases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#certainty-of-evidence">
+   22 Certainty of Evidence
   </a>
  </li>
 </ul>
@@ -505,43 +602,91 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="search-strategy">
-<h1>Search Strategy<a class="headerlink" href="#search-strategy" title="Permalink to this headline">#</a></h1>
-<p>The databases Scopus, PubMed Central, ACM digital library, and Web of Science (WoS) were searched to retrieve articles on DES applications in healthcare from 2019 to 2022. Scopus has previously demonstrated wide coverage for systematic reviews of modelling and simulation in multiple domains, including healthcare. We searched PubMed using general terms rather than MeSH Terms, which have been found to produce large numbers of irrelevant results for operations research and operations management papers. The PubMed search allowed inclusion of healthcare simulation applications published in healthcare journals.</p>
-<p>The key search terms included: “health”, “healthcare”, or “patient”, and “discrete”, “event”, and “simulation”, in the title, abstract, and/or keywords. Search years were limited to 2019-2022, and Scopus terms were limited to articles, excluding letters, notes, editorials, conference reviews, short surveys, data papers, and erratums.</p>
-<p>We limited our search years to allow time for the March, 2018 publication of the STRESS guidelines to take effect. STRESS includes the requirement to include a code access statement (Section 6).  This also follows publication of an Open Science checklist , and the February, 2019 release of \emph{The Turing Way}, a guide to reproducible research published by the UK’s National Institute for Data Science.</p>
-<section id="scopus-search-string">
-<h2>Scopus search string<a class="headerlink" href="#scopus-search-string" title="Permalink to this headline">#</a></h2>
-<p>Scopus search strategy for Covid-19 simulation models 2020/22.  In the following search string we replaced <code class="docutils literal notranslate"><span class="pre">XX</span></code> with 19-22 to vary the year of search.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TITLE</span><span class="o">-</span><span class="n">ABS</span><span class="o">-</span><span class="n">KEY</span> <span class="p">(((</span> <span class="n">patient</span> <span class="n">AND</span> <span class="n">discrete</span> <span class="n">AND</span> <span class="n">event</span> <span class="n">AND</span> <span class="n">simulation</span> <span class="p">))</span> <span class="n">OR</span> <span class="p">(</span> <span class="n">health</span> <span class="n">AND</span> <span class="n">discrete</span> <span class="n">AND</span> <span class="n">event</span> <span class="n">AND</span> <span class="n">simulation</span> <span class="p">)</span> <span class="n">OR</span> <span class="p">(</span> <span class="n">healthcare</span> <span class="n">AND</span> <span class="n">discrete</span> <span class="n">AND</span> <span class="n">event</span> <span class="n">AND</span> <span class="n">simulation</span> <span class="p">)</span> <span class="p">)</span> <span class="n">AND</span> <span class="p">(</span> <span class="n">LIMIT</span><span class="o">-</span><span class="n">TO</span> <span class="p">(</span> <span class="n">PUBSTAGE</span><span class="p">,</span><span class="s2">&quot;final&quot;</span> <span class="p">)</span> <span class="p">)</span> <span class="n">AND</span> <span class="p">(</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;le&quot;</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;no&quot;</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;cr&quot;</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;ed&quot;</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;sh&quot;</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;dp&quot;</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">EXCLUDE</span> <span class="p">(</span> <span class="n">DOCTYPE</span><span class="p">,</span><span class="s2">&quot;er&quot;</span> <span class="p">)</span> <span class="p">)</span> <span class="n">AND</span> <span class="p">(</span> <span class="n">LIMIT</span><span class="o">-</span><span class="n">TO</span> <span class="p">(</span> <span class="n">PUBYEAR</span><span class="p">,</span><span class="mi">20</span><span class="n">XX</span><span class="p">)</span> <span class="p">)</span> 
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="results">
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h1>
+<section id="study-selection">
+<h2>16. Study selection<a class="headerlink" href="#study-selection" title="Permalink to this headline">#</a></h2>
+<section id="a-prisma-flow-diagram">
+<h3>16.a PRISMA flow diagram<a class="headerlink" href="#a-prisma-flow-diagram" title="Permalink to this headline">#</a></h3>
+<div class="seealso admonition">
+<p class="admonition-title">COMPLETED</p>
+<p>We provide a reproducible PRISMA flow diagram. This can be viewed in the PRISMA <a class="reference internal" href="../03_results/00_prisma.html"><span class="doc std std-doc">notebook</span></a></p>
 </div>
 </section>
-<section id="pubmed-search-string">
-<h2>Pubmed search string<a class="headerlink" href="#pubmed-search-string" title="Permalink to this headline">#</a></h2>
-<p>The pubmed search string was as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">(((</span><span class="n">discrete</span><span class="p">[</span><span class="n">Title</span><span class="o">/</span><span class="n">Abstract</span><span class="p">])</span> <span class="n">AND</span> <span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="n">Title</span><span class="o">/</span><span class="n">Abstract</span><span class="p">]))</span> <span class="n">AND</span> <span class="p">(</span><span class="n">simulation</span><span class="p">[</span><span class="n">Title</span><span class="o">/</span><span class="n">Abstract</span><span class="p">]))</span> <span class="n">AND</span> <span class="p">((</span><span class="s2">&quot;2019&quot;</span><span class="p">[</span><span class="n">Date</span> <span class="o">-</span> <span class="n">Publication</span><span class="p">]</span> <span class="p">:</span> <span class="s2">&quot;2022&quot;</span><span class="p">[</span><span class="n">Date</span> <span class="o">-</span> <span class="n">Publication</span><span class="p">]))</span>
-</pre></div>
+<section id="b-cite-studies-that-appear-to-meet-inclusion-criteria-but-were-excluded">
+<h3>16b. Cite studies that appear to meet inclusion criteria, but were excluded.<a class="headerlink" href="#b-cite-studies-that-appear-to-meet-inclusion-criteria-but-were-excluded" title="Permalink to this headline">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>**To discuss: ** How best to do this.  We reasons for exclusion stored.</p>
 </div>
 </section>
-<section id="acm-digital-library-search-string">
-<h2>ACM Digital Library search string<a class="headerlink" href="#acm-digital-library-search-string" title="Permalink to this headline">#</a></h2>
-<p>The ACM Digital Library query string was as follows.  These results were filtered for e-publication between Jan 2019 and Dec 2023.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Title</span><span class="p">:(</span><span class="n">patient</span> <span class="n">health</span><span class="o">*</span><span class="p">)</span> <span class="n">AND</span> <span class="n">Title</span><span class="p">:(</span><span class="s2">&quot;discrete event simulation&quot;</span><span class="p">))</span> <span class="n">OR</span> <span class="p">(</span><span class="n">Abstract</span><span class="p">:(</span><span class="n">patient</span> <span class="n">health</span><span class="o">*</span><span class="p">)</span> <span class="n">AND</span> <span class="n">Abstract</span><span class="p">:(</span><span class="s2">&quot;discrete event simulation&quot;</span><span class="p">))</span> <span class="n">OR</span> <span class="p">(</span><span class="n">Keyword</span><span class="p">:(</span><span class="n">patient</span> <span class="n">health</span><span class="o">*</span><span class="p">)</span> <span class="n">AND</span> <span class="n">Keyword</span><span class="p">:(</span><span class="s2">&quot;discrete event simulation&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Full query syntax with filter applied</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">Title</span><span class="p">:((</span><span class="s2">&quot;discrete event simulation&quot;</span><span class="p">))</span> <span class="n">OR</span> <span class="p">(</span><span class="n">Abstract</span><span class="p">:(</span><span class="n">patient</span> <span class="n">health</span><span class="o">*</span><span class="p">))</span> <span class="n">AND</span> <span class="n">Abstract</span><span class="p">:((</span><span class="s2">&quot;discrete event simulation&quot;</span><span class="p">))</span> <span class="n">OR</span> <span class="p">(</span><span class="n">Keyword</span><span class="p">:(</span><span class="n">patient</span> <span class="n">health</span><span class="o">*</span><span class="p">))</span> <span class="n">AND</span> <span class="n">Keyword</span><span class="p">:(</span><span class="s2">&quot;discrete event simulation&quot;</span><span class="p">))}</span> <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">E</span><span class="o">-</span><span class="n">Publication</span> <span class="n">Date</span><span class="p">:</span> <span class="p">(</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">2019</span> <span class="n">TO</span> <span class="mi">12</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">2022</span><span class="p">)},{</span><span class="n">ACM</span> <span class="n">Content</span><span class="p">:</span> <span class="n">DL</span><span class="p">}</span>
-</pre></div>
+</section>
+<section id="study-characteristics">
+<h2>17. Study characteristics<a class="headerlink" href="#study-characteristics" title="Permalink to this headline">#</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>**To discuss: ** How best to do this.  Prisma: cite each included study and present its characteristics. Limit to the best practice audit?</p>
 </div>
 </section>
-<section id="web-of-science-search-string">
-<h2>Web of Science search string<a class="headerlink" href="#web-of-science-search-string" title="Permalink to this headline">#</a></h2>
-<p>We used the ALL keyword to try and broaden the search in WoS as much as possible to pick up any papers we may have missed across SCOPUS and PubMed.  We used the following query string with index data limited between 2019-01-01 and 2022-12-31.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(((</span><span class="n">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">discrete</span> <span class="n">AND</span> <span class="n">event</span> <span class="n">AND</span> <span class="n">simulation</span> <span class="n">AND</span> <span class="s2">&quot;health*&quot;</span><span class="p">)</span> <span class="n">OR</span> <span class="n">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">discrete</span> <span class="n">AND</span> <span class="n">event</span> <span class="n">AND</span> <span class="n">simulation</span> <span class="n">AND</span> <span class="s2">&quot;patient&quot;</span><span class="p">))</span> <span class="n">NOT</span> <span class="n">DT</span><span class="o">=</span><span class="p">(</span><span class="n">Review</span> <span class="n">OR</span> <span class="n">Meeting</span> <span class="n">Abstract</span> <span class="n">OR</span> <span class="n">Editorial</span> <span class="n">Material</span> <span class="n">OR</span> <span class="n">Retraction</span><span class="p">)))</span>
-</pre></div>
+<section id="risk-of-bias-in-studies">
+<h2>18. Risk of bias in studies<a class="headerlink" href="#risk-of-bias-in-studies" title="Permalink to this headline">#</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>Not applicable? <strong>To discuss</strong></p>
 </div>
-<p>To view a link to the live results of the WoS search is <a class="reference external" href="https://www.webofscience.com/wos/woscc/summary/157c2013-d9c6-479b-b849-e26fbe6410cf-79b6476a/relevance/1">here</a></p>
+</section>
+<section id="results-of-individual-studies">
+<h2>19. Results of individual studies<a class="headerlink" href="#results-of-individual-studies" title="Permalink to this headline">#</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>Not applicable? <strong>To discuss</strong>  PRISMA: For all outcomes, present, for each study: (a) summary statistics for each group (where appropriate) and (b) an effect estimate and its
+precision (e.g. confidence/credible interval), ideally using structured tables or plots</p>
+</div>
+</section>
+<section id="results-of-syntheses">
+<h2>20. Results of syntheses<a class="headerlink" href="#results-of-syntheses" title="Permalink to this headline">#</a></h2>
+<section id="a-briefly-summarise-characteristics-for-each-synthesis">
+<h3>20a. Briefly summarise characteristics for each synthesis<a class="headerlink" href="#a-briefly-summarise-characteristics-for-each-synthesis" title="Permalink to this headline">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>Done? To discuss.</p>
+</div>
+</section>
+<section id="b-present-all-statistical-syntheses">
+<h3>20b. Present all statistical syntheses<a class="headerlink" href="#b-present-all-statistical-syntheses" title="Permalink to this headline">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>Done. Just need to link. to result sections.</p>
+</div>
+</section>
+<section id="c-heterogeneity-results">
+<h3>20c. Heterogeneity results<a class="headerlink" href="#c-heterogeneity-results" title="Permalink to this headline">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>Done. Just need to link split by publication type.</p>
+</div>
+</section>
+<section id="d-sensitivity-analyses">
+<h3>20d. Sensitivity analyses<a class="headerlink" href="#d-sensitivity-analyses" title="Permalink to this headline">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">INCOMPLETE</p>
+<p>Done. Just need to link split by year analysis.</p>
+</div>
+</section>
+</section>
+<section id="reporting-biases">
+<h2>21. Reporting biases<a class="headerlink" href="#reporting-biases" title="Permalink to this headline">#</a></h2>
+<div class="error admonition">
+<p class="admonition-title">NOT APPLICABLE</p>
+<p>This study does not estimate an effect.</p>
+</div>
+</section>
+<section id="certainty-of-evidence">
+<h2>22 Certainty of Evidence<a class="headerlink" href="#certainty-of-evidence" title="Permalink to this headline">#</a></h2>
+<div class="error admonition">
+<p class="admonition-title">NOT APPLICABLE</p>
+<p>This study does not estimate an effect.</p>
+</div>
 </section>
 </section>
 
@@ -558,7 +703,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/02_methods"
+            path: "./content/04_prisma"
         },
         predefinedOutput: true
     }
@@ -572,19 +717,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../01_intro/02_license.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_methods.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">License</p>
+            <p class="prev-next-title">Methods</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="02_inclusion.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Study selection</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

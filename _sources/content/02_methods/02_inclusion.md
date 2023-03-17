@@ -1,4 +1,4 @@
-# Inclusion criteria
+# Study selection
 
 ## Identifying duplicate records
 
