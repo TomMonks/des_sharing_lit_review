@@ -25,6 +25,13 @@ parts:
   - file: content/03_results/05_bpa_open_research
   - file: content/03_results/06_bpa_execution
   - file: content/03_results/07_bpa_summary
+- caption: Discussion
+  chapters:
+  - file: content/04_discussion/01_summary
+  - file: content/04_discussion/02_additional_observations
+  - file: content/04_discussion/03_implications
+  - file: content/04_discussion/04_strength_limit
+  - file: content/04_discussion/05_conclusions
 - caption: Testing
   chapters:
   - file: content/03_results/data_testing_bkp
