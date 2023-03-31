@@ -2,7 +2,8 @@
 
 ## Summary of main results
 
-We found that a minority (n=43; 9%) of the 485 papers reviewed shared a simulation model either as a code or visual interactive simulation file. The trend is that sharing has increased during the study period: increasing from ~4% in 2019 to 11% in 2022.  Studies published in journal articles were also more likely to share their model (10%) compared to full conference papers (4%).  This might reflect that conference papers were work in progress and authors were not ready to share their work.  Although we note that in our one model shared via a Winter Simulation Conference paper rated very high in our quality audit (Anaganoustou et al). Regardless of the way the split is calculated sharing of health DES models does not match the findings of Jansson et al (2020) where 18% of studies shared Agent Based Simulation models in 2018. It appears that four years later DES models in health are shared far less often than ABS models in general. 
+We found that a minority (n=43; 9%) of the 485 papers reviewed shared a simulation model either as a code or visual interactive simulation file. The trend is that sharing has increased during the study period: increasing from ~4% in 2019 to 11% in 2022.  Studies published in journal articles were also more likely to share their model (10%) compared to full conference papers (4%).  This might reflect that conference papers were work in progress and authors were not ready to share their work.  Although we note that in our one model shared via a Winter Simulation Conference paper rated very high in our quality audit {cite}`Anagnostou_2022`. Regardless of the way the split is calculated sharing of health DES models does not match the findings of 
+{cite:p}`janssen2020code` where 18% of studies shared Agent Based Simulation models in 2018. It appears that four years later DES models in health are shared far less often than ABS models in general. 
 
 Of the 43 models shared the majority were implemented using a FOSS simulation tool such as R Simmer. This is perhaps not surprising given the freedom FOSS licenses grant authors and other researchers or health care services that may opt to reuse the work.  While the FOSS finding is positive, we also found that only a minority (~30%) of models aiming to support health services care for patient and society tackle Covid-19 were shared.  
 
@@ -32,3 +33,9 @@ In general, we found that only a minority of DES models are stored with any form
 Dependency management was in general of a poor quality or not used at all.  Only 25% of code based simulation models had any formal dependency management; while VIM based models fared slightly better informally by stating the version of the software used. This latter result is perhaps due to the simplicity of stating which version of the commercial 'of the shelf' DES software you are using versus a complex software environment for code based DES model. Although we note that in many cases authors did not even state the version of R or Python they were using.
 
 Surprisingly, we found that several of the VIM based DES models shared were not downloadable - even when an author stated it could be downloaded. These were all hosted on cloud based services where the model was interactive and executable to some extent.  We found that some models shared through the same platforms were downloadable, so a plausible explanation is that that this was just a setting that was missed by study authors.
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
