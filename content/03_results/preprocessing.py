@@ -99,7 +99,14 @@ def load_clean_dataset(file_name):
     
     recoded_types = {'item_type': {'bookSection':'book'},
                      'reporting_guidelines_mention': {'ISPOR-SMDM': 'ISPOR',
-                                                      '0': 'None'}}
+                                                      '0': 'None'},
+                     'sim_software': {'Anylogic': 'AnyLogic',
+                                      'Treeage': 'TreeAge',
+                                      'Matlab Simulink':'MATLAB',
+                                      'Matlab SimEvents':'MATLAB',
+                                      'Matlab':'MATLAB',
+                                      'MatLab SimEvents':'MATLAB',
+                                      'MatLab':'MATLAB'}}
 
     clean = (pd.read_csv(file_name)
              .pipe(trim_columns)
