@@ -128,8 +128,9 @@ def load_clean_bpa(file_name):
     1.  Replaces space in the column names with "_" and renameds model doi col.
     2.  Converts all column names to lower case
     3.  Drop columns not needed for analysis
-    4.  Convert relevant cols to Categorical data type
-    5.  Performs remaining type conversions.
+    4.  Recode values in Janssen method columns
+    5.  Convert relevant cols to Categorical data type
+    6.  Performs remaining type conversions.
     '''
     
     labels = {'DOI.1': 'model_has_doi',
@@ -137,10 +138,18 @@ def load_clean_bpa(file_name):
               'Publication Year': 'pub_yr',
               'Publication Title': 'pub_title'}
     
+    recoded = {'model_repo': {'Github':'GitHub'},
+               'model_journal_supp': {'R model in word file':'Word doc'},
+               'model_personal_org': {'personex': 'Organisational website',
+                                      'Personex': 'Organisational website',
+                'https://resp.core.ubc.ca/research/Specific_Projects/EPIC':
+                 'Organisational website'}}
+    
     clean = (pd.read_csv(file_name)
                .rename(columns=labels)
                .pipe(cols_to_lower)
                .pipe(drop_columns, COLS_TO_DROP)
+               .replace(recoded)
                .assign(model_format=lambda x: pd.Categorical(x['model_format']),
                        reporting_guidelines_mention=lambda x: 
                            pd.Categorical(x['reporting_guidelines_mention']),
@@ -166,3 +175,4 @@ def load_clean_bpa(file_name):
                            pd.Categorical(x['interactive_online']))
             )
     return clean
+        

@@ -22,6 +22,7 @@ parts:
 - caption: Results - Best Practice Audit
   chapters:
   - file: content/03_results/04_bpa_preprocessing
+  - file: content/03_results/07a_jansson_sharing_method
   - file: content/03_results/05_bpa_open_research
   - file: content/03_results/06_bpa_execution
   - file: content/03_results/07_bpa_summary
