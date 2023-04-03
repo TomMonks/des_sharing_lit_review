@@ -1,0 +1,1918 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Model archiving &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Open Research" href="05_bpa_open_research.html" />
+    <link rel="prev" title="Preprocessing" href="04_bpa_preprocessing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Model and code sharing practices in healthcare discrete-event simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../01_welcome.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/02_license.html">
+   License
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/01_search_strategy.html">
+   Search Strategy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
+   Study selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
+   Data Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
+   Best Practice Audit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
+   Analysis environment
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Main Review
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_prisma.html">
+   Prisma Diagram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_preprocessing.html">
+   Dataset pre-processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_sharing_hl_summary.html">
+   Main summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_article_type.html">
+   Sharing by article type
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_reporting_guidelines.html">
+   Use of reporting guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_year.html">
+   Year of publication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Best Practice Audit
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_bpa_preprocessing.html">
+   Preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Model archiving
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_bpa_open_research.html">
+   Open Research
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_bpa_execution.html">
+   Model execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_bpa_summary.html">
+   Overall summary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Discussion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/01_summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/02_additional_observations.html">
+   Additional observations on sharing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/03_implications.html">
+   Implications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/04_strength_limit.html">
+   Strengths and Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/05_conclusions.html">
+   Conclusions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Testing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_testing_bkp.html">
+   Data Testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  PRISMA reporting checklist
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/01_title.html">
+   Title
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/02_abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/03_intro.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/04_methods.html">
+   Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/05_results.html">
+   Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/06_discussion.html">
+   Discussion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/07_other.html">
+   Other information
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/TomMonks/des_sharing_lit_review/main?urlpath=lab/tree/content/03_results/07a_jansson_sharing_method.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/TomMonks/des_sharing_lit_review"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/03_results/07a_jansson_sharing_method.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/03_results/07a_jansson_sharing_method.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-used-in-analysis">
+   Data used in analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   1. Imports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard">
+     1.1. Standard
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocessing">
+     1.2 Preprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   2. Constants
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-functions">
+   3. Analysis functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-and-inspect-dataset">
+   4. Load and inspect dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   5. Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overall-numeric-summary">
+     5.1 Overall numeric summary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-science-archives">
+     5.2 Open science archives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-repositories">
+     5.2 Model repositories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format-of-models-stored-in-journal-supplmentary-material">
+     5.3 Format of models stored in journal supplmentary material
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-and-organisational-websites">
+     5.4 Personal and organisational websites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#platform">
+     5.5 Platform
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overall-summary-table">
+     5.7 Overall summary table
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modify-jansson-table-to-indicate-combinations">
+     5.8 Modify Jansson table to indicate combinations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-table-as-latex">
+   6. Output table as LaTeX
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Model archiving</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-used-in-analysis">
+   Data used in analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   1. Imports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard">
+     1.1. Standard
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preprocessing">
+     1.2 Preprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants">
+   2. Constants
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-functions">
+   3. Analysis functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-and-inspect-dataset">
+   4. Load and inspect dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   5. Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overall-numeric-summary">
+     5.1 Overall numeric summary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-science-archives">
+     5.2 Open science archives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-repositories">
+     5.2 Model repositories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format-of-models-stored-in-journal-supplmentary-material">
+     5.3 Format of models stored in journal supplmentary material
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-and-organisational-websites">
+     5.4 Personal and organisational websites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#platform">
+     5.5 Platform
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overall-summary-table">
+     5.7 Overall summary table
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modify-jansson-table-to-indicate-combinations">
+     5.8 Modify Jansson table to indicate combinations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-table-as-latex">
+   6. Output table as LaTeX
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="model-archiving">
+<h1>Model archiving<a class="headerlink" href="#model-archiving" title="Permalink to this headline">#</a></h1>
+<p>This notebook provides an summary of <strong>how</strong> DES models were shared.  This uses Jansson et al (2020) methodology to classify model archiving. The summary breaks into the following categories: open science archives, online code repositories, personal or organisation websites, or an online platform.  This is further summarise by models developed via code based tools or Visual Interative Modelling (VIM) software.  The latter is typically a single file.</p>
+<section id="data-used-in-analysis">
+<h2>Data used in analysis<a class="headerlink" href="#data-used-in-analysis" title="Permalink to this headline">#</a></h2>
+<p>The dataset is a subset of the main review - limited to models shared.  The type of model shared is coded as <strong>Visual Interactive Modelling (VIM)</strong> based (e.g Anylogic, Simul8, Arena) versus <strong>CODE</strong> (e.g. Matlab, Python, SimPy, Java, R Simmer).</p>
+<blockquote>
+<div><p>The data can be found here: <a class="reference external" href="https://raw.githubusercontent.com/TomMonks/des_sharing_lit_review/main/data/bp_audit.zip">https://raw.githubusercontent.com/TomMonks/des_sharing_lit_review/main/data/bp_audit.zip</a></p>
+</div></blockquote>
+</section>
+<section id="imports">
+<h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<section id="standard">
+<h3>1.1. Standard<a class="headerlink" href="#standard" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing">
+<h3>1.2 Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">load_clean_bpa</span><span class="p">,</span> <span class="n">drop_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="constants">
+<h2>2. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/bp_audit.zip&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis-functions">
+<h2>3. Analysis functions<a class="headerlink" href="#analysis-functions" title="Permalink to this headline">#</a></h2>
+<p>A number of simple functions to conduct the analysis and format output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_counts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    For a specified column return a Dataframe containing two columns</span>
+<span class="sd">    methods and counts.  The methods are unique and the n represents</span>
+<span class="sd">    the number of instances in the dataset.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The pandas dataframe containing the cohort of interest</span>
+<span class="sd">        </span>
+<span class="sd">    columns: str</span>
+<span class="sd">        The column containing the values to count.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame </span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()][</span><span class="n">column</span><span class="p">]</span>
+    <span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">unique_elements</span><span class="p">),</span> \
+                                        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">counts_elements</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">unique_elements</span><span class="p">,</span> <span class="n">counts_elements</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">results</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_model_format_summary</span><span class="p">(</span><span class="n">model_format</span><span class="p">,</span> <span class="n">df_code</span><span class="p">,</span> <span class="n">df_vim</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">df_code</span><span class="p">,</span> <span class="n">model_format</span><span class="p">)</span>          
+    <span class="n">vim</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">df_vim</span><span class="p">,</span> <span class="n">model_format</span><span class="p">)</span>       
+    <span class="n">comb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">code</span><span class="p">,</span> <span class="n">vim</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">comb</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CODE&#39;</span><span class="p">,</span> <span class="s1">&#39;VIM&#39;</span><span class="p">]</span>
+    <span class="n">comb</span> <span class="o">=</span> <span class="n">comb</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="n">comb</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">category</span>
+    <span class="n">comb</span> <span class="o">=</span> <span class="n">comb</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">comb</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiple_archive_methods</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">jansson_method</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    identifies if the column has 1 or mode models that are shared</span>
+<span class="sd">    by multiple archiving methods.  For example, Zenodo + GitHub.</span>
+<span class="sd">    Returns list of all archive methods in a list.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        The pandas dataframe containing the cohort of interest</span>
+<span class="sd">                </span>
+<span class="sd">    jansson_method: list</span>
+<span class="sd">        A list of jansson method fields. Assumes first field in model_format</span>
+<span class="sd">        and this is excluded from analysis.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">jansson</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># all non zeros to 1 (via bool -&gt; int)</span>
+    <span class="n">jansson</span> <span class="o">=</span> <span class="n">jansson</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">multiple_achived</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="n">jansson</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">][</span><span class="n">jansson_method</span><span class="p">]</span>
+    <span class="n">multiple_achived</span>
+
+    <span class="c1"># loop through columns and get uniques</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">jansson_method</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">results</span> <span class="o">+=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">multiple_achived</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-and-inspect-dataset">
+<h2>4. Load and inspect dataset<a class="headerlink" href="#load-and-inspect-dataset" title="Permalink to this headline">#</a></h2>
+<p>The dataframe <code class="docutils literal notranslate"><span class="pre">clean</span></code> contains the full dataset used in the best practice audit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_bpa</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Split into code and visual interactive dataframes to assist in creating main summary</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jansson_method</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;model_format&#39;</span><span class="p">,</span> <span class="s1">&#39;model_archive&#39;</span><span class="p">,</span> <span class="s1">&#39;model_repo&#39;</span><span class="p">,</span> <span class="s1">&#39;model_journal_supp&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;model_personal_org&#39;</span><span class="p">,</span> <span class="s1">&#39;model_platform&#39;</span><span class="p">]</span>
+
+<span class="n">df_code</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">]</span>
+<span class="n">df_code</span> <span class="o">=</span> <span class="n">df_code</span><span class="p">[</span><span class="n">df_code</span><span class="p">[</span><span class="s1">&#39;model_format&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CODE&#39;</span><span class="p">]</span>
+
+<span class="n">df_vim</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">]</span>
+<span class="n">df_vim</span> <span class="o">=</span> <span class="n">df_vim</span><span class="p">[</span><span class="n">df_vim</span><span class="p">[</span><span class="s1">&#39;model_format&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;VIM&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="results">
+<h2>5. Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
+<p>The main aim of the results section is to summarise all archiving methods in a single table (in the same style of Jansson et al, 2020).  This is built up category by category and then all tables are combined.</p>
+<section id="overall-numeric-summary">
+<h3>5.1 Overall numeric summary<a class="headerlink" href="#overall-numeric-summary" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;model_format&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model_format</th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>model_archive</th>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>model_repo</th>
+      <td>18</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>model_journal_supp</th>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>model_personal_org</th>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>model_platform</th>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="open-science-archives">
+<h3>5.2 Open science archives<a class="headerlink" href="#open-science-archives" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ARCHIVE</span> <span class="o">=</span> <span class="s1">&#39;model_archive&#39;</span>
+<span class="n">archive_results</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">],</span> <span class="n">ARCHIVE</span><span class="p">)</span>
+<span class="n">archive_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Zenodo</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Mendeley</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Research Square;</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">archive_comb</span> <span class="o">=</span> <span class="n">get_model_format_summary</span><span class="p">(</span><span class="s1">&#39;model_archive&#39;</span><span class="p">,</span> <span class="n">df_code</span><span class="p">,</span> <span class="n">df_vim</span><span class="p">,</span> 
+                                        <span class="s1">&#39;Archive&#39;</span><span class="p">)</span>
+<span class="n">archive_comb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Archive</th>
+      <th>Zenodo</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mendeley</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Research Square;</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="model-repositories">
+<h3>5.2 Model repositories<a class="headerlink" href="#model-repositories" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repo_results</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">],</span> <span class="s1">&#39;model_repo&#39;</span><span class="p">)</span>                            
+<span class="n">repo_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GitHub</th>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>GitLab</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repo_comb</span> <span class="o">=</span> <span class="n">get_model_format_summary</span><span class="p">(</span><span class="s1">&#39;model_repo&#39;</span><span class="p">,</span> <span class="n">df_code</span><span class="p">,</span> <span class="n">df_vim</span><span class="p">,</span> 
+                                     <span class="s1">&#39;Repository&#39;</span><span class="p">)</span>
+<span class="n">repo_comb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Repository</th>
+      <th>GitHub</th>
+      <td>17</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>GitLab</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="format-of-models-stored-in-journal-supplmentary-material">
+<h3>5.3 Format of models stored in journal supplmentary material<a class="headerlink" href="#format-of-models-stored-in-journal-supplmentary-material" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supp_results</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">],</span> <span class="s1">&#39;model_journal_supp&#39;</span><span class="p">)</span>                            
+<span class="n">supp_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>File</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Word doc</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>PDF</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>r script</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supp_comb</span> <span class="o">=</span> <span class="n">get_model_format_summary</span><span class="p">(</span><span class="s1">&#39;model_journal_supp&#39;</span><span class="p">,</span> <span class="n">df_code</span><span class="p">,</span> <span class="n">df_vim</span><span class="p">,</span> 
+                                     <span class="s1">&#39;Journal&#39;</span><span class="p">)</span>
+<span class="n">supp_comb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">Journal</th>
+      <th>Word doc</th>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>PDF</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>r script</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>File</th>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="personal-and-organisational-websites">
+<h3>5.4 Personal and organisational websites<a class="headerlink" href="#personal-and-organisational-websites" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">org_results</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">],</span> <span class="s1">&#39;model_personal_org&#39;</span><span class="p">)</span>                            
+<span class="n">org_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Organisational website</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Google Drive</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">org_comb</span> <span class="o">=</span> <span class="n">get_model_format_summary</span><span class="p">(</span><span class="s1">&#39;model_personal_org&#39;</span><span class="p">,</span> <span class="n">df_code</span><span class="p">,</span> <span class="n">df_vim</span><span class="p">,</span>
+                                    <span class="s1">&#39;Personal or Organisational&#39;</span><span class="p">)</span>
+<span class="n">org_comb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Personal or Organisational</th>
+      <th>Organisational website</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Google Drive</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="platform">
+<h3>5.5 Platform<a class="headerlink" href="#platform" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_results</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="n">jansson_method</span><span class="p">],</span> <span class="s1">&#39;model_platform&#39;</span><span class="p">)</span>                            
+<span class="n">platform_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AnyLogic Cloud</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>CRAN</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>BinderHub</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Google Colab</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>R Shiney</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_comb</span> <span class="o">=</span> <span class="n">get_model_format_summary</span><span class="p">(</span><span class="s1">&#39;model_platform&#39;</span><span class="p">,</span> <span class="n">df_code</span><span class="p">,</span> <span class="n">df_vim</span><span class="p">,</span>
+                                         <span class="s1">&#39;Platform&#39;</span><span class="p">)</span>
+<span class="n">platform_comb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Platform</th>
+      <th>CRAN</th>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BinderHub</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Google Colab</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>R Shiney</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AnyLogic Cloud</th>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="overall-summary-table">
+<h3>5.7 Overall summary table<a class="headerlink" href="#overall-summary-table" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jansson_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">archive_comb</span><span class="p">,</span> <span class="n">repo_comb</span><span class="p">,</span> 
+                           <span class="n">supp_comb</span><span class="p">,</span> <span class="n">org_comb</span><span class="p">,</span> <span class="n">platform_comb</span><span class="p">])</span>
+<span class="n">jansson_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Archive</th>
+      <th>Zenodo</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mendeley</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Research Square;</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Repository</th>
+      <th>GitHub</th>
+      <td>17</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>GitLab</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">Journal</th>
+      <th>Word doc</th>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>PDF</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>r script</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>File</th>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Personal or Organisational</th>
+      <th>Organisational website</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Google Drive</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Platform</th>
+      <th>CRAN</th>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BinderHub</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Google Colab</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>R Shiney</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AnyLogic Cloud</th>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="modify-jansson-table-to-indicate-combinations">
+<h3>5.8 Modify Jansson table to indicate combinations<a class="headerlink" href="#modify-jansson-table-to-indicate-combinations" title="Permalink to this headline">#</a></h3>
+<p>The table below incorporates a small change in the table.  All archiving methods that have been used in combination with others are flagged with an asterisk.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">multi_methods</span> <span class="o">=</span> <span class="n">multiple_archive_methods</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">jansson_method</span><span class="p">)</span>
+
+<span class="n">recode</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;method&#39;</span><span class="p">:{}}</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">multi_methods</span><span class="p">:</span>
+    <span class="n">recode</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">][</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1">*&#39;</span>
+
+<span class="n">recode</span>
+<span class="n">jansson_table</span> <span class="o">=</span> <span class="n">jansson_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">jansson_table</span> <span class="o">=</span> <span class="n">jansson_table</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">recode</span><span class="p">)</span>
+<span class="n">jansson_table</span> <span class="o">=</span> <span class="n">jansson_table</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">])</span>
+<span class="n">jansson_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CODE</th>
+      <th>VIM</th>
+    </tr>
+    <tr>
+      <th>category</th>
+      <th>method</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Archive</th>
+      <th>Zenodo*</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mendeley</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Research Square;</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Repository</th>
+      <th>GitHub*</th>
+      <td>17</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>GitLab</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">Journal</th>
+      <th>Word doc</th>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>PDF</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>r script</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>File</th>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Personal or Organisational</th>
+      <th>Organisational website*</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Google Drive</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Platform</th>
+      <th>CRAN</th>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BinderHub*</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Google Colab</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>R Shiney*</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AnyLogic Cloud</th>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="output-table-as-latex">
+<h2>6. Output table as LaTeX<a class="headerlink" href="#output-table-as-latex" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">jansson_table</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">hrules</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                   <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Table:4&quot;</span><span class="p">,</span> 
+                    <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Jansson et al. classification of mode archiving&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{table}
+\caption{Jansson et al. classification of mode archiving}
+\label{Table:4}
+\begin{tabular}{llrr}
+\toprule
+ &amp;  &amp; CODE &amp; VIM \\
+category &amp; method &amp;  &amp;  \\
+\midrule
+\multirow[c]{3}{*}{Archive} &amp; Zenodo* &amp; 1 &amp; 1 \\
+ &amp; Mendeley &amp; 0 &amp; 1 \\
+ &amp; Research Square; &amp; 0 &amp; 1 \\
+\multirow[c]{2}{*}{Repository} &amp; GitHub* &amp; 17 &amp; 1 \\
+ &amp; GitLab &amp; 1 &amp; 0 \\
+\multirow[c]{4}{*}{Journal} &amp; Word doc &amp; 3 &amp; 0 \\
+ &amp; PDF &amp; 1 &amp; 0 \\
+ &amp; r script &amp; 1 &amp; 0 \\
+ &amp; File &amp; 0 &amp; 4 \\
+\multirow[c]{2}{*}{Personal or Organisational} &amp; Organisational website* &amp; 4 &amp; 0 \\
+ &amp; Google Drive &amp; 0 &amp; 1 \\
+\multirow[c]{5}{*}{Platform} &amp; CRAN &amp; 2 &amp; 0 \\
+ &amp; BinderHub* &amp; 1 &amp; 0 \\
+ &amp; Google Colab &amp; 1 &amp; 0 \\
+ &amp; R Shiney* &amp; 1 &amp; 0 \\
+ &amp; AnyLogic Cloud &amp; 0 &amp; 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TomMonks/des_sharing_lit_review",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/03_results"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_bpa_preprocessing.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Preprocessing</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_bpa_open_research.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Open Research</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alison Harper and Thomas Monks<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

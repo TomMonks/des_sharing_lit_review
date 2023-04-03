@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Open Research" href="05_bpa_open_research.html" />
+    <link rel="next" title="Model archiving" href="07a_jansson_sharing_method.html" />
     <link rel="prev" title="Year of publication" href="03a_year.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -201,6 +201,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="07a_jansson_sharing_method.html">
+   Model archiving
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="05_bpa_open_research.html">
    Open Research
   </a>
@@ -213,6 +218,38 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="07_bpa_summary.html">
    Overall summary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Discussion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/01_summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/02_additional_observations.html">
+   Additional observations on sharing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/03_implications.html">
+   Implications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/04_strength_limit.html">
+   Strengths and Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/05_conclusions.html">
+   Conclusions
   </a>
  </li>
 </ul>
@@ -696,8 +733,9 @@ title="Print to PDF"
 <span class="sd">    1.  Replaces space in the column names with &quot;_&quot; and renameds model doi col.</span>
 <span class="sd">    2.  Converts all column names to lower case</span>
 <span class="sd">    3.  Drop columns not needed for analysis</span>
-<span class="sd">    4.  Convert relevant cols to Categorical data type</span>
-<span class="sd">    5.  Performs remaining type conversions.</span>
+<span class="sd">    4.  Recode values in Janssen method columns</span>
+<span class="sd">    5.  Convert relevant cols to Categorical data type</span>
+<span class="sd">    6.  Performs remaining type conversions.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;DOI.1&#39;</span><span class="p">:</span> <span class="s1">&#39;model_has_doi&#39;</span><span class="p">,</span>
@@ -705,10 +743,19 @@ title="Print to PDF"
               <span class="s1">&#39;Publication Year&#39;</span><span class="p">:</span> <span class="s1">&#39;pub_yr&#39;</span><span class="p">,</span>
               <span class="s1">&#39;Publication Title&#39;</span><span class="p">:</span> <span class="s1">&#39;pub_title&#39;</span><span class="p">}</span>
     
+    <span class="n">recoded</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;model_repo&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Github&#39;</span><span class="p">:</span><span class="s1">&#39;GitHub&#39;</span><span class="p">},</span>
+               <span class="s1">&#39;model_journal_supp&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;R model in word file&#39;</span><span class="p">:</span><span class="s1">&#39;Word doc&#39;</span><span class="p">},</span>
+               <span class="s1">&#39;model_personal_org&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;personex&#39;</span><span class="p">:</span> <span class="s1">&#39;Organisational website&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;Personex &#39;</span><span class="p">:</span> <span class="s1">&#39;Organisational website&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;https://resp.core.ubc.ca/research/Specific_Projects/EPIC&#39;</span><span class="p">:</span>
+                 <span class="s1">&#39;Organisational website&#39;</span><span class="p">},</span>
+               <span class="s1">&#39;model_platform&#39;</span><span class="p">:{</span><span class="s1">&#39;Anylogic Cloud&#39;</span><span class="p">:</span> <span class="s1">&#39;AnyLogic Cloud&#39;</span><span class="p">}}</span>
+    
     <span class="n">clean</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
                <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
                <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">cols_to_lower</span><span class="p">)</span>
                <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">drop_columns</span><span class="p">,</span> <span class="n">COLS_TO_DROP</span><span class="p">)</span>
+               <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">recoded</span><span class="p">)</span>
                <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">model_format</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;model_format&#39;</span><span class="p">]),</span>
                        <span class="n">reporting_guidelines_mention</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> 
                            <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;reporting_guidelines_mention&#39;</span><span class="p">]),</span>
@@ -846,10 +893,10 @@ memory usage: 6.7+ KB
             <p class="prev-next-title">Year of publication</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="05_bpa_open_research.html" title="next page">
+    <a class='right-next' id="next-link" href="07a_jansson_sharing_method.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Open Research</p>
+        <p class="prev-next-title">Model archiving</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

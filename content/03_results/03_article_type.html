@@ -201,6 +201,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="07a_jansson_sharing_method.html">
+   Model archiving
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="05_bpa_open_research.html">
    Open Research
   </a>
@@ -213,6 +218,38 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="07_bpa_summary.html">
    Overall summary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Discussion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/01_summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/02_additional_observations.html">
+   Additional observations on sharing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/03_implications.html">
+   Implications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/04_strength_limit.html">
+   Strengths and Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/05_conclusions.html">
+   Conclusions
   </a>
  </li>
 </ul>
@@ -494,11 +531,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#primary-research-questions">
-   Primary research questions:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
    Imports
   </a>
@@ -555,11 +587,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#primary-research-questions">
-   Primary research questions:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
    Imports
   </a>
@@ -608,13 +635,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="sharing-by-article-type">
 <h1>Sharing by article type<a class="headerlink" href="#sharing-by-article-type" title="Permalink to this headline">#</a></h1>
-<section id="primary-research-questions">
-<h2>Primary research questions:<a class="headerlink" href="#primary-research-questions" title="Permalink to this headline">#</a></h2>
-<p>These results presented in this notebook the following questions</p>
-<ol class="simple">
-<li><p>Do our metrics vary by the type of article: journal paper, full conference paper or book chapter?</p></li>
-</ol>
-</section>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -818,6 +838,33 @@ title="Print to PDF"
 <section id="create-a-high-level-summary-of-the-main-dataset-by-article-type">
 <h3>Create a high level summary of the main dataset by article type.<a class="headerlink" href="#create-a-high-level-summary-of-the-main-dataset-by-article-type" title="Permalink to this headline">#</a></h3>
 <p>In the manuscript table 3 provides a simple high level results for Journals, Conference and Book manuscripts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_shared_models</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">included</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="n">clean</span><span class="p">[</span><span class="s1">&#39;study_included&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">included</span><span class="p">[</span><span class="n">included</span><span class="p">[</span><span class="s1">&#39;model_code_available&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_shared_models</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;key&#39;, &#39;item_type&#39;, &#39;pub_yr&#39;, &#39;author&#39;, &#39;title&#39;, &#39;pub_title&#39;, &#39;doi&#39;,
+       &#39;url&#39;, &#39;study_included&#39;, &#39;model_code_available&#39;,
+       &#39;reporting_guidelines_mention&#39;, &#39;covid&#39;, &#39;sim_software&#39;, &#39;foss_sim&#39;,
+       &#39;model_archive&#39;, &#39;model_repo&#39;, &#39;model_journal_supp&#39;,
+       &#39;model_journal_supp&#39;, &#39;model_personal_org&#39;, &#39;model_platform&#39;,
+       &#39;available_on_req&#39;, &#39;excluded_reason&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">analysis_by_item_type</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
