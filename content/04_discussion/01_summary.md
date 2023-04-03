@@ -7,12 +7,13 @@ We found that a minority (n=43; 9%) of the 485 papers reviewed shared a simulati
 
 Of the 43 models shared the majority were implemented using a FOSS simulation tool such as R Simmer. This is perhaps not surprising given the freedom FOSS licenses grant authors and other researchers or health care services that may opt to reuse the work.  While the FOSS finding is positive, we also found that only a minority (~30%) of models aiming to support health services care for patient and society tackle Covid-19 were shared.  
 
-> * To do: how models were shared.
+Over 65% (28 out of 43) of the DES models shared via a publication were developed using a code based simulation package. This was most often done by GitHub. Open science researchers have stated elsewhere ({cite:p}`janssen2020code, krafczyk_learning_2020, heil_reproducibility_2021` that the gold standard for is an open science archive that can mint a DOI and provide long term storage guarantees.  Disadvantages of GitHub (and other cloud based version control tools) is that there are no guarantees on how long code will remain stored, and it is unclear which version of the code was used in a publication. We only found two instances of code being managed on both GitHub/Lab and deposited in an open science archive. Models built in commercial VIM software were shared less often (15 out 43 models). The majority of these were attached to journal supplementary material or via AnyLogic Cloud. The latter of these approaches will likely lead to broken links in the future do to changes in commercially provided infrastructure and licensing.
+
 > * To do: software results - unknowns and how this matches elsewhere e.g. Brailsford review and Jansson et al.
 
 Disappointingly, the review found that the uptake of reporting guidelines within healthcare DES was low. Cost-effectiveness studies modelling individual patient trajectories using DES were the most likely to include some mention or cite using reporting guidelines typically one of the ISPOR publications.
 
-## Summary of quality audit results
+## Summary of best practice audit results
 
 The quality audit revealed that the tools and methods of sharing DES models could be greatly improved within health and medicine. 
 
