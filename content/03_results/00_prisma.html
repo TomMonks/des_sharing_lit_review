@@ -678,7 +678,7 @@ title="Print to PDF"
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
-<p>Our published dataset contains all papers we <strong>attempted to retrieve</strong>.  This means we can only calculate statistics the full test screening stage of our review.  The number of papers retrieved from Scopus and Pubmed are hardcoded values.  We provide a notebook containing our search strings in order for to reproduce the exact search’s we used prior to title and abstract screening.</p>
+<p>It was not possible to completely automate our deduplication process. This was part done using our own software (stripping whitespace and punctunctation), and part using Zotero to match probably duplicates and then manually merge. Our published dataset contains all papers we <strong>attempted to retrieve</strong>.  This means we can only calculate statistics the full test screening stage of our review.</p>
 </section>
 <section id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
@@ -727,11 +727,12 @@ title="Print to PDF"
 
 <span class="c1"># pre-screnning file locations</span>
 <span class="n">POST_FIX</span> <span class="o">=</span> <span class="s1">&#39;../../data/pre_screening/&#39;</span>
-<span class="n">SCOPUS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;2019&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2019.zip&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;2020&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2020.zip&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;2021&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2021.zip&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;2022&#39;</span><span class="p">:</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;scopus_2022_part.zip&#39;</span><span class="p">}</span>
+<span class="n">POST_FIX_STAGE1</span> <span class="o">=</span> <span class="s1">&#39;../../data/stage1/&#39;</span>
+<span class="n">SCOPUS</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;Scopus_search.zip&#39;</span>
 <span class="n">PUBMED</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;pubmed_part.zip&#39;</span>
+<span class="n">ACM</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;20220903_acm.zip&#39;</span>
+<span class="n">WOS</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;20220903_wos.zip&#39;</span>
+<span class="n">UNIQUE</span> <span class="o">=</span> <span class="n">POST_FIX_STAGE1</span> <span class="o">+</span> <span class="s1">&#39;unique_papers.zip&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -746,6 +747,7 @@ title="Print to PDF"
 <li><p>papers_not_retrieved</p></li>
 <li><p>excluded_count</p></li>
 <li><p>models_with_code</p></li>
+<li><p>A number of functions to return the number of records retrieved from the databases included in the study.</p></li>
 </ul>
 <p>And a function to create the <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> based prisma diagram.</p>
 <ul class="simple">
@@ -869,11 +871,55 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_from_scopus_before_dedup</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the number from PubMed BEFORE deduplication.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">SCOPUS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_from_pubmed_before_dedup</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Returns the number from scopus BEFORE deduplication.</span>
+<span class="sd">    Returns the number from PubMed BEFORE deduplication.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PUBMED</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_from_acm_before_dedup</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the number from ACM Digital Library BEFORE deduplication.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ACM</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_from_wos_before_dedup</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the number from Web of Science BEFORE deduplication.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">WOS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returned_unique_papers</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the number from unique papers after dedup</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">UNIQUE</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -903,7 +949,9 @@ title="Print to PDF"
 
     <span class="n">node1_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Records identified from: </span><span class="se">\n</span><span class="s2">Scopus &quot;</span> \
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;scopus_n&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">) </span><span class="se">\n</span><span class="s2">PubMed &quot;</span> \
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pubmed_n&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pubmed_n&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">) </span><span class="se">\n</span><span class="s2">ACM &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;acm_n&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">) </span><span class="se">\n</span><span class="s2">WoS &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;wos_n&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node1</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">node1_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
 
     <span class="n">node2_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Records removed before screening:</span><span class="se">\n</span><span class="s2">&quot;</span> \
@@ -941,7 +989,7 @@ title="Print to PDF"
     <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">([</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="s1">&#39;AC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;CE&#39;</span><span class="p">,</span> <span class="s1">&#39;EF&#39;</span><span class="p">,</span> <span class="s1">&#39;EG&#39;</span><span class="p">,</span> <span class="s1">&#39;GH&#39;</span><span class="p">,</span> <span class="s1">&#39;GI&#39;</span><span class="p">])</span>
 
 
-    <span class="c1"># subnodes for real world decisions in same graph</span>
+    <span class="c1"># subnodes for best practice audit</span>
     <span class="n">snode1_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Available models</span><span class="se">\n</span><span class="s2"> n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span> 
     <span class="n">snode1</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;H0&#39;</span><span class="p">,</span> <span class="n">snode1_txt</span><span class="p">)</span>
 
@@ -955,7 +1003,7 @@ title="Print to PDF"
         <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
         <span class="n">c</span><span class="o">.</span><span class="n">node_attr</span><span class="p">[</span><span class="s1">&#39;style&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;filled&#39;</span>
         <span class="n">c</span><span class="o">.</span><span class="n">edges</span><span class="p">([(</span><span class="s1">&#39;H0&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">)])</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Interim results&quot;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Best practice audit&quot;</span><span class="p">)</span>
 
     <span class="n">g</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">g</span>
@@ -979,17 +1027,26 @@ title="Print to PDF"
 <p>The constant below represent values obtained from searching Scopus and Pubmed and cannot be generated from our dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># duplicates identified and removed via zotero</span>
-<span class="n">SCOPUS_DUPLICATES</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">30</span> <span class="c1"># when pooled with pubmed dataset</span>
-<span class="n">PUBMED_DUPLICATES</span> <span class="o">=</span> <span class="mi">208</span>  <span class="c1"># when records pooled with scopus dataset</span>
-<span class="n">DUPLICATES</span> <span class="o">=</span> <span class="n">SCOPUS_DUPLICATES</span> <span class="o">+</span> <span class="n">PUBMED_DUPLICATES</span>
-
-<span class="n">N_SCOPUS</span> <span class="o">=</span> <span class="n">returned_from_scopus_after_dedup</span><span class="p">()</span> <span class="o">+</span> <span class="n">SCOPUS_DUPLICATES</span> <span class="c1">#534</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># totals by database</span>
+<span class="n">N_SCOPUS</span> <span class="o">=</span> <span class="n">returned_from_scopus_before_dedup</span><span class="p">()</span>
 <span class="n">N_PUBMED</span> <span class="o">=</span> <span class="n">returned_from_pubmed_before_dedup</span><span class="p">()</span>
+<span class="n">N_ACM</span> <span class="o">=</span> <span class="n">returned_from_acm_before_dedup</span><span class="p">()</span>
+<span class="n">N_WOS</span> <span class="o">=</span> <span class="n">returned_from_wos_before_dedup</span><span class="p">()</span>
+<span class="n">N_TOTAL</span> <span class="o">=</span> <span class="n">N_SCOPUS</span> <span class="o">+</span> <span class="n">N_PUBMED</span> <span class="o">+</span> <span class="n">N_ACM</span> <span class="o">+</span> <span class="n">N_WOS</span> 
 
-<span class="n">N_TITLE_ABSTRACTS</span> <span class="o">=</span> <span class="n">N_SCOPUS</span> <span class="o">+</span> <span class="n">N_PUBMED</span> <span class="o">-</span> <span class="n">DUPLICATES</span>
-<span class="n">N_ABSTRACTS_EXCLUDED</span> <span class="o">=</span> <span class="mi">131</span> <span class="o">+</span> <span class="p">(</span><span class="mi">199</span> <span class="o">-</span> <span class="mi">83</span><span class="p">)</span>
+<span class="c1"># no. unique papers after semi-automated dedup</span>
+<span class="n">N_UNIQUE</span> <span class="o">=</span> <span class="n">returned_unique_papers</span><span class="p">()</span>
 
+<span class="c1"># no. duplicates removed.</span>
+<span class="n">DUPLICATES_REMOVED</span> <span class="o">=</span> <span class="n">N_TOTAL</span> <span class="o">-</span> <span class="n">N_UNIQUE</span>
+
+<span class="c1"># total abstracts/titles to sceen in stage 1</span>
+<span class="n">N_TITLE_ABSTRACTS</span> <span class="o">=</span> <span class="n">N_UNIQUE</span>
+
+<span class="c1"># number excluded by stage 1 screening process</span>
+<span class="n">N_ABSTRACTS_EXCLUDED</span> <span class="o">=</span> <span class="n">N_UNIQUE</span> <span class="o">-</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> 
+
+<span class="c1"># reasons for exclusion in stage 2 (excluding not able to retrieve)</span>
 <span class="n">EXCLUDED_REASON_1</span> <span class="o">=</span> <span class="s2">&quot;Not English&quot;</span>
 <span class="n">EXCLUDED_REASON_2</span> <span class="o">=</span> <span class="s2">&quot;Not DES&quot;</span>
 <span class="n">EXCLUDED_REASON_3</span> <span class="o">=</span> <span class="s2">&quot;Not Health&quot;</span>
@@ -1003,7 +1060,10 @@ title="Print to PDF"
 <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;scopus_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_SCOPUS</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;pubmed_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_PUBMED</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_duplicates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DUPLICATES</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;acm_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_ACM</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;wos_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_WOS</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;unique_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_UNIQUE</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_duplicates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DUPLICATES_REMOVED</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_title_abstract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_TITLE_ABSTRACTS</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_ABSTRACTS_EXCLUDED</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
@@ -1032,7 +1092,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/00_prisma_23_0.svg" src="../../_images/00_prisma_23_0.svg" /></div>
+<img alt="../../_images/00_prisma_27_0.svg" src="../../_images/00_prisma_27_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

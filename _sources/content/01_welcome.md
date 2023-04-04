@@ -2,7 +2,7 @@
 
 These results accompany **Harper and Monks (2023).  DES model sharing in healthcare: an analysis of the published literature 2019-2022**
 
-> An early version of these results (2022 part) was presented at the WSC2022 conference for the panel on **Grand Challenges in Healthcare Simulation**.  Thanks goes to Prof Christine Currie for her support.
+> An early version of these results was presented at the WSC2022 conference for the panel on **Grand Challenges in Healthcare Simulation**.  Thanks goes to Prof Christine Currie for her support.
 
 ## Author ORCIDs
 
@@ -20,4 +20,7 @@ The overarching research aim is determine to what extent authors of DES health s
 3. What proportion of these papers that tackle covid-19 and share their models?
 3. Do these metrics vary by the type of article: journal paper, full conference paper or book chapter?
 4. How have these metrics changed in over the three years of the study?
-5. What proportion of studies make use of a reporting guideline 
+5. What proportion of studies make use of a reporting guideline?
+6. What methods, tools, and resources did authors use to share their models and code?
+7. To what extent do the DES health community follow best practice for open science when sharing models?
+8. To what extent can the healthcare DES community improve its sharing of models?
