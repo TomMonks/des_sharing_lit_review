@@ -2,7 +2,7 @@
 
 These results accompany **Harper and Monks (2023).  DES model sharing in healthcare: an analysis of the published literature 2019-2022**
 
-> An early version of these results (2022 part) was presented at the WSC2022 conference for the panel on **Grand Challenges in Healthcare Simulation**.  Thanks goes to Prof Christine Currie for her support.
+> An early version of these results was presented at the WSC2022 conference for the panel on **Grand Challenges in Healthcare Simulation**.  Thanks goes to Prof Christine Currie for her support.
 
 ## Author ORCIDs
 
