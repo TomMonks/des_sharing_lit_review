@@ -508,6 +508,11 @@ title="Print to PDF"
    Web of Science search string
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acm-exploratory-search-string-pre-2018">
+   ACM Exploratory search string (pre 2018)
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -547,6 +552,11 @@ title="Print to PDF"
    Web of Science search string
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acm-exploratory-search-string-pre-2018">
+   ACM Exploratory search string (pre 2018)
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -561,7 +571,7 @@ title="Print to PDF"
 <h1>Search Strategy<a class="headerlink" href="#search-strategy" title="Permalink to this headline">#</a></h1>
 <p>The databases Scopus, PubMed Central, ACM digital library, and Web of Science (WoS) were searched to retrieve articles on DES applications in healthcare from 2019 to 2022. Scopus has previously demonstrated wide coverage for systematic reviews of modelling and simulation in multiple domains, including healthcare. We searched PubMed using general terms rather than MeSH Terms, which have been found to produce large numbers of irrelevant results for operations research and operations management papers. The PubMed search allowed inclusion of healthcare simulation applications published in healthcare journals.</p>
 <p>The key search terms included: “health”, “healthcare”, or “patient”, and “discrete”, “event”, and “simulation”, in the title, abstract, and/or keywords. Search years were limited to 2019-2022, and Scopus terms were limited to articles, excluding letters, notes, editorials, conference reviews, short surveys, data papers, and erratums.</p>
-<p>We limited our search years to allow time for the March, 2018 publication of the STRESS guidelines to take effect. STRESS includes the requirement to include a code access statement (Section 6).  This also follows publication of an Open Science checklist , and the February, 2019 release of \emph{The Turing Way}, a guide to reproducible research published by the UK’s National Institute for Data Science.</p>
+<p>We limited our search years to allow time for the March, 2018 publication of the STRESS guidelines to take effect. STRESS includes the requirement to include a code access statement (Section 6).  This also follows publication of an Open Science checklist, and the February, 2019 release of \emph{The Turing Way}, a guide to reproducible research published by the UK’s National Institute for Data Science.  We also considered ACM RCR initiative, and the impact this has had on available DES models. An exploratory search for papers badged as artefects available with with any field containing “discrete event simulation” between 01/01/2016 and 31/12/2018 returned 7 papers non of which related to healthcare DES.</p>
 <section id="scopus-search-string">
 <h2>Scopus search string<a class="headerlink" href="#scopus-search-string" title="Permalink to this headline">#</a></h2>
 <p>Scopus search strategy for Covid-19 simulation models 2020/22.  In the following search string we replaced <code class="docutils literal notranslate"><span class="pre">XX</span></code> with 19-22 to vary the year of search.</p>
@@ -594,6 +604,13 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>To view a link to the live results of the WoS search is <a class="reference external" href="https://www.webofscience.com/wos/woscc/summary/157c2013-d9c6-479b-b849-e26fbe6410cf-79b6476a/relevance/1">here</a></p>
+</section>
+<section id="acm-exploratory-search-string-pre-2018">
+<h2>ACM Exploratory search string (pre 2018)<a class="headerlink" href="#acm-exploratory-search-string-pre-2018" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="n">AllField</span><span class="p">:(</span><span class="s2">&quot;discrete event simulation&quot;</span> <span class="s2">&quot;discrete-event simulation&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="n">E</span><span class="o">-</span><span class="n">Publication</span> <span class="n">Date</span><span class="p">:</span> <span class="p">(</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">2016</span> <span class="n">TO</span> <span class="mi">12</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">2018</span><span class="p">),</span> <span class="n">Reproducibility</span> <span class="n">Types</span><span class="p">:</span> <span class="n">Artifacts</span> <span class="n">Available</span><span class="p">,</span> <span class="n">ACM</span> <span class="n">Content</span><span class="p">:</span> <span class="n">DL</span> <span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 
