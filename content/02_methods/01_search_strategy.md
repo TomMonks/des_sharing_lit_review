@@ -4,7 +4,7 @@ The databases Scopus, PubMed Central, ACM digital library, and Web of Science (W
 
 The key search terms included: “health”, “healthcare”, or "patient", and “discrete”, “event”, and “simulation”, in the title, abstract, and/or keywords. Search years were limited to 2019-2022, and Scopus terms were limited to articles, excluding letters, notes, editorials, conference reviews, short surveys, data papers, and erratums. 
 
-We limited our search years to allow time for the March, 2018 publication of the STRESS guidelines to take effect. STRESS includes the requirement to include a code access statement (Section 6).  This also follows publication of an Open Science checklist , and the February, 2019 release of \emph{The Turing Way}, a guide to reproducible research published by the UK's National Institute for Data Science. 
+We limited our search years to allow time for the March, 2018 publication of the STRESS guidelines to take effect. STRESS includes the requirement to include a code access statement (Section 6).  This also follows publication of an Open Science checklist, and the February, 2019 release of \emph{The Turing Way}, a guide to reproducible research published by the UK's National Institute for Data Science.  We also considered ACM RCR initiative, and the impact this has had on available DES models. An exploratory search for papers badged as artefects available with with any field containing "discrete event simulation" between 01/01/2016 and 31/12/2018 returned 7 papers non of which related to healthcare DES.
 
 ## Scopus search string
 
@@ -46,3 +46,10 @@ We used the ALL keyword to try and broaden the search in WoS as much as possible
 ```
 
 To view a link to the live results of the WoS search is [here](https://www.webofscience.com/wos/woscc/summary/157c2013-d9c6-479b-b849-e26fbe6410cf-79b6476a/relevance/1)
+
+## ACM Exploratory search string (pre 2018)
+
+```
+"query": { AllField:("discrete event simulation" "discrete-event simulation") }
+"filter": { E-Publication Date: (01/01/2016 TO 12/31/2018), Reproducibility Types: Artifacts Available, ACM Content: DL }
+```

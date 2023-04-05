@@ -78,9 +78,9 @@ This study does not estimate an effect.
 
 ### 13b Data preparation
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To link:**
+`````{admonition} COMPLETE
+:class: seealso
+We have provided the code and detail on the process to pre-process the datasets before analysis. [Main dataset](../03_results/01_preprocessing) and [Best Practice Audit](../03_results/04_bpa_preprocessing)
 `````
 
 ### 13c Methods for tabulation and visualisation
