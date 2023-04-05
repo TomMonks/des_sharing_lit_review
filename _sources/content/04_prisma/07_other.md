@@ -4,7 +4,7 @@
 
 ### 24a. Registration information
 
-`````{admonition} INCOMPLETE
+`````{admonition} NOT APPLICABLE
 :class: warning
 The review was not registered.
 `````
