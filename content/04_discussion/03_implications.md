@@ -19,7 +19,7 @@ The vast majority of DES health models we found were published outside of ACM jo
 
 Given our best practice study findings, more technical reviewers should prioritise our recommendations for open scholarship. Long term maintainability and reuse of code based models can be maximised through the use of formal dependency management tools. The exact nature of these tools depends on the language used. R and Python were common tools used for DES in our study. Tools such as *renv* and *conda* can be used here respectively. For DES models developed in commercial software reporting guidelines should be followed.  The Strengthening the Reporting of Empirical Simulation Studies for DES (STRESS-DES) includes a section on software environment.
 
-Such as review does not guarantee reproducibility, but we argue improves the chances of artefacts being functional with minimal reviewer effort. For example, instead of directly testing model dependencies, reviewers could ask authors to "confirm the method that has been used manage software dependencies in your study". 
+Such as review does not guarantee reproducibility, but we argue improves the chances of artefacts being functional with minimal reviewer effort. For example, instead of directly testing model dependencies, reviewers could ask authors to "confirm the method that has been used to manage software dependencies in your study". 
 
 ## Researchers
 
