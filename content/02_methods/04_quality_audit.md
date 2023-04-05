@@ -6,7 +6,7 @@ We know of no general best practice auditing tools for sharing of simulation cod
 
 We excluded some Turing checklists from our review as they were not relevant to the quality of model sharing.  For example, the Research Data Management checklist is focussed on raw data that in a typical DES study would have used to derive model parameters.  Our focus is on the sharing of the model itself and not underlying raw data. Another example is the Turing's recommendations to publish open notebooks containing all details of experiments. This was on the basis that the modelling and simulation community might adopt a large number of approaches and tools to managing their models and artefacts. Instead we included a broader item checking for instructions to execute experiments in any format.  We also excluded most of the OMF's ideal reusability standards including the use of containerisation tools (such as docker or podman) in order to keep our best practice criteria simple for the M&S community. 
 
-The metrics within our audit also overlap with what others have listed as requirements for reproducibility of computational studies {cite}`venkatesh_code_2022`.  We list these in Table {ref}`quality-criteria`, to illustrate which data were extracted for the coding and VIM groups, and detail the provenance of the items.
+The metrics within our audit also overlap with what others have listed as requirements for reproducibility of computational studies {cite}`venkatesh_code_2022, heil_reproducibility_2021, krafczyk_learning_2020`.  We list these in Table {ref}`quality-criteria`, to illustrate which data were extracted for the coding and VIM groups, and detail the provenance of the items.
 
 ```{table} Quality Audit: Metrics and Sources.
 :name: quality-criteria
@@ -27,7 +27,7 @@ The metrics within our audit also overlap with what others have listed as requir
 
 ## Licensing of models
 
-We extracted the type of license included with each shared model. For example, GPL-3 or MIT. When no license was included we recorded this as `None`. For one model shared as supplementary material with a journal we were unable to determine what license had been applied.  We labelled this as `Unknown`.  When a model was published as journal supplementary material we assigned the same license as applied to the paper if it was not explicitly stated.  For example, if a paper was published under a CC-BY 4.0 license and there was no explicit license attached to supplementary material we assumed the same license for the model.
+We extracted the type of license included with each shared model. For example, GPL-3 or MIT. When no license was included we recorded this as `None`. For one model shared as supplementary material with a journal we were unable to determine what license had been applied.  We labeled this as `Unknown`.  When a model was published as journal supplementary material we assigned the same license as applied to the paper if it was not explicitly stated.  For example, if a paper was published under a CC-BY 4.0 license and there was no explicit license attached to supplementary material we assumed the same license for the model.
 
 ## Turing Way - links to checklists.
 
