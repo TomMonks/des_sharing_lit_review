@@ -4,6 +4,7 @@ parts:
 - caption: Introduction
   chapters:
   - file: content/01_intro/02_license
+  - file: content/01_intro/01_background
 - caption: Methods
   chapters:
   - file: content/02_methods/01_search_strategy  

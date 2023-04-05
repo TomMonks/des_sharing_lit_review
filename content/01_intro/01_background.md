@@ -1,8 +1,11 @@
 # Background
 
-In healthcare, discrete-event simulation (DES) is a widely used methodology for modelling of patient care pathways, health service delivery, and health technology assessment. It has used in areas such as stroke care (cite netherlands paper in BMJ open), emergency departments (cite sim ED review in BMJ open?), drug cost-effectiveness, sexual health (cite BMJ open paper we found), reducing delayed discharges (cite IPACs and Marion), mental health, ICU, and end of life care (cite Dan's BMJ open).  One review found DES to be the most common modelling technique in health {citre:p}`salleh2017simulation`. Healthcare DES models are often complex research artefacts: they are inherently difficult to describe and to share them    
+In healthcare, discrete-event simulation (DES) is the most used computational method for modelling {cite}`salleh2017simulation, philip_2022, roy_2021, SALMON20181`. DES has proven useful within the field of health as can be used to model patient care pathways, optimise health service delivery, investigate health queuing systems, and conduct health technology assessment. It has been applied to a wide variety of important clinical and health problems such as stroke care {cite:p}`Lahr_bmj`, emergency departments {cite:p}`Mohiuddine015007`, chronic obstructive pulmonary disease {cite}`Hoogendoorne049675`, sexual health {cite:p}`Mohiuddine_sexual_health_des`, reducing delayed discharges {cite:p}`ipacs_plos1`, mental health, ICU {cite:p}`penn_2020`, managing health services during the Covid-19 pandemic {cite}`Yakutcane062305`, and end of life care {cite:p}`Chalke043795`. Healthcare DES models are often complex research artefacts: they are time consuming to build, depend on specialist software, and logic may be difficult to describe accurately using words and diagrams alone. To support transparency of model logic, and offer a potential for reuse, one option available to authors of DES studies is to openly publish a health DES model.
 
-In this paper, we sought to understand patterns of DES model sharing in healthcare. We analysed a dataset of XXXXXXX publications applying DES in healthcare to determine ....stuff
+The current state and practice of sharing DES models in health is unknown. However, other computational fields report that the sharing of model code and files has historically been poor. {cite}`janssen2020code` found of 7500 articles reporting agent-based models, only 11% of articles shared code, although there is an upward trend: 18% of publications were found to share their model in some form by 2018. 
+
+Nonetheless, at the start of the coronavirus pandemic the lack of transparency and access to epidemiological model code used to inform economic and public health policy contributed to public confusion and polarisation \citep{doi:10.1126/science.abb8637}.
+
 
 For simulation models to be shared, re-used, modified, replicated, or evaluated, it is important that they are made available in a way that is comprehensible, transparent, and executable. \cite{10.1145/2812803} outlined *repeatability* and *benefaction* as two key reasons for sharing models or code. While some limited attention has been given to the need for simulation study results to be repeatable or reproducible in OR \citep{taylor2018crisis, uhrmacher2016panel}, the advantages of sharing for benefaction have received very little focus. Benefaction allows other researchers to build on results, better advancing scientific progress by avoiding unnecessary replication of work and providing opportunities for learning \citep{taylor2017open}.
 
@@ -17,3 +20,9 @@ Methods and technology for sharing computational resources and data in the open 
 The use of reporting guidelines remains similarly sporadic. Guidelines such as Strengthening the Reporting of Empirical Simulation Studies \citep[STRESS]{monks2019strengthening} provide researchers with a structured tool to ensure the minimum necessary information is reported in a simulation study, including a code access statement. The culture for sharing data, software, and metadata; adhering to community established standards and practices for model transparency and reuse; and addressing theoretical and methodological practices for sharing is not keeping pace with that of other simulation and computational domains \citep{monks2022open, taylor2017open}.
 
 In healthcare, discrete-event simulation (DES) is the most commonly used modelling technique \citep{salleh2017simulation}. In this paper, we sought to understand patterns of DES model sharing in healthcare. We analysed a dataset of XXXXXXX publications applying DES in healthcare to determine ....stuff
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
