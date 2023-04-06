@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Background &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Search Strategy" href="../02_methods/01_search_strategy.html" />
+    <link rel="prev" title="License" href="02_license.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Model and code sharing practices in healthcare discrete-event simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../01_welcome.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_license.html">
+   License
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Background
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/01_search_strategy.html">
+   Search Strategy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
+   Study selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
+   Data Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
+   Best Practice Audit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
+   Analysis environment
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Main Review
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/00_prisma.html">
+   Prisma Diagram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/01_preprocessing.html">
+   Dataset pre-processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/02_sharing_hl_summary.html">
+   Main summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/03_article_type.html">
+   Sharing by article type
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/03a_reporting_guidelines.html">
+   Use of reporting guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/03a_year.html">
+   Year of publication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/03b_software.html">
+   Simulation software
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Results - Best Practice Audit
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/04_bpa_preprocessing.html">
+   Preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/07a_jansson_sharing_method.html">
+   Model archiving
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/05_bpa_open_research.html">
+   Open Research
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/06_bpa_execution.html">
+   Model execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/07_bpa_summary.html">
+   Overall summary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Discussion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/01_summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/02_additional_observations.html">
+   Additional observations on sharing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/03_implications.html">
+   Implications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/04_strength_limit.html">
+   Strengths and Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_discussion/05_conclusions.html">
+   Conclusions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Testing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_results/data_testing_bkp.html">
+   Data Testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  PRISMA reporting checklist
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/01_title.html">
+   Title
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/02_abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/03_intro.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/04_methods.html">
+   Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/05_results.html">
+   Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/06_discussion.html">
+   Discussion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_prisma/07_other.html">
+   Other information
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/TomMonks/des_sharing_lit_review"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/01_intro/01_background.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/01_intro/01_background.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#healthcare-discrete-event-simulation">
+   Healthcare discrete-event simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#availability-of-executable-models">
+   Availability of executable models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sharing-models-is-as-a-subset-of-reproducibility">
+   Sharing models is as a subset of reproducibility
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenges-with-open-publication-of-executable-models">
+     Challenges with open publication of executable models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-do">
+     To do
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Background</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#healthcare-discrete-event-simulation">
+   Healthcare discrete-event simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#availability-of-executable-models">
+   Availability of executable models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sharing-models-is-as-a-subset-of-reproducibility">
+   Sharing models is as a subset of reproducibility
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenges-with-open-publication-of-executable-models">
+     Challenges with open publication of executable models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-do">
+     To do
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h1>
+<section id="healthcare-discrete-event-simulation">
+<h2>Healthcare discrete-event simulation<a class="headerlink" href="#healthcare-discrete-event-simulation" title="Permalink to this headline">#</a></h2>
+<p>In healthcare, discrete-event simulation (DES) is the most used computational method for modelling <span id="id1">[<a class="reference internal" href="#id44" title="Aby M Philip, Shanmugam Prasannavenkatesan, and Navonil Mustafee. Simulation modelling of hospital outpatient department: a review of the literature and bibliometric analysis. SIMULATION, 0(0):00375497221139282, 2022. URL: https://doi.org/10.1177/00375497221139282, arXiv:https://doi.org/10.1177/00375497221139282, doi:10.1177/00375497221139282.">Philip <em>et al.</em>, 2022</a>, <a class="reference internal" href="#id43" title="Sumanta Roy, Shanmugam Prasanna Venkatesan, and Mark Goh. Healthcare services: a systematic review of patient-centric logistics issues using simulation. Journal of the Operational Research Society, 72(10):2342-2364, 2021. URL: https://doi.org/10.1080/01605682.2020.1790306, arXiv:https://doi.org/10.1080/01605682.2020.1790306, doi:10.1080/01605682.2020.1790306.">Roy <em>et al.</em>, 2021</a>, <a class="reference internal" href="#id45" title="Syed Salleh, Praveen Thokala, Alan Brennan, Ruby Hughes, and Andrew Booth. Simulation modelling in healthcare: an umbrella review of systematic literature reviews. PharmacoEconomics, 35(9):937–949, 2017.">Salleh <em>et al.</em>, 2017</a>, <a class="reference internal" href="#id34" title="Andrew Salmon, Sebastian Rachuba, Simon Briscoe, and Martin Pitt. A structured literature review of simulation modelling applied to emergency departments: current patterns and emerging trends. Operations Research for Health Care, 19:1-13, 2018. URL: https://www.sciencedirect.com/science/article/pii/S2211692317301042, doi:https://doi.org/10.1016/j.orhc.2018.01.001.">Salmon <em>et al.</em>, 2018</a>]</span>. DES has proven useful within the field of health as it can be used to model patient care pathways, optimise health service delivery, investigate health queuing systems, and conduct health technology assessment. It has been applied to a wide variety of important clinical and health problems such as stroke care <span id="id2">[<a class="reference internal" href="#id37" title="Maarten M H Lahr, Durk-Jouke van der Zee, Gert-Jan Luijckx, and Erik Buskens. Optimising acute stroke care organisation: a simulation study to assess the potential to increase intravenous thrombolysis rates and patient gains. BMJ Open, 2020. URL: https://bmjopen.bmj.com/content/10/1/e032780, arXiv:https://bmjopen.bmj.com/content/10/1/e032780.full.pdf, doi:10.1136/bmjopen-2019-032780.">Lahr <em>et al.</em>, 2020</a>]</span>, emergency departments <span id="id3">[<a class="reference internal" href="#id39" title="Syed Mohiuddin, John Busby, Jelena Savović, Alison Richards, Kate Northstone, William Hollingworth, Jenny L Donovan, and Christos Vasilakis. Patient flow within uk emergency departments: a systematic review of the use of computer simulation modelling methods. BMJ Open, 2017. URL: https://bmjopen.bmj.com/content/7/5/e015007, arXiv:https://bmjopen.bmj.com/content/7/5/e015007.full.pdf, doi:10.1136/bmjopen-2016-015007.">Mohiuddin <em>et al.</em>, 2017</a>]</span>, chronic obstructive pulmonary disease <span id="id4">[<a class="reference internal" href="#id36" title="Martine Hoogendoorn, Isaac Corro Ramos, Stéphane Soulard, Jennifer Cook, Erkki Soini, Emma Paulsson, and Maureen Rutten-van Mölken. Cost-effectiveness of the fixed-dose combination tiotropium/olodaterol versus tiotropium monotherapy or a fixed-dose combination of long-acting β2-agonist/inhaled corticosteroid for copd in finland, sweden and the netherlands: a model-based study. BMJ Open, 2021. URL: https://bmjopen.bmj.com/content/11/8/e049675, arXiv:https://bmjopen.bmj.com/content/11/8/e049675.full.pdf, doi:10.1136/bmjopen-2021-049675.">Hoogendoorn <em>et al.</em>, 2021</a>]</span>, sexual health <span id="id5">[<a class="reference internal" href="#id38" title="Syed Mohiuddin, Rebecca Gardiner, Megan Crofts, Peter Muir, Jonathan Steer, Jonathan Turner, Helen Wheeler, William Hollingworth, and Paddy J Horner. Modelling patient flows and resource use within a sexual health clinic through discrete event simulation to inform service redesign. BMJ Open, 2020. URL: https://bmjopen.bmj.com/content/10/7/e037084, arXiv:https://bmjopen.bmj.com/content/10/7/e037084.full.pdf, doi:10.1136/bmjopen-2020-037084.">Mohiuddin <em>et al.</em>, 2020</a>]</span>, reducing delayed discharges <span id="id6">[<a class="reference internal" href="#id41" title="Zehra Onen-Dumlu, Alison L. Harper, Paul G. Forte, Anna L. Powell, Martin Pitt, Christos Vasilakis, and Richard M. Wood. Optimising the balance of acute and intermediate care capacity for the complex discharge pathway: computer modelling study during covid-19 recovery in england. PLOS ONE, 17(6):1-16, 06 2022. URL: https://doi.org/10.1371/journal.pone.0268837, doi:10.1371/journal.pone.0268837.">Onen-Dumlu <em>et al.</em>, 2022</a>]</span>, mental health waiting times, critical care <span id="id7">[<a class="reference internal" href="#id40" title="M.L. Penn, T. Monks, A.A. Kazmierska, and M.R.A.R. Alkoheji. Towards generic modelling of hospital wards: reuse and redevelopment of simple models. Journal of Simulation, 14(2):107-118, 2020. URL: https://doi.org/10.1080/17477778.2019.1664264, arXiv:https://doi.org/10.1080/17477778.2019.1664264, doi:10.1080/17477778.2019.1664264.">Penn <em>et al.</em>, 2020</a>]</span>, managing health services during the Covid-19 pandemic <span id="id8">[<a class="reference internal" href="#id35" title="Usame Yakutcan, John R Hurst, Reda Lebcir, and Eren Demir. Assessing the impact of covid-19 measures on copd management and patients: a simulation-based decision support tool for copd services in the uk. BMJ Open, 2022. URL: https://bmjopen.bmj.com/content/12/10/e062305, arXiv:https://bmjopen.bmj.com/content/12/10/e062305.full.pdf, doi:10.1136/bmjopen-2022-062305.">Yakutcan <em>et al.</em>, 2022</a>]</span>, and end of life care <span id="id9">[<a class="reference internal" href="#id42" title="Daniel Chalk, Sara Robbins, Rohan Kandasamy, Kate Rush, Ajay Aggarwal, Richard Sullivan, and Charlotte Chamberlain. Modelling palliative and end-of-life resource requirements during covid-19: implications for quality care. BMJ Open, 2021. URL: https://bmjopen.bmj.com/content/11/5/e043795, arXiv:https://bmjopen.bmj.com/content/11/5/e043795.full.pdf, doi:10.1136/bmjopen-2020-043795.">Chalk <em>et al.</em>, 2021</a>]</span>. Healthcare DES models are often complex research artefacts: they are time consuming to build, depend on specialist software, and logic may be difficult to describe accurately using words and diagrams alone <span id="id10">[<a class="reference internal" href="#id30" title="Thomas Monks, Christine SM Currie, Bhakti Stephan Onggo, Stewart Robinson, Martin Kunc, and Simon JE Taylor. Strengthening the reporting of empirical simulation studies: introducing the stress guidelines. Journal of Simulation, 13(1):55–67, 2019.">Monks <em>et al.</em>, 2019</a>]</span>.</p>
+</section>
+<section id="availability-of-executable-models">
+<h2>Availability of executable models<a class="headerlink" href="#availability-of-executable-models" title="Permalink to this headline">#</a></h2>
+<p>To enhance transparency of model logic, and offer others the potential to understand, learn from, or reuse a model, one option available to authors of DES studies is to openly publish an executable health simulation model. The current extent of model sharing and practice of sharing DES models in the healthcare literature is unknown. Reviews in other computational fields report that the sharing of model code and files has historically been low <span id="id11">[<a class="reference internal" href="../04_discussion/01_summary.html#id28" title="Sally C. Brailsford, Tillal Eldabi, Martin Kunc, Navonil Mustafee, and Andres F. Osorio. Hybrid simulation modelling in operational research: A state-of-the-art review. European Journal of Operational Research, 278(3):721–737, November 2019. URL: https://www.sciencedirect.com/science/article/pii/S0377221718308786 (visited on 2023-04-03), doi:10.1016/j.ejor.2018.10.025.">Brailsford <em>et al.</em>, 2019</a>, <a class="reference internal" href="#id32" title="Christian Collberg and Todd A. Proebsting. Repeatability in computer systems research. Commun. ACM, 59(3):62–69, feb 2016. URL: https://doi.org/10.1145/2812803, doi:10.1145/2812803.">Collberg and Proebsting, 2016</a>, <a class="reference internal" href="../04_discussion/01_summary.html#id32" title="Marco A Janssen, Calvin Pritchard, and Allen Lee. On code sharing and model documentation of published individual and agent-based models. Environmental Modelling &amp; Software, 134:104873, 2020.">Janssen <em>et al.</em>, 2020</a>, <a class="reference internal" href="#id31" title="Hazhir Rahmandad and John D. Sterman. Reporting guidelines for simulation-based research in social sciences. System Dynamics Review, 28(4):396-411, 2012. URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/sdr.1481, arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/sdr.1481, doi:https://doi.org/10.1002/sdr.1481.">Rahmandad and Sterman, 2012</a>, <a class="reference internal" href="#id33" title="Victoria Stodden, Jennifer Seiler, and Zhaokun Ma. An empirical analysis of journal policy effectiveness for computational reproducibility. Proceedings of the National Academy of Sciences, 115(11):2584–2589, 2018.">Stodden <em>et al.</em>, 2018</a>]</span>. The closest of these fields to healthcare DES is the field of Agent (or Individual) Based Simulation <span id="id12">[<a class="reference internal" href="../04_discussion/01_summary.html#id32" title="Marco A Janssen, Calvin Pritchard, and Allen Lee. On code sharing and model documentation of published individual and agent-based models. Environmental Modelling &amp; Software, 134:104873, 2020.">Janssen <em>et al.</em>, 2020</a>]</span> and Hybrid Simulation (where simulation methods are mixed; <span id="id13">[<a class="reference internal" href="../04_discussion/01_summary.html#id28" title="Sally C. Brailsford, Tillal Eldabi, Martin Kunc, Navonil Mustafee, and Andres F. Osorio. Hybrid simulation modelling in operational research: A state-of-the-art review. European Journal of Operational Research, 278(3):721–737, November 2019. URL: https://www.sciencedirect.com/science/article/pii/S0377221718308786 (visited on 2023-04-03), doi:10.1016/j.ejor.2018.10.025.">Brailsford <em>et al.</em>, 2019</a>]</span>). For instance <span id="id14">[<a class="reference internal" href="../04_discussion/01_summary.html#id32" title="Marco A Janssen, Calvin Pritchard, and Allen Lee. On code sharing and model documentation of published individual and agent-based models. Environmental Modelling &amp; Software, 134:104873, 2020.">Janssen <em>et al.</em>, 2020</a>]</span> examined 7500 articles reporting agent-based models and found only 11% of articles shared model code, although there was an upward trend: 18% of ABS publications were found to share their model in some form by 2018.</p>
+</section>
+<section id="sharing-models-is-as-a-subset-of-reproducibility">
+<h2>Sharing models is as a subset of reproducibility<a class="headerlink" href="#sharing-models-is-as-a-subset-of-reproducibility" title="Permalink to this headline">#</a></h2>
+<p>Our focus in this study is on the practice of sharing executable healthcare DES models: to what extent do health researchers openly share their executable DES models, how do they do it, and what actions could the DES community take to improve what is shared? We consider the open publication of models to be a subset of the broader topic tackling the <em>reproducibility</em> of computational analyses and modelling. There has been a long standing effort to provide incentives for authors to make their computational work reproducibile (cite CoMSES; ACM + others; Open Modeling Foundation; Turing Way, STRESS; ODD; TRISS). One of the most well known of these within the modelling and simulation community is the Association of Computing Machinery’s (ACM) Reproducible Computational Results (RCR) initiative (<a class="reference external" href="https://www.acm.org/publications/policies/artifact-review-and-badging-current">https://www.acm.org/publications/policies/artifact-review-and-badging-current</a>). The RCR is an optional extra peer review process for authors <em>who publish in ACM journals</em>. Computational artefacts, i.e. models or algorithms, are peer reviewed by specialists and author publications are awarded badges based on the results. ACM RCR badges include: artefacts evaluated (as functional or reusable), artefacts available (deposited in a FORCE-11 compliant archive such as the Open Science Framework) and Results Validated (either using the author provided artefacts or a higher level using independent methods).</p>
+<p>Initiatives such RCR are limited to specific journals, but health researchers publish, and may share DES models, in a wide variety of outlets. For example, mathematical, medical and clinical, Health Economic, health policy, and Operational Research journals; as well as, specialist conferences that publish full peer reviewed papers (such as the INFORMS Winter Simulation Conference). In these non RCR supported journals it is unlikely that model artefacts are peer reviewed. Those authors that share models may instead be guided by discipline norms, journal rules, open research guides such as the Turing Way <span id="id15">[<a class="reference internal" href="../02_methods/04_quality_audit.html#id31" title="The Turing Way Community. The Turing Way: A handbook for reproducible, ethical and collaborative research. July 2022. URL: https://doi.org/10.5281/zenodo.7470333, doi:10.5281/zenodo.7470333.">The Turing Way Community, 2022</a>]</span>, or one of several DES reporting guidelines <span id="id16">[<a class="reference internal" href="#id28" title="David M. Eddy, William Hollingworth, J. Jaime Caro, Joel Tsevat, Kathryn M. McDonald, and John B. Wong. Model transparency and validation: a report of the ispor-smdm modeling good research practices task force–7. Medical Decision Making, 32(5):733-743, 2012. PMID: 22990088. URL: https://doi.org/10.1177/0272989X12454579, arXiv:https://doi.org/10.1177/0272989X12454579, doi:10.1177/0272989X12454579.">Eddy <em>et al.</em>, 2012</a>, <a class="reference internal" href="#id30" title="Thomas Monks, Christine SM Currie, Bhakti Stephan Onggo, Stewart Robinson, Martin Kunc, and Simon JE Taylor. Strengthening the reporting of empirical simulation studies: introducing the stress guidelines. Journal of Simulation, 13(1):55–67, 2019.">Monks <em>et al.</em>, 2019</a>, <a class="reference internal" href="#id29" title="Xiange Zhang, Stefan K. Lhachimi, and Wolf H. Rogowski. Reporting quality of discrete event simulations in healthcare—results from a generic reporting checklist. Value in Health, 23(4):506-514, 2020. URL: https://www.sciencedirect.com/science/article/pii/S1098301520300401, doi:https://doi.org/10.1016/j.jval.2020.01.005.">Zhang <em>et al.</em>, 2020</a>]</span>.</p>
+<p>The DES reporting guidelines take different approaches to publication of executable DES models. The International Society for Pharmacoeconomics and Outcomes Research and the Society for Medical Decision Making (ISPOR-SDM; <span id="id17">[<a class="reference internal" href="#id28" title="David M. Eddy, William Hollingworth, J. Jaime Caro, Joel Tsevat, Kathryn M. McDonald, and John B. Wong. Model transparency and validation: a report of the ispor-smdm modeling good research practices task force–7. Medical Decision Making, 32(5):733-743, 2012. PMID: 22990088. URL: https://doi.org/10.1177/0272989X12454579, arXiv:https://doi.org/10.1177/0272989X12454579, doi:10.1177/0272989X12454579.">Eddy <em>et al.</em>, 2012</a>]</span>) encourage authors to make non-confidential versions of their models available to enhance transparency, but state that open models should not be a formal requirement of publication. The task-force note a number of reasons why code might not be able to be shared including intellectual property and cost. The Strengthening the Reporting of Empirical Simulation Studies (STRESS-DES) guidelines takes the position that model code is an enhancement to transparency, not a requirement. The STRESS checklist asks for detailed information on the software environment and computing hardware used to execute the model.  Section 6 goes further and requires a <em>statement on how the model can be accessed</em>. This is intended to prompt authors to think about enhanced transparency, and enhance publication in journals that do not ask for “code and data availability statements”. <span id="id18">[<a class="reference internal" href="#id29" title="Xiange Zhang, Stefan K. Lhachimi, and Wolf H. Rogowski. Reporting quality of discrete event simulations in healthcare—results from a generic reporting checklist. Value in Health, 23(4):506-514, 2020. URL: https://www.sciencedirect.com/science/article/pii/S1098301520300401, doi:https://doi.org/10.1016/j.jval.2020.01.005.">Zhang <em>et al.</em>, 2020</a>]</span> focuses only on logic reporting and does not prompt users for information on model code.</p>
+<p>One exception to the position of publication as an enhancement versus requirement for transparency is perhaps models tackling Covid-19.  At the start of the cornovirus pandemic, the lack of transparency and access to epidemiological model code used to inform economic and public health policy contributed to public confusion and polarisation. Leading to some calling for open publication of all model code related to any aspect of Covid-19 <span id="id19">[<a class="reference internal" href="#id27" title="Jennifer Sills, C. Michael Barton, Marina Alberti, Daniel Ames, Jo-An Atkinson, Jerad Bales, Edmund Burke, Min Chen, Saikou Y Diallo, David J. D. Earn, Brian Fath, Zhilan Feng, Christopher Gibbons, Ross Hammond, Jane Heffernan, Heather Houser, Peter S. Hovmand, Birgit Kopainsky, Patricia L. Mabry, Christina Mair, Petra Meier, Rebecca Niles, Brian Nosek, Nathaniel Osgood, Suzanne Pierce, J. Gareth Polhill, Lisa Prosser, Erin Robinson, Cynthia Rosenzweig, Shankar Sankaran, Kurt Stange, and Gregory Tucker. Call for transparency of covid-19 models. Science, 368(6490):482-483, 2020. URL: https://www.science.org/doi/abs/10.1126/science.abb8637, arXiv:https://www.science.org/doi/pdf/10.1126/science.abb8637, doi:10.1126/science.abb8637.">Sills <em>et al.</em>, 2020</a>]</span>.</p>
+<section id="challenges-with-open-publication-of-executable-models">
+<h3>Challenges with open publication of executable models<a class="headerlink" href="#challenges-with-open-publication-of-executable-models" title="Permalink to this headline">#</a></h3>
+<p>Even where source code or model files are provided in research studies, models may not be executable due to changing dependencies <span id="id20">[<a class="reference internal" href="#id26" title="Amit Rawal, Vuong Truong, Yuhui Lo, Lin-Yuan Tseng, and Niall W Duncan. A survey of experimental stimulus presentation code sharing in major areas of psychology (preprint). PsyArXiv, 2022. URL: https://psyarxiv.com/v3bge/.">Rawal <em>et al.</em>, 2022</a>]</span>, propriety software <span id="id21">[<a class="reference internal" href="#id33" title="Victoria Stodden, Jennifer Seiler, and Zhaokun Ma. An empirical analysis of journal policy effectiveness for computational reproducibility. Proceedings of the National Academy of Sciences, 115(11):2584–2589, 2018.">Stodden <em>et al.</em>, 2018</a>]</span>, or where not permanently archived, code may become unavailable <span id="id22">[<a class="reference internal" href="../04_discussion/01_summary.html#id32" title="Marco A Janssen, Calvin Pritchard, and Allen Lee. On code sharing and model documentation of published individual and agent-based models. Environmental Modelling &amp; Software, 134:104873, 2020.">Janssen <em>et al.</em>, 2020</a>]</span>. Where models are recorded as ‘available upon request’, requests for code are frequently not honoured, even in journals demanding reproducibility <span id="id23">[<a class="reference internal" href="#id32" title="Christian Collberg and Todd A. Proebsting. Repeatability in computer systems research. Commun. ACM, 59(3):62–69, feb 2016. URL: https://doi.org/10.1145/2812803, doi:10.1145/2812803.">Collberg and Proebsting, 2016</a>, <a class="reference internal" href="#id33" title="Victoria Stodden, Jennifer Seiler, and Zhaokun Ma. An empirical analysis of journal policy effectiveness for computational reproducibility. Proceedings of the National Academy of Sciences, 115(11):2584–2589, 2018.">Stodden <em>et al.</em>, 2018</a>]</span>. In the largest study to date <span id="id24">[<a class="reference internal" href="../04_discussion/01_summary.html#id32" title="Marco A Janssen, Calvin Pritchard, and Allen Lee. On code sharing and model documentation of published individual and agent-based models. Environmental Modelling &amp; Software, 134:104873, 2020.">Janssen <em>et al.</em>, 2020</a>]</span> received a response from less than 1% of authors to provide their code; the majority of these indicated that their model is no longer available, or failed to provide a runnable version.</p>
+</section>
+<section id="to-do">
+<h3>To do<a class="headerlink" href="#to-do" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>FAIR - does this go in the background or part of methods?
+We analysed a dataset of XXXXXXX publications applying DES in healthcare to determine ….stuff</p>
+</div></blockquote>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id25">
+<dl class="citation">
+<dt class="label" id="id46"><span class="brackets">BEK+19</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id13">2</a>)</span></dt>
+<dd><p>Sally C. Brailsford, Tillal Eldabi, Martin Kunc, Navonil Mustafee, and Andres F. Osorio. Hybrid simulation modelling in operational research: A state-of-the-art review. <em>European Journal of Operational Research</em>, 278(3):721–737, November 2019. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0377221718308786">https://www.sciencedirect.com/science/article/pii/S0377221718308786</a> (visited on 2023-04-03), <a class="reference external" href="https://doi.org/10.1016/j.ejor.2018.10.025">doi:10.1016/j.ejor.2018.10.025</a>.</p>
+</dd>
+<dt class="label" id="id42"><span class="brackets"><a class="fn-backref" href="#id9">CRK+21</a></span></dt>
+<dd><p>Daniel Chalk, Sara Robbins, Rohan Kandasamy, Kate Rush, Ajay Aggarwal, Richard Sullivan, and Charlotte Chamberlain. Modelling palliative and end-of-life resource requirements during covid-19: implications for quality care. <em>BMJ Open</em>, 2021. URL: <a class="reference external" href="https://bmjopen.bmj.com/content/11/5/e043795">https://bmjopen.bmj.com/content/11/5/e043795</a>, <a class="reference external" href="https://arxiv.org/abs/https://bmjopen.bmj.com/content/11/5/e043795.full.pdf">arXiv:https://bmjopen.bmj.com/content/11/5/e043795.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1136/bmjopen-2020-043795">doi:10.1136/bmjopen-2020-043795</a>.</p>
+</dd>
+<dt class="label" id="id32"><span class="brackets">CP16</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id23">2</a>)</span></dt>
+<dd><p>Christian Collberg and Todd A. Proebsting. Repeatability in computer systems research. <em>Commun. ACM</em>, 59(3):62–69, feb 2016. URL: <a class="reference external" href="https://doi.org/10.1145/2812803">https://doi.org/10.1145/2812803</a>, <a class="reference external" href="https://doi.org/10.1145/2812803">doi:10.1145/2812803</a>.</p>
+</dd>
+<dt class="label" id="id28"><span class="brackets">EHC+12</span><span class="fn-backref">(<a href="#id16">1</a>,<a href="#id17">2</a>)</span></dt>
+<dd><p>David M. Eddy, William Hollingworth, J. Jaime Caro, Joel Tsevat, Kathryn M. McDonald, and John B. Wong. Model transparency and validation: a report of the ispor-smdm modeling good research practices task force–7. <em>Medical Decision Making</em>, 32(5):733–743, 2012. PMID: 22990088. URL: <a class="reference external" href="https://doi.org/10.1177/0272989X12454579">https://doi.org/10.1177/0272989X12454579</a>, <a class="reference external" href="https://arxiv.org/abs/https://doi.org/10.1177/0272989X12454579">arXiv:https://doi.org/10.1177/0272989X12454579</a>, <a class="reference external" href="https://doi.org/10.1177/0272989X12454579">doi:10.1177/0272989X12454579</a>.</p>
+</dd>
+<dt class="label" id="id36"><span class="brackets"><a class="fn-backref" href="#id4">HRS+21</a></span></dt>
+<dd><p>Martine Hoogendoorn, Isaac Corro Ramos, Stéphane Soulard, Jennifer Cook, Erkki Soini, Emma Paulsson, and Maureen Rutten-van Mölken. Cost-effectiveness of the fixed-dose combination tiotropium/olodaterol versus tiotropium monotherapy or a fixed-dose combination of long-acting β2-agonist/inhaled corticosteroid for copd in finland, sweden and the netherlands: a model-based study. <em>BMJ Open</em>, 2021. URL: <a class="reference external" href="https://bmjopen.bmj.com/content/11/8/e049675">https://bmjopen.bmj.com/content/11/8/e049675</a>, <a class="reference external" href="https://arxiv.org/abs/https://bmjopen.bmj.com/content/11/8/e049675.full.pdf">arXiv:https://bmjopen.bmj.com/content/11/8/e049675.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1136/bmjopen-2021-049675">doi:10.1136/bmjopen-2021-049675</a>.</p>
+</dd>
+<dt class="label" id="id50"><span class="brackets">JPL20</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id12">2</a>,<a href="#id14">3</a>,<a href="#id22">4</a>,<a href="#id24">5</a>)</span></dt>
+<dd><p>Marco A Janssen, Calvin Pritchard, and Allen Lee. On code sharing and model documentation of published individual and agent-based models. <em>Environmental Modelling &amp; Software</em>, 134:104873, 2020.</p>
+</dd>
+<dt class="label" id="id37"><span class="brackets"><a class="fn-backref" href="#id2">LvdZLB20</a></span></dt>
+<dd><p>Maarten M H Lahr, Durk-Jouke van der Zee, Gert-Jan Luijckx, and Erik Buskens. Optimising acute stroke care organisation: a simulation study to assess the potential to increase intravenous thrombolysis rates and patient gains. <em>BMJ Open</em>, 2020. URL: <a class="reference external" href="https://bmjopen.bmj.com/content/10/1/e032780">https://bmjopen.bmj.com/content/10/1/e032780</a>, <a class="reference external" href="https://arxiv.org/abs/https://bmjopen.bmj.com/content/10/1/e032780.full.pdf">arXiv:https://bmjopen.bmj.com/content/10/1/e032780.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1136/bmjopen-2019-032780">doi:10.1136/bmjopen-2019-032780</a>.</p>
+</dd>
+<dt class="label" id="id39"><span class="brackets"><a class="fn-backref" href="#id3">MBSavovic+17</a></span></dt>
+<dd><p>Syed Mohiuddin, John Busby, Jelena Savović, Alison Richards, Kate Northstone, William Hollingworth, Jenny L Donovan, and Christos Vasilakis. Patient flow within uk emergency departments: a systematic review of the use of computer simulation modelling methods. <em>BMJ Open</em>, 2017. URL: <a class="reference external" href="https://bmjopen.bmj.com/content/7/5/e015007">https://bmjopen.bmj.com/content/7/5/e015007</a>, <a class="reference external" href="https://arxiv.org/abs/https://bmjopen.bmj.com/content/7/5/e015007.full.pdf">arXiv:https://bmjopen.bmj.com/content/7/5/e015007.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1136/bmjopen-2016-015007">doi:10.1136/bmjopen-2016-015007</a>.</p>
+</dd>
+<dt class="label" id="id38"><span class="brackets"><a class="fn-backref" href="#id5">MGC+20</a></span></dt>
+<dd><p>Syed Mohiuddin, Rebecca Gardiner, Megan Crofts, Peter Muir, Jonathan Steer, Jonathan Turner, Helen Wheeler, William Hollingworth, and Paddy J Horner. Modelling patient flows and resource use within a sexual health clinic through discrete event simulation to inform service redesign. <em>BMJ Open</em>, 2020. URL: <a class="reference external" href="https://bmjopen.bmj.com/content/10/7/e037084">https://bmjopen.bmj.com/content/10/7/e037084</a>, <a class="reference external" href="https://arxiv.org/abs/https://bmjopen.bmj.com/content/10/7/e037084.full.pdf">arXiv:https://bmjopen.bmj.com/content/10/7/e037084.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1136/bmjopen-2020-037084">doi:10.1136/bmjopen-2020-037084</a>.</p>
+</dd>
+<dt class="label" id="id30"><span class="brackets">MCO+19</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id16">2</a>)</span></dt>
+<dd><p>Thomas Monks, Christine SM Currie, Bhakti Stephan Onggo, Stewart Robinson, Martin Kunc, and Simon JE Taylor. Strengthening the reporting of empirical simulation studies: introducing the stress guidelines. <em>Journal of Simulation</em>, 13(1):55–67, 2019.</p>
+</dd>
+<dt class="label" id="id41"><span class="brackets"><a class="fn-backref" href="#id6">ODHF+22</a></span></dt>
+<dd><p>Zehra Onen-Dumlu, Alison L. Harper, Paul G. Forte, Anna L. Powell, Martin Pitt, Christos Vasilakis, and Richard M. Wood. Optimising the balance of acute and intermediate care capacity for the complex discharge pathway: computer modelling study during covid-19 recovery in england. <em>PLOS ONE</em>, 17(6):1–16, 06 2022. URL: <a class="reference external" href="https://doi.org/10.1371/journal.pone.0268837">https://doi.org/10.1371/journal.pone.0268837</a>, <a class="reference external" href="https://doi.org/10.1371/journal.pone.0268837">doi:10.1371/journal.pone.0268837</a>.</p>
+</dd>
+<dt class="label" id="id40"><span class="brackets"><a class="fn-backref" href="#id7">PMKA20</a></span></dt>
+<dd><p>M.L. Penn, T. Monks, A.A. Kazmierska, and M.R.A.R. Alkoheji. Towards generic modelling of hospital wards: reuse and redevelopment of simple models. <em>Journal of Simulation</em>, 14(2):107–118, 2020. URL: <a class="reference external" href="https://doi.org/10.1080/17477778.2019.1664264">https://doi.org/10.1080/17477778.2019.1664264</a>, <a class="reference external" href="https://arxiv.org/abs/https://doi.org/10.1080/17477778.2019.1664264">arXiv:https://doi.org/10.1080/17477778.2019.1664264</a>, <a class="reference external" href="https://doi.org/10.1080/17477778.2019.1664264">doi:10.1080/17477778.2019.1664264</a>.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets"><a class="fn-backref" href="#id1">PPM22</a></span></dt>
+<dd><p>Aby M Philip, Shanmugam Prasannavenkatesan, and Navonil Mustafee. Simulation modelling of hospital outpatient department: a review of the literature and bibliometric analysis. <em>SIMULATION</em>, 0(0):00375497221139282, 2022. URL: <a class="reference external" href="https://doi.org/10.1177/00375497221139282">https://doi.org/10.1177/00375497221139282</a>, <a class="reference external" href="https://arxiv.org/abs/https://doi.org/10.1177/00375497221139282">arXiv:https://doi.org/10.1177/00375497221139282</a>, <a class="reference external" href="https://doi.org/10.1177/00375497221139282">doi:10.1177/00375497221139282</a>.</p>
+</dd>
+<dt class="label" id="id31"><span class="brackets"><a class="fn-backref" href="#id11">RS12</a></span></dt>
+<dd><p>Hazhir Rahmandad and John D. Sterman. Reporting guidelines for simulation-based research in social sciences. <em>System Dynamics Review</em>, 28(4):396–411, 2012. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sdr.1481">https://onlinelibrary.wiley.com/doi/abs/10.1002/sdr.1481</a>, <a class="reference external" href="https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1002/sdr.1481">arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/sdr.1481</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1002/sdr.1481">doi:https://doi.org/10.1002/sdr.1481</a>.</p>
+</dd>
+<dt class="label" id="id26"><span class="brackets"><a class="fn-backref" href="#id20">RTL+22</a></span></dt>
+<dd><p>Amit Rawal, Vuong Truong, Yuhui Lo, Lin-Yuan Tseng, and Niall W Duncan. A survey of experimental stimulus presentation code sharing in major areas of psychology (preprint). <em>PsyArXiv</em>, 2022. URL: <a class="reference external" href="https://psyarxiv.com/v3bge/">https://psyarxiv.com/v3bge/</a>.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets"><a class="fn-backref" href="#id1">RVG21</a></span></dt>
+<dd><p>Sumanta Roy, Shanmugam Prasanna Venkatesan, and Mark Goh. Healthcare services: a systematic review of patient-centric logistics issues using simulation. <em>Journal of the Operational Research Society</em>, 72(10):2342–2364, 2021. URL: <a class="reference external" href="https://doi.org/10.1080/01605682.2020.1790306">https://doi.org/10.1080/01605682.2020.1790306</a>, <a class="reference external" href="https://arxiv.org/abs/https://doi.org/10.1080/01605682.2020.1790306">arXiv:https://doi.org/10.1080/01605682.2020.1790306</a>, <a class="reference external" href="https://doi.org/10.1080/01605682.2020.1790306">doi:10.1080/01605682.2020.1790306</a>.</p>
+</dd>
+<dt class="label" id="id45"><span class="brackets"><a class="fn-backref" href="#id1">STB+17</a></span></dt>
+<dd><p>Syed Salleh, Praveen Thokala, Alan Brennan, Ruby Hughes, and Andrew Booth. Simulation modelling in healthcare: an umbrella review of systematic literature reviews. <em>PharmacoEconomics</em>, 35(9):937–949, 2017.</p>
+</dd>
+<dt class="label" id="id34"><span class="brackets"><a class="fn-backref" href="#id1">SRBP18</a></span></dt>
+<dd><p>Andrew Salmon, Sebastian Rachuba, Simon Briscoe, and Martin Pitt. A structured literature review of simulation modelling applied to emergency departments: current patterns and emerging trends. <em>Operations Research for Health Care</em>, 19:1–13, 2018. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2211692317301042">https://www.sciencedirect.com/science/article/pii/S2211692317301042</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.orhc.2018.01.001">doi:https://doi.org/10.1016/j.orhc.2018.01.001</a>.</p>
+</dd>
+<dt class="label" id="id27"><span class="brackets"><a class="fn-backref" href="#id19">SBA+20</a></span></dt>
+<dd><p>Jennifer Sills, C. Michael Barton, Marina Alberti, Daniel Ames, Jo-An Atkinson, Jerad Bales, Edmund Burke, Min Chen, Saikou Y Diallo, David J. D. Earn, Brian Fath, Zhilan Feng, Christopher Gibbons, Ross Hammond, Jane Heffernan, Heather Houser, Peter S. Hovmand, Birgit Kopainsky, Patricia L. Mabry, Christina Mair, Petra Meier, Rebecca Niles, Brian Nosek, Nathaniel Osgood, Suzanne Pierce, J. Gareth Polhill, Lisa Prosser, Erin Robinson, Cynthia Rosenzweig, Shankar Sankaran, Kurt Stange, and Gregory Tucker. Call for transparency of covid-19 models. <em>Science</em>, 368(6490):482–483, 2020. URL: <a class="reference external" href="https://www.science.org/doi/abs/10.1126/science.abb8637">https://www.science.org/doi/abs/10.1126/science.abb8637</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.science.org/doi/pdf/10.1126/science.abb8637">arXiv:https://www.science.org/doi/pdf/10.1126/science.abb8637</a>, <a class="reference external" href="https://doi.org/10.1126/science.abb8637">doi:10.1126/science.abb8637</a>.</p>
+</dd>
+<dt class="label" id="id33"><span class="brackets">SSM18</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id21">2</a>,<a href="#id23">3</a>)</span></dt>
+<dd><p>Victoria Stodden, Jennifer Seiler, and Zhaokun Ma. An empirical analysis of journal policy effectiveness for computational reproducibility. <em>Proceedings of the National Academy of Sciences</em>, 115(11):2584–2589, 2018.</p>
+</dd>
+<dt class="label" id="id35"><span class="brackets"><a class="fn-backref" href="#id8">YHLD22</a></span></dt>
+<dd><p>Usame Yakutcan, John R Hurst, Reda Lebcir, and Eren Demir. Assessing the impact of covid-19 measures on copd management and patients: a simulation-based decision support tool for copd services in the uk. <em>BMJ Open</em>, 2022. URL: <a class="reference external" href="https://bmjopen.bmj.com/content/12/10/e062305">https://bmjopen.bmj.com/content/12/10/e062305</a>, <a class="reference external" href="https://arxiv.org/abs/https://bmjopen.bmj.com/content/12/10/e062305.full.pdf">arXiv:https://bmjopen.bmj.com/content/12/10/e062305.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1136/bmjopen-2022-062305">doi:10.1136/bmjopen-2022-062305</a>.</p>
+</dd>
+<dt class="label" id="id29"><span class="brackets">ZLR20</span><span class="fn-backref">(<a href="#id16">1</a>,<a href="#id18">2</a>)</span></dt>
+<dd><p>Xiange Zhang, Stefan K. Lhachimi, and Wolf H. Rogowski. Reporting quality of discrete event simulations in healthcare—results from a generic reporting checklist. <em>Value in Health</em>, 23(4):506–514, 2020. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1098301520300401">https://www.sciencedirect.com/science/article/pii/S1098301520300401</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.jval.2020.01.005">doi:https://doi.org/10.1016/j.jval.2020.01.005</a>.</p>
+</dd>
+<dt class="label" id="id52"><span class="brackets"><a class="fn-backref" href="#id15">TheTWCommunity22</a></span></dt>
+<dd><p>The Turing Way Community. The Turing Way: A handbook for reproducible, ethical and collaborative research. July 2022. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.7470333">https://doi.org/10.5281/zenodo.7470333</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.7470333">doi:10.5281/zenodo.7470333</a>.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TomMonks/des_sharing_lit_review",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/01_intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02_license.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">License</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../02_methods/01_search_strategy.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Search Strategy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alison Harper and Thomas Monks<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

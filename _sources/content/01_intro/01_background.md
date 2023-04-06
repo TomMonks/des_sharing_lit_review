@@ -1,0 +1,36 @@
+# Background
+
+## Healthcare discrete-event simulation
+
+In healthcare, discrete-event simulation (DES) is the most used computational method for modelling {cite}`salleh2017simulation, philip_2022, roy_2021, SALMON20181`. DES has proven useful within the field of health as it can be used to model patient care pathways, optimise health service delivery, investigate health queuing systems, and conduct health technology assessment. It has been applied to a wide variety of important clinical and health problems such as stroke care {cite:p}`Lahr_bmj`, emergency departments {cite:p}`Mohiuddine015007`, chronic obstructive pulmonary disease {cite}`Hoogendoorne049675`, sexual health {cite:p}`Mohiuddine_sexual_health_des`, reducing delayed discharges {cite:p}`ipacs_plos1`, mental health waiting times, critical care {cite:p}`penn_2020`, managing health services during the Covid-19 pandemic {cite}`Yakutcane062305`, and end of life care {cite:p}`Chalke043795`. Healthcare DES models are often complex research artefacts: they are time consuming to build, depend on specialist software, and logic may be difficult to describe accurately using words and diagrams alone {cite}`monks2019strengthening`. 
+
+## Availability of executable models
+
+To enhance transparency of model logic, and offer others the potential to understand, learn from, or reuse a model, one option available to authors of DES studies is to openly publish an executable health simulation model. The current extent of model sharing and practice of sharing DES models in the healthcare literature is unknown. Reviews in other computational fields report that the sharing of model code and files has historically been low {cite}`Collberg_2016, stodden2018empirical, janssen2020code, brailsford_hybrid_2019, sterman_2012`. The closest of these fields to healthcare DES is the field of Agent (or Individual) Based Simulation {cite}`janssen2020code` and Hybrid Simulation (where simulation methods are mixed; {cite}`brailsford_hybrid_2019`). For instance {cite}`janssen2020code` examined 7500 articles reporting agent-based models and found only 11% of articles shared model code, although there was an upward trend: 18% of ABS publications were found to share their model in some form by 2018. 
+
+## Sharing models is as a subset of reproducibility
+
+Our focus in this study is on the practice of sharing executable healthcare DES models: to what extent do health researchers openly share their executable DES models, how do they do it, and what actions could the DES community take to improve what is shared? We consider the open publication of models to be a subset of the broader topic tackling the *reproducibility* of computational analyses and modelling. There has been a long standing effort to provide incentives for authors to make their computational work reproducibile (cite CoMSES; ACM + others; Open Modeling Foundation; Turing Way, STRESS; ODD; TRISS). One of the most well known of these within the modelling and simulation community is the Association of Computing Machinery's (ACM) Reproducible Computational Results (RCR) initiative (https://www.acm.org/publications/policies/artifact-review-and-badging-current). The RCR is an optional extra peer review process for authors *who publish in ACM journals*. Computational artefacts, i.e. models or algorithms, are peer reviewed by specialists and author publications are awarded badges based on the results. ACM RCR badges include: artefacts evaluated (as functional or reusable), artefacts available (deposited in a FORCE-11 compliant archive such as the Open Science Framework) and Results Validated (either using the author provided artefacts or a higher level using independent methods). 
+
+Initiatives such RCR are limited to specific journals, but health researchers publish, and may share DES models, in a wide variety of outlets. For example, mathematical, medical and clinical, Health Economic, health policy, and Operational Research journals; as well as, specialist conferences that publish full peer reviewed papers (such as the INFORMS Winter Simulation Conference). In these non RCR supported journals it is unlikely that model artefacts are peer reviewed. Those authors that share models may instead be guided by discipline norms, journal rules, open research guides such as the Turing Way {cite}`the_turing_way_community_2022_7470333`, or one of several DES reporting guidelines {cite}`monks2019strengthening, ZHANG2020506, ISPORSMDM`. 
+
+The DES reporting guidelines take different approaches to publication of executable DES models. The International Society for Pharmacoeconomics and Outcomes Research and the Society for Medical Decision Making (ISPOR-SDM; {cite:p}`ISPORSMDM`) encourage authors to make non-confidential versions of their models available to enhance transparency, but state that open models should not be a formal requirement of publication. The task-force note a number of reasons why code might not be able to be shared including intellectual property and cost. The Strengthening the Reporting of Empirical Simulation Studies (STRESS-DES) guidelines takes the position that model code is an enhancement to transparency, not a requirement. The STRESS checklist asks for detailed information on the software environment and computing hardware used to execute the model.  Section 6 goes further and requires a *statement on how the model can be accessed*. This is intended to prompt authors to think about enhanced transparency, and enhance publication in journals that do not ask for "code and data availability statements". {cite:p}`ZHANG2020506` focuses only on logic reporting and does not prompt users for information on model code.  
+
+One exception to the position of publication as an enhancement versus requirement for transparency is perhaps models tackling Covid-19.  At the start of the cornovirus pandemic, the lack of transparency and access to epidemiological model code used to inform economic and public health policy contributed to public confusion and polarisation. Leading to some calling for open publication of all model code related to any aspect of Covid-19 {cite}`covid19_transparency`. 
+
+### Challenges with open publication of executable models
+
+Even where source code or model files are provided in research studies, models may not be executable due to changing dependencies {cite:p}`rawal2022survey`, propriety software {cite}`stodden2018empirical`, or where not permanently archived, code may become unavailable {cite}`janssen2020code`. Where models are recorded as 'available upon request', requests for code are frequently not honoured, even in journals demanding reproducibility {cite}`stodden2018empirical, Collberg_2016`. In the largest study to date {cite:p}`janssen2020code` received a response from less than 1% of authors to provide their code; the majority of these indicated that their model is no longer available, or failed to provide a runnable version. 
+
+
+### To do
+
+> FAIR - does this go in the background or part of methods?
+> We analysed a dataset of XXXXXXX publications applying DES in healthcare to determine ....stuff
+ 
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
