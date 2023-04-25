@@ -1,6 +1,6 @@
-# Preface
+# Overview
 
-These results accompany **Harper and Monks (2023).  DES model sharing in healthcare: an analysis of the published literature 2019-2022**
+These results accompany **Monks and Harper (2023).  Model and code sharing practices in healthcare discrete-event simulation: a systematic review**
 
 > An early version of these results was presented at the WSC2022 conference for the panel on **Grand Challenges in Healthcare Simulation**.  Thanks goes to Prof Christine Currie for her support.
 
