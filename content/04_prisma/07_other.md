@@ -23,10 +23,9 @@ No study protocol was published.
 
 ## 25. Support
 
-`````{admonition} INCOMPLETE
-:class: warning
-**to do: add in funding page**
-This report is independent research supported by the National Institute for Health and Care Research Applied Research Collaboration South West Peninsula. The views expressed in this publication are those of the author(s) and not necessarily those of the National Institute for Health and Care Research or the Department of Health and Social Care
+`````{admonition} COMPLETE
+:class: seealso
+See [funding page](../01_intro/03_funding).
 `````
 
 ## 26. Competing interests
