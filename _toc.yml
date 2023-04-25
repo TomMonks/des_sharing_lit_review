@@ -5,6 +5,7 @@ parts:
   chapters:
   - file: content/01_intro/02_license
   - file: content/01_intro/03_funding
+  - file: content/01_intro/04_competing_interests
   - file: content/01_intro/01_background
 - caption: Methods
   chapters:
