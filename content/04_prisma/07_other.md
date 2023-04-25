@@ -30,9 +30,9 @@ See [funding page](../01_intro/03_funding).
 
 ## 26. Competing interests
 
-`````{admonition} INCOMPLETE
-:class: warning
-**to do: add in competing interests page**
+`````{admonition} COMPLETE
+:class: seealso
+See [competing interests page](../01_intro/04_competing_interests).
 `````
 
 ## 27. Availability of data code and other materials
