@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sharing by article type &#8212; Model and code sharing practices in healthcare discrete-event simulation</title>
+    <title>Sharing by article type &#8212; Model and code sharing practices in healthcare discrete-event simulation - a systematic review</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -92,7 +92,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">Model and code sharing practices in healthcare discrete-event simulation</h1>
+      <h1 class="site-logo" id="site-title">Model and code sharing practices in healthcare discrete-event simulation - a systematic review</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -104,7 +104,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../01_welcome.html">
-                    Preface
+                    Overview
                 </a>
             </li>
         </ul>
@@ -117,6 +117,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../01_intro/02_license.html">
    License
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/03_funding.html">
+   Funding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/04_competing_interests.html">
+   Competing Interests
   </a>
  </li>
  <li class="toctree-l1">
@@ -805,7 +815,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_table3</span><span class="p">(</span><span class="n">journals</span><span class="p">,</span> <span class="n">confs</span><span class="p">,</span> <span class="n">books</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_table3</span><span class="p">(</span><span class="n">overall</span><span class="p">,</span> <span class="n">journals</span><span class="p">,</span> <span class="n">confs</span><span class="p">,</span> <span class="n">books</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Converts three formatted tables into a single formatted table</span>
 <span class="sd">    </span>
@@ -820,9 +830,10 @@ title="Print to PDF"
 <span class="sd">    books - dataframe</span>
 <span class="sd">        Table 2 containing books only</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">comb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">journals</span><span class="p">,</span> <span class="n">confs</span><span class="p">,</span> <span class="n">books</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">comb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">overall</span><span class="p">,</span> <span class="n">journals</span><span class="p">,</span> <span class="n">confs</span><span class="p">,</span> <span class="n">books</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
     <span class="n">comb</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([</span>
 
+        <span class="p">(</span><span class="s2">&quot;Overall&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Overall&quot;</span><span class="p">,</span> <span class="s2">&quot;shared n (\%)&quot;</span><span class="p">),</span>
         <span class="p">(</span><span class="s2">&quot;Journal&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Journal&quot;</span><span class="p">,</span> <span class="s2">&quot;shared n (\%)&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Conference&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span> 
         <span class="p">(</span><span class="s2">&quot;Conference&quot;</span><span class="p">,</span> <span class="s2">&quot;shared n (\%)&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">,</span> <span class="s2">&quot;shared n (\%)&quot;</span><span class="p">)</span>
 
@@ -884,11 +895,12 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">journals</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">article_type</span><span class="o">=</span><span class="s1">&#39;journalArticle&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overall</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">journals</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">article_type</span><span class="o">=</span><span class="s1">&#39;journalArticle&#39;</span><span class="p">)</span>
 <span class="n">confs</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">article_type</span><span class="o">=</span><span class="s1">&#39;conferencePaper&#39;</span><span class="p">)</span>
 <span class="n">books</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">article_type</span><span class="o">=</span><span class="s1">&#39;book&#39;</span><span class="p">)</span>
 
-<span class="n">comb</span> <span class="o">=</span> <span class="n">format_table3</span><span class="p">(</span><span class="n">journals</span><span class="p">,</span> <span class="n">confs</span><span class="p">,</span> <span class="n">books</span><span class="p">)</span>
+<span class="n">comb</span> <span class="o">=</span> <span class="n">format_table3</span><span class="p">(</span><span class="n">overall</span><span class="p">,</span> <span class="n">journals</span><span class="p">,</span> <span class="n">confs</span><span class="p">,</span> <span class="n">books</span><span class="p">)</span>
 <span class="n">comb</span>
 </pre></div>
 </div>
@@ -919,6 +931,19 @@ title="Print to PDF"
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th rowspan="2" valign="top">Overall</th>
+      <th>n</th>
+      <td>486</td>
+      <td>59</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <th>shared n (\%)</th>
+      <td>43 (8.8)</td>
+      <td>16 (27.1)</td>
+      <td>26 (29.5)</td>
+    </tr>
     <tr>
       <th rowspan="2" valign="top">Journal</th>
       <th>n</th>
@@ -983,12 +1008,42 @@ title="Print to PDF"
 \toprule
  &amp; metric &amp; Total &amp; COVID-19 &amp; FOSS \\
 \midrule
+\multirow[c]{2}{*}{Overall} &amp; n &amp; 486 &amp; 59 &amp; 88 \\
+ &amp; shared n (\%) &amp; 43 (8.8) &amp; 16 (27.1) &amp; 26 (29.5) \\
 \multirow[c]{2}{*}{Journal} &amp; n &amp; 364 &amp; 44 &amp; 68 \\
  &amp; shared n (\%) &amp; 38 (10.4) &amp; 12 (27.3) &amp; 22 (32.4) \\
 \multirow[c]{2}{*}{Conference} &amp; n &amp; 98 &amp; 14 &amp; 14 \\
  &amp; shared n (\%) &amp; 4 (4.1) &amp; 4 (28.6) &amp; 3 (21.4) \\
 \multirow[c]{2}{*}{Book} &amp; n &amp; 24 &amp; 1 &amp; 6 \\
  &amp; shared n (\%) &amp; 1 (4.2) &amp; 0 (0.0) &amp; 1 (16.7) \\
+\bottomrule
+\end{tabular}
+\end{table}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">comb</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">hrules</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                          <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Table:3&quot;</span><span class="p">,</span> 
+                          <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Sharing of models by article type.&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{table}
+\caption{Sharing of models by article type.}
+\label{Table:3}
+\begin{tabular}{lllllllll}
+\toprule
+ &amp; \multicolumn{2}{r}{Overall} &amp; \multicolumn{2}{r}{Journal} &amp; \multicolumn{2}{r}{Conference} &amp; \multicolumn{2}{r}{Book} \\
+ &amp; n &amp; shared n (\%) &amp; n &amp; shared n (\%) &amp; n &amp; shared n (\%) &amp; n &amp; shared n (\%) \\
+metric &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  \\
+\midrule
+Total &amp; 486 &amp; 43 (8.8) &amp; 364 &amp; 38 (10.4) &amp; 98 &amp; 4 (4.1) &amp; 24 &amp; 1 (4.2) \\
+COVID-19 &amp; 59 &amp; 16 (27.1) &amp; 44 &amp; 12 (27.3) &amp; 14 &amp; 4 (28.6) &amp; 1 &amp; 0 (0.0) \\
+FOSS &amp; 88 &amp; 26 (29.5) &amp; 68 &amp; 22 (32.4) &amp; 14 &amp; 3 (21.4) &amp; 6 &amp; 1 (16.7) \\
 \bottomrule
 \end{tabular}
 \end{table}
