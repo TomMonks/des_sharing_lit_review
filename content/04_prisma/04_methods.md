@@ -85,16 +85,17 @@ We have provided the code and detail on the process to pre-process the datasets 
 
 ### 13c Methods for tabulation and visualisation
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To link:**
+`````{admonition} COMPLETE
+:class: seealso
+We have provided jupyter notebooks containing the code that produces the tables and figures. See section on results. 
 `````
 
 ### 13d Methods used to synthesise results
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To discuss:**
+`````{admonition} COMPLETE
+:class: seealso
+All software used to synthesise results are described in detail [here](../02_methods/05_analysis_env)
+`````
 `````
 ### 13e Methods to explore heterogeneity
 
@@ -111,9 +112,9 @@ The main result of number of models shared is broken down by year.  See [article
 `````
 ## 14. Reporting bias assessment
 
-`````{admonition} INCOMPLETE
-:class: warning
-Not applicable? **To discuss**
+`````{admonition} NOT APPLICABLE
+:class: error
+This study does not estimate an effect.
 `````
 ## 15. Certainty assessment
 
