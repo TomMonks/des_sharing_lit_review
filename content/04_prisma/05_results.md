@@ -24,14 +24,14 @@ Complete in paper - need to have a notebook that produces all results in one pla
 ##  18. Risk of bias in studies
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 
 ## 19. Results of individual studies
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 
@@ -68,13 +68,13 @@ We include jupyter notebooks for each analysis.  See results section.
 ## 21. Reporting biases
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 
 ## 22 Certainty of Evidence
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````

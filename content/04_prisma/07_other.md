@@ -5,19 +5,19 @@
 ### 24a. Registration information
 
 `````{admonition} NOT APPLICABLE
-:class: warning
+:class: caution
 The review was not registered.
 `````
 ### 24b. Protocol access
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 The study protocol was not published.
 `````
 ### 24c. Amendments to protocol
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 No study protocol was published.
 `````
 

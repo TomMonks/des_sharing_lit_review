@@ -56,14 +56,14 @@ We collected additional variables in the first part of our review and these are 
 ## 11. Study risk of bias assessment
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 Bias of this type is not applicable to the type of study conducted.  A limitation of the study is that we cannot comment on the practice of models shared that are not referenced in the study article.
 `````
 
 ## 12. Effect measures
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 
@@ -117,13 +117,13 @@ The main result of number of models shared is broken down by year.  See [article
 ## 14. Reporting bias assessment
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 ## 15. Certainty assessment
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 
