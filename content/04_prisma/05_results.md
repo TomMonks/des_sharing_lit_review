@@ -18,52 +18,51 @@ We provide a reproducible PRISMA flow diagram. This can be viewed in the PRISMA 
 
 `````{admonition} INCOMPLETE
 :class: warning
-**To discuss: ** How best to do this.  Prisma: cite each included study and present its characteristics. Limit to the best practice audit?
+Complete in paper - need to have a notebook that produces all results in one place for simplicity.
 `````
 
 ##  18. Risk of bias in studies
 
-`````{admonition} INCOMPLETE
-:class: warning
-Not applicable? **To discuss**
+`````{admonition} NOT APPLICABLE
+:class: error
+This study does not estimate an effect.
 `````
 
 ## 19. Results of individual studies
 
-`````{admonition} INCOMPLETE
-:class: warning
-Not applicable? **To discuss**  PRISMA: For all outcomes, present, for each study: (a) summary statistics for each group (where appropriate) and (b) an effect estimate and its
-precision (e.g. confidence/credible interval), ideally using structured tables or plots
+`````{admonition} NOT APPLICABLE
+:class: error
+This study does not estimate an effect.
 `````
 
 ## 20. Results of syntheses
 
 ### 20a. Briefly summarise characteristics for each synthesis
 
-`````{admonition} INCOMPLETE
-:class: warning
-Done? To discuss.
+`````{admonition} COMPLETED
+:class: seealso
+[Main summary](../03_results/02_sharing_hl_summary)
 `````
 
 ### 20b. Present all statistical syntheses
 
-`````{admonition} INCOMPLETE
-:class: warning
-Done. Just need to link. to result sections.
+`````{admonition} COMPLETED
+:class: seealso
+We include jupyter notebooks for each analysis.  See results section.
 `````
 
 ### 20c. Heterogeneity results
 
-`````{admonition} INCOMPLETE
-:class: warning
-Done. Just need to link split by publication type.
+`````{admonition} COMPLETED
+:class: seealso
+[Results split by type of article](../03_results/03_article_type)
 `````
 
 ### 20d. Sensitivity analyses
 
-`````{admonition} INCOMPLETE
-:class: warning
-Done. Just need to link split by year analysis.
+`````{admonition} COMPLETED
+:class: seealso
+[Results split by year of publication](../03_results/03a_year)
 `````
 
 ## 21. Reporting biases

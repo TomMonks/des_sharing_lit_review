@@ -71,9 +71,12 @@ This study does not estimate an effect.
 
 ### 13a Process to determine eligibility for synthesis
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To discuss:**
+`````{admonition} COMPLETE
+:class: seealso
+We categorised the best practice audit into models developing using code based tools (such as python and R) and commericial off the shelf simulation packages (such as ARENA and Simul8). [Best Practice Audit Dataset](../02_methods/04_quality_audit)
+
+During data extraction we categorised the data into FOSS and commerical simulation packages.  As well as Covid-19 and non-covid-19. [Main dataset](../03_results/01_preprocessing) 
+
 `````
 
 ### 13b Data preparation
@@ -96,7 +99,7 @@ We have provided jupyter notebooks containing the code that produces the tables 
 :class: seealso
 All software used to synthesise results are described in detail [here](../02_methods/05_analysis_env)
 `````
-`````
+
 ### 13e Methods to explore heterogeneity
 
 `````{admonition} COMPLETED
@@ -110,6 +113,7 @@ We split our analysis by publication type i.e. journal articles, full paper conf
 :class: seealso
 The main result of number of models shared is broken down by year.  See [article type](../03_results/03a_year) section.
 `````
+
 ## 14. Reporting bias assessment
 
 `````{admonition} NOT APPLICABLE
