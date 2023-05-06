@@ -56,14 +56,14 @@ We collected additional variables in the first part of our review and these are 
 ## 11. Study risk of bias assessment
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 Bias of this type is not applicable to the type of study conducted.  A limitation of the study is that we cannot comment on the practice of models shared that are not referenced in the study article.
 `````
 
 ## 12. Effect measures
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 
@@ -71,9 +71,12 @@ This study does not estimate an effect.
 
 ### 13a Process to determine eligibility for synthesis
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To discuss:**
+`````{admonition} COMPLETE
+:class: seealso
+We categorised the best practice audit into models developing using code based tools (such as python and R) and commericial off the shelf simulation packages (such as ARENA and Simul8). [Best Practice Audit Dataset](../02_methods/04_quality_audit)
+
+During data extraction we categorised the data into FOSS and commerical simulation packages.  As well as Covid-19 and non-covid-19. [Main dataset](../03_results/01_preprocessing) 
+
 `````
 
 ### 13b Data preparation
@@ -85,17 +88,18 @@ We have provided the code and detail on the process to pre-process the datasets 
 
 ### 13c Methods for tabulation and visualisation
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To link:**
+`````{admonition} COMPLETE
+:class: seealso
+We have provided jupyter notebooks containing the code that produces the tables and figures. See section on results. 
 `````
 
 ### 13d Methods used to synthesise results
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To discuss:**
+`````{admonition} COMPLETE
+:class: seealso
+All software used to synthesise results are described in detail [here](../02_methods/05_analysis_env)
 `````
+
 ### 13e Methods to explore heterogeneity
 
 `````{admonition} COMPLETED
@@ -109,16 +113,17 @@ We split our analysis by publication type i.e. journal articles, full paper conf
 :class: seealso
 The main result of number of models shared is broken down by year.  See [article type](../03_results/03a_year) section.
 `````
+
 ## 14. Reporting bias assessment
 
-`````{admonition} INCOMPLETE
-:class: warning
-Not applicable? **To discuss**
+`````{admonition} NOT APPLICABLE
+:class: caution
+This study does not estimate an effect.
 `````
 ## 15. Certainty assessment
 
 `````{admonition} NOT APPLICABLE
-:class: error
+:class: caution
 This study does not estimate an effect.
 `````
 

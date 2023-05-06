@@ -1,6 +1,6 @@
 # book settings
-title: Model and code sharing practices in healthcare discrete-event simulation
-author: Alison Harper and Thomas Monks
+title: Model and code sharing practices in healthcare discrete-event simulation - a systematic review
+author: Thomas Monks and Alison Harper
 email: t.m.w.monks@exeter.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
   A literature review of healthcare DES model sharing practice between 2019-2022 
