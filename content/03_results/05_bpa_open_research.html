@@ -912,39 +912,39 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 43 entries, 0 to 42
+RangeIndex: 44 entries, 0 to 43
 Data columns (total 27 columns):
  #   Column                        Non-Null Count  Dtype   
 ---  ------                        --------------  -----   
- 0   model_format                  43 non-null     category
- 1   key                           43 non-null     object  
- 2   item_type                     43 non-null     category
- 3   pub_yr                        42 non-null     float64 
- 4   author                        43 non-null     object  
- 5   doi                           42 non-null     object  
- 6   reporting_guidelines_mention  43 non-null     category
- 7   covid                         43 non-null     category
- 8   sim_software                  43 non-null     object  
- 9   foss_sim                      43 non-null     category
- 10  model_archive                 4 non-null      object  
- 11  model_repo                    19 non-null     object  
+ 0   model_format                  44 non-null     category
+ 1   key                           44 non-null     object  
+ 2   item_type                     44 non-null     category
+ 3   pub_yr                        44 non-null     int64   
+ 4   author                        44 non-null     object  
+ 5   doi                           43 non-null     object  
+ 6   reporting_guidelines_mention  44 non-null     category
+ 7   covid                         44 non-null     category
+ 8   sim_software                  44 non-null     object  
+ 9   foss_sim                      44 non-null     category
+ 10  model_archive                 5 non-null      object  
+ 11  model_repo                    20 non-null     object  
  12  model_journal_supp            9 non-null      object  
  13  model_personal_org            5 non-null      object  
  14  model_platform                11 non-null     object  
- 15  github_url                    19 non-null     object  
- 16  model_has_doi                 43 non-null     category
- 17  orcid                         42 non-null     category
- 18  license                       43 non-null     object  
- 19  readme                        43 non-null     category
- 20  link_to_paper                 33 non-null     category
- 21  steps_run                     43 non-null     category
- 22  formal_dep_mgt                43 non-null     category
- 23  informal_dep_mgt              43 non-null     category
- 24  evidence_testing              22 non-null     category
- 25  downloadable                  43 non-null     category
- 26  interactive_online            43 non-null     category
-dtypes: category(15), float64(1), object(11)
-memory usage: 6.7+ KB
+ 15  github_url                    20 non-null     object  
+ 16  model_has_doi                 44 non-null     category
+ 17  orcid                         43 non-null     category
+ 18  license                       44 non-null     object  
+ 19  readme                        44 non-null     category
+ 20  link_to_paper                 34 non-null     category
+ 21  steps_run                     44 non-null     category
+ 22  formal_dep_mgt                44 non-null     category
+ 23  informal_dep_mgt              44 non-null     category
+ 24  evidence_testing              23 non-null     category
+ 25  downloadable                  44 non-null     category
+ 26  interactive_online            44 non-null     category
+dtypes: category(15), int64(1), object(11)
+memory usage: 6.8+ KB
 </pre></div>
 </div>
 </div>
@@ -969,7 +969,7 @@ memory usage: 6.7+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 7 (16.3\%) models were provided with a DOI.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 7 (15.9\%) models were provided with a DOI.
 </pre></div>
 </div>
 </div>
@@ -991,7 +991,7 @@ memory usage: 6.7+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 6 (14.0\%) models were provided were linked to a researcher via an ORCID.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 6 (13.6\%) models were provided were linked to a researcher via an ORCID.
 </pre></div>
 </div>
 </div>
@@ -1094,7 +1094,7 @@ memory usage: 6.7+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Of the models shared a total of 20 (46.5\%)had an open license attached.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Of the models shared a total of 21 (47.7\%)had an open license attached.
 </pre></div>
 </div>
 </div>
@@ -1153,7 +1153,7 @@ memory usage: 6.7+ KB
     </tr>
     <tr>
       <th>MIT</th>
-      <td>2</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>Apache</th>
@@ -1211,7 +1211,7 @@ memory usage: 6.7+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The most popular type of license were the creative commons variants with a total of 10 out of 43 models.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The most popular type of license were the creative commons variants with a total of 10 out of 44 models.
 </pre></div>
 </div>
 </div>
@@ -1282,7 +1282,7 @@ memory usage: 6.7+ KB
     <tr>
       <th>MIT</th>
       <td>1</td>
-      <td>2</td>
+      <td>3</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -1297,7 +1297,7 @@ memory usage: 6.7+ KB
     </tr>
     <tr>
       <th>BSD-3</th>
-      <td>0</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -1367,7 +1367,7 @@ memory usage: 6.7+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 7 (16.3\%) models were provided with a DOI. A total of 6 (14.0\%) models were provided were linked to a researcher via an ORCID. Of the models shared a total of 20 (46.5\%)had an open license attached. The most popular type of license were the creative commons variants with a total of 10 out of 43 models.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A total of 7 (15.9\%) models were provided with a DOI. A total of 6 (13.6\%) models were provided were linked to a researcher via an ORCID. Of the models shared a total of 21 (47.7\%)had an open license attached. The most popular type of license were the creative commons variants with a total of 10 out of 44 models.
 </pre></div>
 </div>
 </div>
