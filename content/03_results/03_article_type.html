@@ -550,42 +550,49 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Sharing by article type
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
    Imports
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constants">
    Constants
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-to-genereate-a-high-level-summary-table">
    Functions to genereate a high level summary table.
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-in-data">
    Read in data
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#results">
    Results
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-a-high-level-summary-of-the-main-dataset-by-article-type">
      Create a high level summary of the main dataset by article type.
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#table-3-latex">
+       Table 3 LateX
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-3-latex">
-   Table 3 LateX
-  </a>
  </li>
 </ul>
 
@@ -606,42 +613,49 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Sharing by article type
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imports">
    Imports
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constants">
    Constants
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions-to-genereate-a-high-level-summary-table">
    Functions to genereate a high level summary table.
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-in-data">
    Read in data
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#results">
    Results
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-a-high-level-summary-of-the-main-dataset-by-article-type">
      Create a high level summary of the main dataset by article type.
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#table-3-latex">
+       Table 3 LateX
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-3-latex">
-   Table 3 LateX
-  </a>
  </li>
 </ul>
 
@@ -653,10 +667,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="sharing-by-article-type">
+  <section id="sharing-by-article-type">
 <h1>Sharing by article type<a class="headerlink" href="#sharing-by-article-type" title="Permalink to this headline">#</a></h1>
+</section>
 <section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<h1>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -676,7 +691,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
+<h1>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
@@ -687,7 +702,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="functions-to-genereate-a-high-level-summary-table">
-<h2>Functions to genereate a high level summary table.<a class="headerlink" href="#functions-to-genereate-a-high-level-summary-table" title="Permalink to this headline">#</a></h2>
+<h1>Functions to genereate a high level summary table.<a class="headerlink" href="#functions-to-genereate-a-high-level-summary-table" title="Permalink to this headline">#</a></h1>
 <p>We include three functions to generate a high level summary table.</p>
 <ul class="simple">
 <li><p>The first calculates the summary metrics from the main table.</p></li>
@@ -845,7 +860,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="read-in-data">
-<h2>Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h2>
+<h1>Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">)</span>
@@ -855,9 +870,9 @@ title="Print to PDF"
 </div>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h1>
 <section id="create-a-high-level-summary-of-the-main-dataset-by-article-type">
-<h3>Create a high level summary of the main dataset by article type.<a class="headerlink" href="#create-a-high-level-summary-of-the-main-dataset-by-article-type" title="Permalink to this headline">#</a></h3>
+<h2>Create a high level summary of the main dataset by article type.<a class="headerlink" href="#create-a-high-level-summary-of-the-main-dataset-by-article-type" title="Permalink to this headline">#</a></h2>
 <p>In the manuscript table 3 provides a simple high level results for Journals, Conference and Book manuscripts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -934,33 +949,33 @@ title="Print to PDF"
     <tr>
       <th rowspan="2" valign="top">Overall</th>
       <th>n</th>
-      <td>558</td>
-      <td>66</td>
-      <td>98</td>
+      <td>564</td>
+      <td>69</td>
+      <td>101</td>
     </tr>
     <tr>
       <th>shared n (\%)</th>
-      <td>44 (7.9)</td>
-      <td>16 (24.2)</td>
-      <td>27 (27.6)</td>
+      <td>47 (8.3)</td>
+      <td>17 (24.6)</td>
+      <td>29 (28.7)</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">Journal</th>
       <th>n</th>
-      <td>426</td>
-      <td>51</td>
-      <td>76</td>
+      <td>431</td>
+      <td>54</td>
+      <td>79</td>
     </tr>
     <tr>
       <th>shared n (\%)</th>
-      <td>39 (9.2)</td>
-      <td>12 (23.5)</td>
-      <td>23 (30.3)</td>
+      <td>42 (9.7)</td>
+      <td>13 (24.1)</td>
+      <td>25 (31.6)</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">Conference</th>
       <th>n</th>
-      <td>108</td>
+      <td>109</td>
       <td>14</td>
       <td>16</td>
     </tr>
@@ -987,10 +1002,8 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
 <section id="table-3-latex">
-<h2>Table 3 LateX<a class="headerlink" href="#table-3-latex" title="Permalink to this headline">#</a></h2>
+<h3>Table 3 LateX<a class="headerlink" href="#table-3-latex" title="Permalink to this headline">#</a></h3>
 <p>Here we generate the LaTeX to insert into a journal publication.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1008,11 +1021,11 @@ title="Print to PDF"
 \toprule
  &amp; metric &amp; Total &amp; COVID-19 &amp; FOSS \\
 \midrule
-\multirow[c]{2}{*}{Overall} &amp; n &amp; 558 &amp; 66 &amp; 98 \\
- &amp; shared n (\%) &amp; 44 (7.9) &amp; 16 (24.2) &amp; 27 (27.6) \\
-\multirow[c]{2}{*}{Journal} &amp; n &amp; 426 &amp; 51 &amp; 76 \\
- &amp; shared n (\%) &amp; 39 (9.2) &amp; 12 (23.5) &amp; 23 (30.3) \\
-\multirow[c]{2}{*}{Conference} &amp; n &amp; 108 &amp; 14 &amp; 16 \\
+\multirow[c]{2}{*}{Overall} &amp; n &amp; 564 &amp; 69 &amp; 101 \\
+ &amp; shared n (\%) &amp; 47 (8.3) &amp; 17 (24.6) &amp; 29 (28.7) \\
+\multirow[c]{2}{*}{Journal} &amp; n &amp; 431 &amp; 54 &amp; 79 \\
+ &amp; shared n (\%) &amp; 42 (9.7) &amp; 13 (24.1) &amp; 25 (31.6) \\
+\multirow[c]{2}{*}{Conference} &amp; n &amp; 109 &amp; 14 &amp; 16 \\
  &amp; shared n (\%) &amp; 4 (3.7) &amp; 4 (28.6) &amp; 3 (18.8) \\
 \multirow[c]{2}{*}{Book} &amp; n &amp; 24 &amp; 1 &amp; 6 \\
  &amp; shared n (\%) &amp; 1 (4.2) &amp; 0 (0.0) &amp; 1 (16.7) \\
@@ -1041,9 +1054,9 @@ title="Print to PDF"
  &amp; n &amp; shared n (\%) &amp; n &amp; shared n (\%) &amp; n &amp; shared n (\%) &amp; n &amp; shared n (\%) \\
 metric &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  &amp;  \\
 \midrule
-Total &amp; 558 &amp; 44 (7.9) &amp; 426 &amp; 39 (9.2) &amp; 108 &amp; 4 (3.7) &amp; 24 &amp; 1 (4.2) \\
-COVID-19 &amp; 66 &amp; 16 (24.2) &amp; 51 &amp; 12 (23.5) &amp; 14 &amp; 4 (28.6) &amp; 1 &amp; 0 (0.0) \\
-FOSS &amp; 98 &amp; 27 (27.6) &amp; 76 &amp; 23 (30.3) &amp; 16 &amp; 3 (18.8) &amp; 6 &amp; 1 (16.7) \\
+Total &amp; 564 &amp; 47 (8.3) &amp; 431 &amp; 42 (9.7) &amp; 109 &amp; 4 (3.7) &amp; 24 &amp; 1 (4.2) \\
+COVID-19 &amp; 69 &amp; 17 (24.6) &amp; 54 &amp; 13 (24.1) &amp; 14 &amp; 4 (28.6) &amp; 1 &amp; 0 (0.0) \\
+FOSS &amp; 101 &amp; 29 (28.7) &amp; 79 &amp; 25 (31.6) &amp; 16 &amp; 3 (18.8) &amp; 6 &amp; 1 (16.7) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1051,6 +1064,7 @@ FOSS &amp; 98 &amp; 27 (27.6) &amp; 76 &amp; 23 (30.3) &amp; 16 &amp; 3 (18.8) &
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 

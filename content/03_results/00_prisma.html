@@ -602,6 +602,21 @@ title="Print to PDF"
    3. Diagram Data Input
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forward-search">
+   Forward Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-results-to-prisma-template-via-r-shiney-app">
+   Add results to PRISMA template via R Shiney App
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-from-prisma-diagram-app">
+   Output from PRISMA diagram app.
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -673,6 +688,21 @@ title="Print to PDF"
    3. Diagram Data Input
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forward-search">
+   Forward Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-results-to-prisma-template-via-r-shiney-app">
+   Add results to PRISMA template via R Shiney App
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-from-prisma-diagram-app">
+   Output from PRISMA diagram app.
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -685,11 +715,23 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="prisma-diagram">
 <h1>Prisma Diagram<a class="headerlink" href="#prisma-diagram" title="Permalink to this headline">#</a></h1>
-<p>Here we provide a <strong>P</strong>referred <strong>R</strong>eporting <strong>I</strong>tems for <strong>S</strong>ystematic Reviews and <strong>M</strong>eta-<strong>A</strong>nalyses (PRISMA) diagram.  PRSIMA aims to improve the reporting of systematic reviews.  Full details of the PRISMA statement can be found on at <a class="reference external" href="https://prisma-statement.org">https://prisma-statement.org</a></p>
+<p>Here we provide a <strong>P</strong>referred <strong>R</strong>eporting <strong>I</strong>tems for <strong>S</strong>ystematic Reviews and <strong>M</strong>eta-<strong>A</strong>nalyses (PRISMA) diagram.  PRISMA aims to improve the reporting of systematic reviews.  Full details of the PRISMA statement can be found on at <a class="reference external" href="https://prisma-statement.org">https://prisma-statement.org</a></p>
 <p>The flow diagram generated visualises the manuscripts returned from multiple database searches, duplicates, titles/abstracts screened in/out; and manuscripts included excluded during full text screening.</p>
 <section id="overview-of-notebook">
 <h2>Overview of notebook<a class="headerlink" href="#overview-of-notebook" title="Permalink to this headline">#</a></h2>
-<p>This notebook uses the <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> library to generate a flow diagram.  It is separated into four sections: imports; a function to create the flow diagram; a script to populate a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with the findings from our study; and the code to run function and save the image to file.</p>
+<p>This notebook uses the <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> library to generate a basic flow diagram.  It is separated into four sections: imports; a function to create the flow diagram; a script to populate a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with the findings from our study; and the code to run function and save the image to file.  Our flow diagram illustrates results prior to forward citation chasing.</p>
+<p>The diagram we generate here is not the same layout as specified by PRISMA 2020.  To generate a compliant diagram we format our data into a template that can be uploaded to <a class="reference external" href="https://estech.shinyapps.io/prisma_flowdiagram/">https://estech.shinyapps.io/prisma_flowdiagram/</a>.</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Haddaway, N. R., Page, M. J., Pritchard, C. C., &amp; McGuinness, L. A. (2022). 
+</pre></div>
+</div>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PRISMA2020: An R package and Shiny app for producing PRISMA 2020-compliant 
+flow diagrams, with interactivity for optimised digital transparency 
+and Open Synthesis Campbell Systematic Reviews, 18, e1230. 
+https://doi.org/10.1002/cl2.1230
+</pre></div>
+</div>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
@@ -737,17 +779,32 @@ title="Print to PDF"
 <h2>2. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># studies pre forward search</span>
+<span class="n">PRE_FS</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/pre_forward_search/&#39;</span> \
+    <span class="o">+</span> <span class="s1">&#39;before_forward_search.zip&#39;</span>
+
+
+<span class="c1"># all studies we included in stage 2</span>
+<span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
     <span class="o">+</span> <span class="s1">&#39;des_sharing_lit_review/main/data/share_sim_data_extract.zip&#39;</span>
 
 <span class="c1"># pre-screnning file locations</span>
 <span class="n">POST_FIX</span> <span class="o">=</span> <span class="s1">&#39;../../data/pre_screening/&#39;</span>
 <span class="n">POST_FIX_STAGE1</span> <span class="o">=</span> <span class="s1">&#39;../../data/stage1/&#39;</span>
+<span class="n">POST_FIX_FS</span> <span class="o">=</span> <span class="s1">&#39;../../data/forward_search/&#39;</span>
+<span class="n">POST_FIX_PRE_FS</span> <span class="o">=</span> <span class="s1">&#39;../../data/pre_forward_search/&#39;</span>
 <span class="n">SCOPUS</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;Scopus_search.zip&#39;</span>
 <span class="n">PUBMED</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;pubmed_part.zip&#39;</span>
 <span class="n">ACM</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;20220903_acm.zip&#39;</span>
 <span class="n">WOS</span> <span class="o">=</span> <span class="n">POST_FIX</span> <span class="o">+</span> <span class="s1">&#39;20220903_wos.zip&#39;</span>
 <span class="n">UNIQUE</span> <span class="o">=</span> <span class="n">POST_FIX_STAGE1</span> <span class="o">+</span> <span class="s1">&#39;unique_papers.zip&#39;</span>
+<span class="n">FORWARD_SEARCH</span> <span class="o">=</span> <span class="n">POST_FIX_FS</span> <span class="o">+</span> <span class="s1">&#39;forward_search_spidercite.zip&#39;</span>
+<span class="n">PRE_FS</span> <span class="o">=</span> <span class="n">POST_FIX_PRE_FS</span> <span class="o">+</span> <span class="s1">&#39;before_forward_search.zip&#39;</span>
+<span class="n">FS_ASSESSED</span> <span class="o">=</span> <span class="n">POST_FIX_FS</span> <span class="o">+</span> <span class="s1">&#39;forward_search_assessed.zip&#39;</span>
+
+<span class="c1"># for template for R shiney app to create 2020 compliant prisma diagram</span>
+<span class="n">TEMPLATE_FILE</span> <span class="o">=</span> <span class="s1">&#39;prisma_template/PRISMA.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1057,8 @@ title="Print to PDF"
     <span class="n">node8_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Excluded at full text:</span><span class="se">\n</span><span class="s2">&quot;</span> \
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>\
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason4&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason4&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="n">node8</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">node8_txt</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;rectangle&#39;</span><span class="p">)</span>
     
     <span class="n">node7_txt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Studies included in review</span><span class="se">\n</span><span class="s2">(n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span>
@@ -1032,12 +1090,119 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">results_in_r_shiney_format</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Format results so they can be uploaded to R Shiney app that creates</span>
+<span class="sd">    a 2020 compliant PRISMA diagram.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    ------</span>
+<span class="sd">    file_name: str</span>
+<span class="sd">        File path for prisma template compatible with app.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">    </span>
+<span class="sd">    References:</span>
+<span class="sd">    ------</span>
+<span class="sd">    Haddaway, N. R., Page, M. J., Pritchard, C. C., &amp; McGuinness, L. A. (2022). </span>
+<span class="sd">    PRISMA2020: An R package and Shiny app for producing PRISMA 2020-compliant </span>
+<span class="sd">    flow diagrams, with interactivity for optimised digital transparency </span>
+<span class="sd">    and Open Synthesis Campbell Systematic Reviews, 18, e1230. </span>
+<span class="sd">    https://doi.org/10.1002/cl2.1230</span>
+<span class="sd">    </span>
+<span class="sd">    https://estech.shinyapps.io/prisma_flowdiagram/</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># load template</span>
+    <span class="n">shiney_template</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">TEMPLATE_FILE</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+    
+    <span class="n">database_specific_results</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Scopus, </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;scopus_n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">; &quot;</span> \
+    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;PubMed, </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pubmed_n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">;  &quot;</span> \
+    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;ACM, </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;acm_n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">; WoS, </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;wos_n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">dbr_excluded</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EXCLUDED_REASON_1</span><span class="si">}</span><span class="s2">, &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span><span class="w"> </span><span class="n">EXCLUDED_REASON_1</span><span class="p">)</span><span class="si">}</span><span class="s2">; &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EXCLUDED_REASON_2</span><span class="si">}</span><span class="s2">, &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span><span class="w"> </span><span class="n">EXCLUDED_REASON_2</span><span class="p">)</span><span class="si">}</span><span class="s2">; &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EXCLUDED_REASON_3</span><span class="si">}</span><span class="s2">, &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span><span class="w"> </span><span class="n">EXCLUDED_REASON_3</span><span class="p">)</span><span class="si">}</span><span class="s2">; &quot;</span>
+
+    <span class="n">other_excluded</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EXCLUDED_REASON_2</span><span class="si">}</span><span class="s2">, &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_fs_assessed</span><span class="p">,</span><span class="w"> </span><span class="n">EXCLUDED_REASON_2</span><span class="p">)</span><span class="si">}</span><span class="s2">; &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Preprint, &quot;</span> \
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_fs_assessed</span><span class="p">,</span><span class="w"> </span><span class="n">EXCLUDED_REASON_4</span><span class="p">)</span><span class="si">}</span><span class="s2">;&quot;</span>
+    
+    <span class="c1"># database search results</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;database_specific_results&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">database_specific_results</span>
+
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;database_specific_results&#39;</span><span class="p">,</span> <span class="s1">&#39;node&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;node7&#39;</span>
+
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;database_results&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;register_results&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+
+    <span class="c1"># duplicates</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;duplicates&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_duplicates&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;excluded_automatic&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;excluded_other&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+
+    <span class="c1"># records screened (no. titles and abstracts) and excluded at stage 1</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;records_screened&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_title_abstract&#39;</span><span class="p">]</span>
+    <span class="c1"># excluded at stage 1</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;records_excluded&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">]</span>
+
+    <span class="c1"># papers sort for retrieval and not retrieved at stage 2 (full text)</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;dbr_sought_reports&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;dbr_notretrieved_reports&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">]</span>
+
+    <span class="c1"># papers assessed and excluded + reasons</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;dbr_assessed&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;dbr_excluded&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dbr_excluded</span>
+
+    <span class="c1"># studies included in review</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;new_studies&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included_after_fs&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;new_reports&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+
+    <span class="c1"># forward search via spidercite</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;citations_results&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_search&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;citations_results&#39;</span><span class="p">,</span> <span class="s1">&#39;boxtext&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Spidercite&#39;</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;organisation_results&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;website_results&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NaN&#39;</span>
+
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;other_sought_reports&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_included&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;other_notretrieved_reports&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># included excluded</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;other_assessed&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_included&#39;</span><span class="p">]</span>
+    <span class="n">shiney_template</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;other_excluded&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">other_excluded</span>
+    
+    <span class="k">return</span> <span class="n">shiney_template</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="read-in-data">
 <h2>4. Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># studies from main databases search</span>
+<span class="n">clean_pre_fs</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">PRE_FS</span><span class="p">)</span>
+
+<span class="c1"># studies found using forward search via spidercite</span>
+<span class="n">df_fs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FORWARD_SEARCH</span><span class="p">)</span>
+
+<span class="c1"># studies assessed after forward search screening</span>
+<span class="n">clean_fs_assessed</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FS_ASSESSED</span><span class="p">)</span>
+
+<span class="c1"># all students including those from forward search</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1065,12 +1230,13 @@ title="Print to PDF"
 <span class="n">N_TITLE_ABSTRACTS</span> <span class="o">=</span> <span class="n">N_UNIQUE</span>
 
 <span class="c1"># number excluded by stage 1 screening process</span>
-<span class="n">N_ABSTRACTS_EXCLUDED</span> <span class="o">=</span> <span class="n">N_UNIQUE</span> <span class="o">-</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> 
+<span class="n">N_ABSTRACTS_EXCLUDED</span> <span class="o">=</span> <span class="n">N_UNIQUE</span> <span class="o">-</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span> 
 
 <span class="c1"># reasons for exclusion in stage 2 (excluding not able to retrieve)</span>
 <span class="n">EXCLUDED_REASON_1</span> <span class="o">=</span> <span class="s2">&quot;Not English&quot;</span>
 <span class="n">EXCLUDED_REASON_2</span> <span class="o">=</span> <span class="s2">&quot;Not DES&quot;</span>
 <span class="n">EXCLUDED_REASON_3</span> <span class="o">=</span> <span class="s2">&quot;Not Health&quot;</span>
+<span class="n">EXCLUDED_REASON_4</span> <span class="o">=</span> <span class="s2">&quot;PRE PRINT&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1087,19 +1253,22 @@ title="Print to PDF"
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_duplicates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DUPLICATES_REMOVED</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_title_abstract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_TITLE_ABSTRACTS</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_abstracts_excluded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_ABSTRACTS_EXCLUDED</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">papers_not_retrieved</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> <span class="o">-</span> <span class="n">papers_not_retrieved</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_to_retrieve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_not_retrieved&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">papers_not_retrieved</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_assessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">studies_to_retrieve</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">papers_not_retrieved</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_1</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_2</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_3</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_1</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_2</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_3</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">models_with_code</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">models_with_code</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> <span class="o">/</span> \
-                         <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span> \
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;exclude_reason4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXCLUDED_REASON_4</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_1</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_2</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_3</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_exclude_reason4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded_count</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">,</span> <span class="n">EXCLUDED_REASON_4</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;available_models_n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">models_with_code</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">models_with_code</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span> <span class="o">/</span> \
+                         <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">))</span> \
                         <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1107,13 +1276,14 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">show_subgraph</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Pre - forward search</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">graph_prisma</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">show_subgraph</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">g</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/00_prisma_27_0.svg" src="../../_images/00_prisma_27_0.svg" /></div>
+<img alt="../../_images/00_prisma_28_0.svg" src="../../_images/00_prisma_28_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1125,6 +1295,160 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section id="forward-search">
+<h2>Forward Search<a class="headerlink" href="#forward-search" title="Permalink to this headline">#</a></h2>
+<p>The forward search was conducted using spidercite.  We uploaded the papers that contained code only.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_search&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_fs</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_included&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean_pre_fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_search&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>430
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_forward_included&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included_after_fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_studies_included</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_included_after_fs&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>564
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-results-to-prisma-template-via-r-shiney-app">
+<h2>Add results to PRISMA template via R Shiney App<a class="headerlink" href="#add-results-to-prisma-template-via-r-shiney-app" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shiney_template</span> <span class="o">=</span> <span class="n">results_in_r_shiney_format</span><span class="p">(</span><span class="n">TEMPLATE_FILE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shiney_template</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node</th>
+      <th>box</th>
+      <th>description</th>
+      <th>boxtext</th>
+      <th>tooltips</th>
+      <th>url</th>
+      <th>n</th>
+      <th>Unnamed: 8</th>
+      <th>Unnamed: 9</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NaN</th>
+      <td>node4</td>
+      <td>prevstud</td>
+      <td>Grey title box</td>
+      <td>Previous studies</td>
+      <td>Previous studies</td>
+      <td>Grey title box</td>
+      <td>Previous studies</td>
+      <td>prevstud.html</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>previous_studies</th>
+      <td>node5</td>
+      <td>box1</td>
+      <td>Studies included in previous version of review</td>
+      <td>Studies included in previous version of review</td>
+      <td>Studies included in previous version of review</td>
+      <td>previous_studies.html</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save to file so can be uploaded.</span>
+<span class="n">shiney_template</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;completed_prisma.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="output-from-prisma-diagram-app">
+<h2>Output from PRISMA diagram app.<a class="headerlink" href="#output-from-prisma-diagram-app" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="../../_images/prisma2020.png" /></p>
 </section>
 </section>
 
