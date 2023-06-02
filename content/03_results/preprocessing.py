@@ -149,6 +149,7 @@ def load_clean_bpa(file_name):
                'model_journal_supp': {'R model in word file':'Word doc'},
                'model_personal_org': {'personex': 'Organisational website',
                                       'Personex ': 'Organisational website',
+                                      'Personex': 'Organisational website',
                 'https://resp.core.ubc.ca/research/Specific_Projects/EPIC':
                  'Organisational website'},
                'model_platform':{'Anylogic Cloud': 'AnyLogic Cloud'}}
