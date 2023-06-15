@@ -9,7 +9,7 @@ This section links the results section of the [paper](https://osf.io/c4ytf/) to 
 ## 4. Results
 
 * All results are generated with pre-processed data that was extracted from papers and archived models. The script to pre-process the data can be found in the [Pre-processing notebook](../03_results/01_preprocessing.ipynb)
-* The code that generates the totals and formats the data so that it can be uploaded to the PRISMA Shiney App can be found in the [PRISMA diagram notebook](../03_results/00_prisma.ipynb)
+* The code that generates the totals and formats the data so that it can be uploaded to the PRISMA Shiny App can be found in the [PRISMA diagram notebook](../03_results/00_prisma.ipynb)
 
 ### 4.1 Study characteristics
 
