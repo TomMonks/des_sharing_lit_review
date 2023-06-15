@@ -1,6 +1,10 @@
 # Reproducibility
 
-This section links the results section of the [paper](https://osf.io/c4ytf/) to the notebooks and code in the supplementary online Jupyter book that generated the numbers and charts.  We have presented this by the sections and figures in the main text.  The current version of this page reflects the [pre-print of the paper](https://osf.io/c4ytf/).
+This section links the results section of the [paper](https://osf.io/c4ytf/) to the notebooks and code in the supplementary online Jupyter book that generated the numbers and charts.  We have presented this by the numbered sections including tables and figures in the main text.  
+
+> The current version of this page reflects the [pre-print of the paper](https://osf.io/c4ytf/).
+>> Monks, Thomas, and Alison Harper. 2023. “Computer Model and Code Sharing Practices in Healthcare Discrete-event Simulation: A Systematic Scoping Review.” OSF Preprints. June 5. doi:10.31219/osf.io/c4ytf.
+
 
 ## 4. Results
 
