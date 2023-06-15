@@ -21,16 +21,16 @@ parts:
   - file: content/03_results/01_preprocessing
   - file: content/03_results/02_sharing_hl_summary
   - file: content/03_results/03_article_type
-  - file: content/03_results/03a_reporting_guidelines
-  - file: content/03_results/03a_year
-  - file: content/03_results/03b_software
+  - file: content/03_results/04_reporting_guidelines
+  - file: content/03_results/05_year
+  - file: content/03_results/06_software
 - caption: Results - Best Practice Audit
   chapters:
-  - file: content/03_results/04_bpa_preprocessing
-  - file: content/03_results/07a_janssen_sharing_method
-  - file: content/03_results/05_bpa_open_research
-  - file: content/03_results/06_bpa_execution
-  - file: content/03_results/07_bpa_summary
+  - file: content/03_results/07_bpa_preprocessing
+  - file: content/03_results/08_janssen_sharing_method
+  - file: content/03_results/09_bpa_open_research
+  - file: content/03_results/10_bpa_execution
+  - file: content/03_results/11_bpa_summary
 - caption: Discussion
   chapters:
   - file: content/04_discussion/01_summary
@@ -40,7 +40,7 @@ parts:
   - file: content/04_discussion/05_conclusions
 - caption: Testing
   chapters:
-  - file: content/03_results/data_testing_bkp
+  - file: content/03_results/12_data_testing_bkp
 - caption: PRISMA reporting checklist
   chapters:
   - file: content/04_prisma/01_title
