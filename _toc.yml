@@ -3,6 +3,8 @@ root: content/01_welcome
 parts:
 - caption: Introduction
   chapters:
+  - file: content/01_intro/00_abstract
+  - file: content/01_intro/00a_summary
   - file: content/01_intro/02_license
   - file: content/01_intro/03_funding
   - file: content/01_intro/04_competing_interests
