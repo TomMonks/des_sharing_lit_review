@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Analysis environment &#8212; Model and code sharing practices in healthcare discrete-event simulation - a systematic review</title>
+    <title>Reproducibility &#8212; Model and code sharing practices in healthcare discrete-event simulation - a systematic review</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Prisma Diagram" href="../03_results/00_prisma.html" />
-    <link rel="prev" title="Best Practice Audit" href="04_quality_audit.html" />
+    <link rel="next" title="Search Strategy" href="../02_methods/01_search_strategy.html" />
+    <link rel="prev" title="Background" href="01_background.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,29 +113,29 @@ const thebe_selector_output = ".output, .cell_output"
   Introduction
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01_intro/02_license.html">
+  <a class="reference internal" href="02_license.html">
    License
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01_intro/03_funding.html">
+  <a class="reference internal" href="03_funding.html">
    Funding
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01_intro/04_competing_interests.html">
+  <a class="reference internal" href="04_competing_interests.html">
    Competing Interests
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01_intro/01_background.html">
+  <a class="reference internal" href="01_background.html">
    Background
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../01_intro/05_reproducibility.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Reproducibility
   </a>
  </li>
@@ -145,29 +145,29 @@ const thebe_selector_output = ".output, .cell_output"
   Methods
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01_search_strategy.html">
+  <a class="reference internal" href="../02_methods/01_search_strategy.html">
    Search Strategy
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02_inclusion.html">
+  <a class="reference internal" href="../02_methods/02_inclusion.html">
    Study selection
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_extraction.html">
+  <a class="reference internal" href="../02_methods/03_extraction.html">
    Data Extraction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04_quality_audit.html">
+  <a class="reference internal" href="../02_methods/04_quality_audit.html">
    Best Practice Audit
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_methods/05_analysis_env.html">
    Analysis environment
   </a>
  </li>
@@ -421,7 +421,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/02_methods/05_analysis_env.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/TomMonks/des_sharing_lit_review/issues/new?title=Issue%20on%20page%20%2Fcontent/01_intro/05_reproducibility.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -449,7 +449,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/02_methods/05_analysis_env.md"
+        <a href="../../_sources/content/01_intro/05_reproducibility.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -509,24 +509,36 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-code">
-   Python code
+  <a class="reference internal nav-link" href="#results">
+   4. Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dependency-management">
-   Dependency management
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference-management-software">
-   Reference management software
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hardware">
-   Hardware
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#study-characteristics">
+     4.1 Study characteristics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-studies-shared-model-code">
+     4.2 What proportion of studies shared model code?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-the-studies-used-a-reporting-guideline">
+     4.3 What proportion of the studies used a reporting guideline?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-methods-tools-and-resources-did-authors-use-to-share-their-models-and-code">
+     4.4 What methods, tools, and resources did authors use to share their models and code?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-what-extent-do-the-des-health-community-follow-best-practice-for-open-science-when-sharing-models">
+     4.5 To what extent do the DES health community follow best practice for open science when sharing models?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -537,7 +549,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Analysis environment</h1>
+                <h1>Reproducibility</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -548,24 +560,36 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-code">
-   Python code
+  <a class="reference internal nav-link" href="#results">
+   4. Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dependency-management">
-   Dependency management
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference-management-software">
-   Reference management software
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hardware">
-   Hardware
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#study-characteristics">
+     4.1 Study characteristics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-studies-shared-model-code">
+     4.2 What proportion of studies shared model code?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-proportion-of-the-studies-used-a-reporting-guideline">
+     4.3 What proportion of the studies used a reporting guideline?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-methods-tools-and-resources-did-authors-use-to-share-their-models-and-code">
+     4.4 What methods, tools, and resources did authors use to share their models and code?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-what-extent-do-the-des-health-community-follow-best-practice-for-open-science-when-sharing-models">
+     4.5 To what extent do the DES health community follow best practice for open science when sharing models?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -577,44 +601,56 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="analysis-environment">
-<h1>Analysis environment<a class="headerlink" href="#analysis-environment" title="Permalink to this headline">#</a></h1>
-<section id="python-code">
-<h2>Python code<a class="headerlink" href="#python-code" title="Permalink to this headline">#</a></h2>
-<p>All analysis code was written in Python 3.9.15. Data cleaning and manipulation were done using pandas \cite{mckinney2011pandas} and NumPy \cite{numpy}. All charts were produced with MatPlotLib \cite{Hunter:2007}. Identification of duplicate references was conducted using <code class="docutils literal notranslate"><span class="pre">pydedup</span></code> (available <a class="reference external" href="https://github.com/TomMonks/pydedup">https://github.com/TomMonks/pydedup</a>).  Notebooks were produced using Jupyter Lab v3.5.2.</p>
-</section>
-<section id="dependency-management">
-<h2>Dependency management<a class="headerlink" href="#dependency-management" title="Permalink to this headline">#</a></h2>
-<p>Software dependencies for the code are managed through <code class="docutils literal notranslate"><span class="pre">conda</span></code> and a conda virtual environment.  We provide details below:</p>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>name: des_review
-channels:
-  - conda-forge
-dependencies:
-  - jupyterlab=3.5.2
-  - jupyterlab-spellchecker=0.7.2
-  - matplotlib=3.6.2
-  - numpy=1.24.1
-  - pandas=1.5.2
-  - pip=22.2.2
-  - pydot=1.4.2
-  - python=3.9.15
-  - python-graphviz=0.20.1
-  - seaborb=0.12.2
-  - scipy==1.10.0
-</pre></div>
-</div>
-</section>
-<section id="reference-management-software">
-<h2>Reference management software<a class="headerlink" href="#reference-management-software" title="Permalink to this headline">#</a></h2>
-<p>The references were managed via Zotero 6.0.15.  We have created two online Zotero libraries. The first contains all references included in the main review.  The second contains the papers with code i.e. where DES models are shared as part of the study.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="reproducibility">
+<h1>Reproducibility<a class="headerlink" href="#reproducibility" title="Permalink to this headline">#</a></h1>
+<p>This section links the results section of the <a class="reference external" href="https://osf.io/c4ytf/">paper</a> to the notebooks and code in the supplementary online Jupyter book that generated the numbers and charts.  We have presented this by the numbered sections including tables and figures in the main text.</p>
+<blockquote>
+<div><p>The current version of this page reflects the <a class="reference external" href="https://osf.io/c4ytf/">pre-print of the paper</a>.</p>
+<blockquote>
+<div><p>Monks, Thomas, and Alison Harper. 2023. “Computer Model and Code Sharing Practices in Healthcare Discrete-event Simulation: A Systematic Scoping Review.” OSF Preprints. June 5. doi:10.31219/osf.io/c4ytf.</p>
+</div></blockquote>
+</div></blockquote>
+<section id="results">
+<h2>4. Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>All papers included for data extraction: <strong>TBA</strong></p></li>
-<li><p>Papers with shared models: <a class="reference external" href="https://www.zotero.org/groups/4877863/des_papers_with_code/library">https://www.zotero.org/groups/4877863/des_papers_with_code/library</a></p></li>
+<li><p>All results are generated with pre-processed data that was extracted from papers and archived models. The script to pre-process the data can be found in the <a class="reference internal" href="../03_results/01_preprocessing.html"><span class="doc std std-doc">Pre-processing notebook</span></a></p></li>
+<li><p>The code that generates the totals and formats the data so that it can be uploaded to the PRISMA Shiney App can be found in the <a class="reference internal" href="../03_results/00_prisma.html"><span class="doc std std-doc">PRISMA diagram notebook</span></a></p></li>
+</ul>
+<section id="study-characteristics">
+<h3>4.1 Study characteristics<a class="headerlink" href="#study-characteristics" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The total number of studies broken down into COVID-19 and FOSS categories was generated by code in the <a class="reference internal" href="../03_results/02_sharing_hl_summary.html"><span class="doc std std-doc">Main Summary notebook</span></a></p></li>
+<li><p>Descriptive statistics for DES software and languages used is generated in the <a class="reference internal" href="../03_results/03b_software.html"><span class="doc std std-doc">Software notebook</span></a></p></li>
 </ul>
 </section>
-<section id="hardware">
-<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">#</a></h2>
-<p>The computational analyses were run on Intel i9-9900K CPU with 64GB RAM running the Pop!_OS 20.04 Linux.</p>
+<section id="what-proportion-of-studies-shared-model-code">
+<h3>4.2 What proportion of studies shared model code?<a class="headerlink" href="#what-proportion-of-studies-shared-model-code" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Overall summary statistics for DES computer models shared are generated in the <a class="reference internal" href="../03_results/02_sharing_hl_summary.html"><span class="doc std std-doc">Main Summary notebook</span></a></p></li>
+<li><p>A breakdown by journal, conference and book chapter is generated by the <a class="reference internal" href="../03_results/03_article_type.html"><span class="doc std std-doc">Sharing by Article Type notebook</span></a></p></li>
+<li><p>The breakdown by year is generated by the <a class="reference internal" href="../03_results/03a_year.html"><span class="doc std std-doc">Year of Publication notebook</span></a></p></li>
+<li><p>The LaTeX for <code class="docutils literal notranslate"><span class="pre">Table</span> <span class="pre">2:</span> <span class="pre">Sharing</span> <span class="pre">of</span> <span class="pre">models</span> <span class="pre">article</span> <span class="pre">type</span></code> is generated in the <a class="reference internal" href="../03_results/03_article_type.html"><span class="doc std std-doc">Sharing by Article Type notebook</span></a></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> code for generating <code class="docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">2:</span> <span class="pre">Sharing</span> <span class="pre">of</span> <span class="pre">models</span> <span class="pre">by</span> <span class="pre">year</span> <span class="pre">of</span> <span class="pre">publication</span></code> is located in the <a class="reference internal" href="../03_results/03a_year.html"><span class="doc std std-doc">Year of Publication notebook</span></a></p></li>
+</ul>
+</section>
+<section id="what-proportion-of-the-studies-used-a-reporting-guideline">
+<h3>4.3 What proportion of the studies used a reporting guideline?<a class="headerlink" href="#what-proportion-of-the-studies-used-a-reporting-guideline" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>All code for the reporting guidelines descriptive statistics is generated in the <a class="reference internal" href="../03_results/03a_reporting_guidelines.html"><span class="doc std std-doc">Use of reporting guidelines notebook</span></a></p></li>
+</ul>
+</section>
+<section id="what-methods-tools-and-resources-did-authors-use-to-share-their-models-and-code">
+<h3>4.4 What methods, tools, and resources did authors use to share their models and code?<a class="headerlink" href="#what-methods-tools-and-resources-did-authors-use-to-share-their-models-and-code" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The LaTeX for <code class="docutils literal notranslate"><span class="pre">Table</span> <span class="pre">3:</span> <span class="pre">Jansson</span> <span class="pre">et</span> <span class="pre">al.</span> <span class="pre">classification</span> <span class="pre">of</span> <span class="pre">model</span> <span class="pre">archiving.</span></code> is generated by the <a class="reference internal" href="../03_results/07a_jansson_sharing_method.html"><span class="doc std std-doc">Model Archiving notebook</span></a></p></li>
+</ul>
+</section>
+<section id="to-what-extent-do-the-des-health-community-follow-best-practice-for-open-science-when-sharing-models">
+<h3>4.5 To what extent do the DES health community follow best practice for open science when sharing models?<a class="headerlink" href="#to-what-extent-do-the-des-health-community-follow-best-practice-for-open-science-when-sharing-models" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The LaTeX for <code class="docutils literal notranslate"><span class="pre">Table</span> <span class="pre">4:</span> <span class="pre">Best</span> <span class="pre">practice</span> <span class="pre">audit</span> <span class="pre">results</span></code> is generated in the <a class="reference internal" href="../03_results/07_bpa_summary.html"><span class="doc std std-doc">Best Practice Audit: Overall Summary notebook</span></a></p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -631,7 +667,7 @@ dependencies:
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/02_methods"
+            path: "./content/01_intro"
         },
         predefinedOutput: true
     }
@@ -645,17 +681,17 @@ dependencies:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="04_quality_audit.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_background.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Best Practice Audit</p>
+            <p class="prev-next-title">Background</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../03_results/00_prisma.html" title="next page">
+    <a class='right-next' id="next-link" href="../02_methods/01_search_strategy.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Prisma Diagram</p>
+        <p class="prev-next-title">Search Strategy</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
