@@ -115,6 +115,16 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/00_abstract.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/00a_summary.html">
+   Plain english summary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../01_intro/02_license.html">
    License
   </a>
@@ -199,17 +209,17 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/03a_reporting_guidelines.html">
+  <a class="reference internal" href="../03_results/04_reporting_guidelines.html">
    Use of reporting guidelines
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/03a_year.html">
+  <a class="reference internal" href="../03_results/05_year.html">
    Year of publication
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/03b_software.html">
+  <a class="reference internal" href="../03_results/06_software.html">
    Simulation software
   </a>
  </li>
@@ -221,27 +231,27 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/04_bpa_preprocessing.html">
+  <a class="reference internal" href="../03_results/07_bpa_preprocessing.html">
    Preprocessing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/07a_jansson_sharing_method.html">
+  <a class="reference internal" href="../03_results/08_janssen_sharing_method.html">
    Model archiving
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/05_bpa_open_research.html">
+  <a class="reference internal" href="../03_results/09_bpa_open_research.html">
    Open Research
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/06_bpa_execution.html">
+  <a class="reference internal" href="../03_results/10_bpa_execution.html">
    Model execution
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/07_bpa_summary.html">
+  <a class="reference internal" href="../03_results/11_bpa_summary.html">
    Overall summary
   </a>
  </li>
@@ -285,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_results/data_testing_bkp.html">
+  <a class="reference internal" href="../03_results/12_data_testing_bkp.html">
    Data Testing
   </a>
  </li>
@@ -486,12 +496,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -503,6 +537,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -512,10 +559,24 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="strengths-and-limitations">
 <h1>Strengths and Limitations<a class="headerlink" href="#strengths-and-limitations" title="Permalink to this headline">#</a></h1>
-<p>As far as we know, our study is the first to evaluate the quality of sharing in healthcare DES.  A strength of our work is that our quality audit is simple, effective, and quick to apply to new studies. Given its simplicity, and the large amount of guidance on open science, and coding, available for free online, it is important to recognise that it does show clear deficiencies in the last four years of the literature.  For example, in open licensing, model testing (an expectation spelled out in any simulation textbook), and in long term storage and access.</p>
-<p>Another strength is that we have followed open working practices in this study. All code and data are available, openly licensed, and deposited in Zenodo. We have also taken the additional step of providing an online companion book where code can be run to reproduce the results of the study. This is also included in Zenodo to ensure long term availability.</p>
+<p>To our knowledge, our study is the first to evaluate the quality of sharing in healthcare DES.  A strength of our work is that our best practice audit is simple, effective, and quick to apply to new studies. Given its simplicity, and the large amount of guidance on open science and coding available for free online, it is important to recognise that it does show clear deficiencies in the last four years of the literature.  For example, in open licensing, model testing (an expectation spelled out in any simulation textbook), and in long term storage and access.</p>
+<p>Another strength is that we have followed open working practices in this study. All code and data are available, openly licensed, and deposited in Zenodo. We have also taken the additional step of providing an online companion book where code can be run to reproduce the results of the study. This is also deposited in Zenodo to ensure long term availability.</p>
 <p>Our study cannot make any definitive statements about the reproducibility of the studies that shared their code versus those that used a reporting guideline versus those that did neither. Our aim instead was to focus on the practice of sharing and the current deficiencies as defined by gold standard guides such as the Turing Way and Open Modelling Initiative.</p>
-<p>Our findings are based on information we found in the publication. We recognize that the model code may have been published online but not mentioned in the article. We feel our approach is the most appropriate as articles are the primary means by which researchers find research studies and their artefacts.  We chose not to contact all study authors as others have found a 1% response rate.</p>
+<p>Our findings are based on information we found in the publication. We recognize that the model code may have been published online but not mentioned in the article. We feel our approach is the most appropriate as articles are the primary means by which researchers find research studies and their artifacts.</p>
+<p>In order to scope computer model and code sharing practices in the DES healthcare literature, we attempted to conduct a broad and inclusive search of well known databases. While we cannot be certain that we have found all shared computer models we can attempt to compare our included studies to those included in previous healthcare DES reviews. A direct comparison of the number of studies included with other healthcare DES reviews is difficult due to differing aims, search terms, inclusion criteria and reporting. We can say that our review included more than double the number of health DES articles of a 2021 review covering 1994 to 2021 (n = 231) <span id="id1">[<a class="reference internal" href="#id61" title="Jesús Isaac Vázquez-Serrano, Rodrigo E. Peimbert-García, and Leopoldo Eduardo Cárdenas-Barrón. Discrete-Event Simulation Modeling in Healthcare: A Comprehensive Review. International Journal of Environmental Research and Public Health, 18(22):12262, January 2021. Number: 22 Publisher: Multidisciplinary Digital Publishing Institute. URL: https://www.mdpi.com/1660-4601/18/22/12262 (visited on 2023-04-03), doi:10.3390/ijerph182212262.">Vázquez-Serrano <em>et al.</em>, 2021</a>]</span>. For the years that overlapped (2019-2021) we cross-checked our included studies with those included in the 2021 study <span id="id2">[<a class="reference internal" href="#id61" title="Jesús Isaac Vázquez-Serrano, Rodrigo E. Peimbert-García, and Leopoldo Eduardo Cárdenas-Barrón. Discrete-Event Simulation Modeling in Healthcare: A Comprehensive Review. International Journal of Environmental Research and Public Health, 18(22):12262, January 2021. Number: 22 Publisher: Multidisciplinary Digital Publishing Institute. URL: https://www.mdpi.com/1660-4601/18/22/12262 (visited on 2023-04-03), doi:10.3390/ijerph182212262.">Vázquez-Serrano <em>et al.</em>, 2021</a>]</span> and found no additional DES articles. Our results also compare favourably to an earlier 2018 article  covering healthcare DES between 1997 to 2016 (n = 211) <span id="id3">[<a class="reference internal" href="#id5" title="Xiange Zhang. Application of discrete event simulation in health care: a systematic review. BMC Health Services Research, 18(1):687, September 2018. URL: https://doi.org/10.1186/s12913-018-3456-4 (visited on 2023-04-03), doi:10.1186/s12913-018-3456-4.">Zhang, 2018</a>]</span>. This study used very similar search terms to our own, but only included WoS and PubMed in their databases, was unable to cross check with other reviews, and did not conduct backwards and forwards citation chasing.</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id4">
+<dl class="citation">
+<dt class="label" id="id61"><span class="brackets">VSPGCB21</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Jesús Isaac Vázquez-Serrano, Rodrigo E. Peimbert-García, and Leopoldo Eduardo Cárdenas-Barrón. Discrete-Event Simulation Modeling in Healthcare: A Comprehensive Review. <em>International Journal of Environmental Research and Public Health</em>, 18(22):12262, January 2021. Number: 22 Publisher: Multidisciplinary Digital Publishing Institute. URL: <a class="reference external" href="https://www.mdpi.com/1660-4601/18/22/12262">https://www.mdpi.com/1660-4601/18/22/12262</a> (visited on 2023-04-03), <a class="reference external" href="https://doi.org/10.3390/ijerph182212262">doi:10.3390/ijerph182212262</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">Zha18</a></span></dt>
+<dd><p>Xiange Zhang. Application of discrete event simulation in health care: a systematic review. <em>BMC Health Services Research</em>, 18(1):687, September 2018. URL: <a class="reference external" href="https://doi.org/10.1186/s12913-018-3456-4">https://doi.org/10.1186/s12913-018-3456-4</a> (visited on 2023-04-03), <a class="reference external" href="https://doi.org/10.1186/s12913-018-3456-4">doi:10.1186/s12913-018-3456-4</a>.</p>
+</dd>
+</dl>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

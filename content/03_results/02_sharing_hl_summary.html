@@ -115,6 +115,16 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/00_abstract.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_intro/00a_summary.html">
+   Plain english summary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../01_intro/02_license.html">
    License
   </a>
@@ -199,17 +209,17 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03a_reporting_guidelines.html">
+  <a class="reference internal" href="04_reporting_guidelines.html">
    Use of reporting guidelines
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03a_year.html">
+  <a class="reference internal" href="05_year.html">
    Year of publication
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03b_software.html">
+  <a class="reference internal" href="06_software.html">
    Simulation software
   </a>
  </li>
@@ -221,27 +231,27 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="04_bpa_preprocessing.html">
+  <a class="reference internal" href="07_bpa_preprocessing.html">
    Preprocessing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07a_jansson_sharing_method.html">
+  <a class="reference internal" href="08_janssen_sharing_method.html">
    Model archiving
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05_bpa_open_research.html">
+  <a class="reference internal" href="09_bpa_open_research.html">
    Open Research
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06_bpa_execution.html">
+  <a class="reference internal" href="10_bpa_execution.html">
    Model execution
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07_bpa_summary.html">
+  <a class="reference internal" href="11_bpa_summary.html">
    Overall summary
   </a>
  </li>
@@ -285,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="data_testing_bkp.html">
+  <a class="reference internal" href="12_data_testing_bkp.html">
    Data Testing
   </a>
  </li>
@@ -593,8 +603,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-2-latex">
-   Table 2 LateX
+  <a class="reference internal nav-link" href="#latex">
+   LaTeX
   </a>
  </li>
 </ul>
@@ -654,8 +664,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-2-latex">
-   Table 2 LateX
+  <a class="reference internal nav-link" href="#latex">
+   LaTeX
   </a>
  </li>
 </ul>
@@ -674,10 +684,13 @@ title="Print to PDF"
 <h2>Primary research questions:<a class="headerlink" href="#primary-research-questions" title="Permalink to this headline">#</a></h2>
 <p>These results presented in this notebook the following questions</p>
 <ol class="simple">
-<li><p>What proportion of DES healthcare papers that share their models and code?</p></li>
-<li><p>What proportion of these papers that use Free and Open Source Simulation and of these what number are shared?</p></li>
-<li><p>What proportion of these papers that tackle covid-19 and share their models?</p></li>
+<li><p>What proportion of DES healthcare studies share code?</p></li>
 </ol>
+<p>It also answers the sub-questions:</p>
+<ul class="simple">
+<li><p>What proportion of these papers that use Free and Open Source Simulation and of these what number are shared?</p></li>
+<li><p>What proportion of these papers that tackle Covid-19 and share their models?</p></li>
+</ul>
 </section>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
@@ -789,9 +802,9 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_table2</span><span class="p">(</span><span class="n">summary</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_table</span><span class="p">(</span><span class="n">summary</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Create a formatted table 1 of results for manuscript.</span>
+<span class="sd">    Create a formatted table of results for a manuscript.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">total_rows</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n_included&#39;</span><span class="p">,</span> <span class="s1">&#39;n_covid&#39;</span><span class="p">,</span> <span class="s1">&#39;n_foss&#39;</span><span class="p">]</span>
     <span class="n">avail_rows</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n_avail&#39;</span><span class="p">,</span> <span class="s1">&#39;n_covid_avail&#39;</span><span class="p">,</span> <span class="s1">&#39;n_foss_avail&#39;</span><span class="p">]</span>
@@ -854,7 +867,6 @@ title="Print to PDF"
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
 <section id="create-a-high-level-summary-of-the-main-dataset">
 <h3>Create a high level summary of the main dataset<a class="headerlink" href="#create-a-high-level-summary-of-the-main-dataset" title="Permalink to this headline">#</a></h3>
-<p>In the manuscript table 2 provides a simple high level results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">analysis_by_item_type</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
@@ -864,8 +876,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table2</span> <span class="o">=</span> <span class="n">format_table2</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="n">table2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">format_table</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">table</span>
 </pre></div>
 </div>
 </div>
@@ -919,12 +931,12 @@ title="Print to PDF"
 </div>
 </section>
 </section>
-<section id="table-2-latex">
-<h2>Table 2 LateX<a class="headerlink" href="#table-2-latex" title="Permalink to this headline">#</a></h2>
-<p>Here we generate the LaTeX to insert into a journal publication.</p>
+<section id="latex">
+<h2>LaTeX<a class="headerlink" href="#latex" title="Permalink to this headline">#</a></h2>
+<p>Here we generate the LaTeX to inset the table into a document.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">table2</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">to_latex</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">to_latex</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
