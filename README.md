@@ -60,7 +60,7 @@ All dependencies can be found in [`binder/environment.yml`]() and are pulled fro
 
 **Online Alternatives**:
 
-* Visit our [jupyter book]((https://tommonks.github.io/des_sharing_lit_review) for interactive code and explanatory text
+* Visit our [jupyter book](https://tommonks.github.io/des_sharing_lit_review) for interactive code and explanatory text
 * Run out Jupyter notebooks in binder [![Binder](https://mybinder.org/badge_logo.svg)](https://github.com/TomMonks/des_sharing_lit_review/main)
 
 ## Repo overview
