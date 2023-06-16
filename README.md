@@ -19,12 +19,13 @@ The materials and data in this repository support: Harper and Monks (2023).  *DE
 
 Methods, and Results are regularly updated in our online Jupyter Book [https://tommonks.github.io/des_sharing_lit_review](https://tommonks.github.io/des_sharing_lit_review)
 
-A preprint of the study is available from OSF: https://osf.io/c4ytf/
+A **preprint** of the study is available:
 
-> Please cite the preprint as:
->> Monks, T., & Harper, A. (2023, June 5). Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review. https://doi.org/10.31219/osf.io/c4ytf
+> Monks, T., & Harper, A. (2023, June 5). Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review. https://doi.org/10.31219/osf.io/c4ytf
 
-```
+**Bibtex citation:**
+
+```bibtex
 @misc{monks_harper_2023,
  title={Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review},
  url={osf.io/c4ytf},
@@ -97,3 +98,6 @@ All study data is contained within this repository.  It can be found in the `dat
 * `share_sim_data_extract.zip`: main study data stored as a CSV. It includes all publications carried forward to the data extraction phase.
 * `bp_audit.zip`: Contains the studies and additional data extraction used within the best practice audit of shared computer models.
 
+## Testing 
+
+If any updates to the data are made we recommend re-running the [Data source testing notebook](https://github.com/TomMonks/des_sharing_lit_review/blob/main/content/03_results/12_data_testing_bkp.ipynb).  This will perform a set of tests on the main and best practice audit datasets to check that data is in the correct place and format. 
