@@ -28,10 +28,14 @@ dependencies:
 
 ## Reference management software
 
-The references were managed via Zotero 6.0.15.  We have created two online Zotero libraries. The first contains all references included in the main review.  The second contains the papers with code i.e. where DES models are shared as part of the study.
+The references were managed via Zotero 6.0.15.  We have created an online Zotero library that contains all references that included a computer model. 
 
-* All papers included for data extraction: **TBA**
-* Papers with shared models: https://www.zotero.org/groups/4877863/des_papers_with_code/library
+* Papers with shared computer models: https://www.zotero.org/groups/4877863/des_papers_with_code/library
+
+The main database of studies that were included in the data extraction phase is stored as a Comma Separated Value (CSV) file.  It can be found at the following link:
+
+* All studies included in review: https://github.com/TomMonks/des_sharing_lit_review/blob/main/data/share_sim_data_extract.zip
+* A CSV containing the best practice review: https://github.com/TomMonks/des_sharing_lit_review/blob/main/data/bp_audit.zip
 
 ## Hardware
 
