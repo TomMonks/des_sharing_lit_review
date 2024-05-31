@@ -30,14 +30,17 @@ We have provided full details on the process our two reviewers used to select ea
 
 ## 9. Data collection process
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To do: ** A random sample to re-review/cross-review.
+`````{admonition} COMPLETED
+:class: seealso
+We have provided full details of the data extraction and audit process that we employed in the research. See [Data Extraction](../02_methods/03_extraction)
 `````
 
 ## 10. Data items
 
+`````{admonition} COMPLETED
+:class: seealso
 We split our review into two parts: data extraction from all papers included, and a more detailed best practice audit of those studies that did share their models and code that would allow us to critically appraise practice.  
+`````
 
 ### 10a. Primary outcomes
 

@@ -37,12 +37,14 @@ See [competing interests page](../01_intro/04_competing_interests).
 
 ## 27. Availability of data code and other materials
 
-`````{admonition} INCOMPLETE
-:class: warning
-**to do: deposit in Zenodo with final DOI**
+`````{admonition} COMPLETE
+:class: seealso
 
-All study data, and analysis code are available via Github https://github.com/TomMonks/des_sharing_lit_review and deposited in Zenodo **[insert citation]**
+All study data, and analysis code are available via Github https://github.com/TomMonks/des_sharing_lit_review and deposited in Zenodo https://zenodo.org/records/8054806
+
+
 `````
+
 
 
 

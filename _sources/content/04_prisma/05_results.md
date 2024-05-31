@@ -10,15 +10,16 @@ We provide a reproducible PRISMA flow diagram. This can be viewed in the PRISMA 
 
 ### 16b. Cite studies that appear to meet inclusion criteria, but were excluded.
 
-`````{admonition} INCOMPLETE
-:class: warning
-**To discuss: ** How best to do this.  We reasons for exclusion stored.  
+`````{admonition} COMPLETED
+:class: seealso
+We have included a list of these studies in the main data file. see `data/share_sim_data_extract.zip`
 `````
+
 ## 17. Study characteristics
 
-`````{admonition} INCOMPLETE
-:class: warning
-Complete in paper - need to have a notebook that produces all results in one place for simplicity.
+`````{admonition} COMPLETED
+:class: seealso
+See section 5.1 in the Journal of Simulation manuscript for this summay [https://doi.org/10.1080/17477778.2023.2260772](https://doi.org/10.1080/17477778.2023.2260772)
 `````
 
 ##  18. Risk of bias in studies
