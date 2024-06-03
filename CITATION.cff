@@ -1,0 +1,38 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Supplementary Materials: Computer model and code sharing
+  practices in healthcare discrete-event simulation: a
+  systematic scoping review
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Thomas
+    family-names: Monks
+    affiliation: University of Exeter
+    orcid: 'https://orcid.org/0000-0003-2631-4481'
+  - given-names: Alison
+    family-names: Harper
+    email: t.m.w.monks@exeter.ac.uk
+    affiliation: University of Exeter
+    orcid: 'https://orcid.org/0000-0001-5274-5037'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.7741340
+    description: >-
+      General DOI for all versions of supplementary
+      materials
+repository-code: 'https://github.com/TomMonks/des_sharing_lit_review'
+url: 'https://tommonks.github.io/des_sharing_lit_review/'
+keywords:
+  - Discrete-Event Simulation
+  - Open Science
+  - Healthcare
+  - Open models
+  - Systematic review
+license: MIT
+version: v1.1.0
