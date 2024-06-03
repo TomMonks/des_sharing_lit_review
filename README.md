@@ -8,7 +8,7 @@
 # Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review
 
 ## Overview 
-The materials and data in this repository support: Harper and Monks (2023).  *DES model sharing in healthcare: an analysis of the published literature 2019-2022*.  All materials are published under an [MIT permissive license](https://github.com/TomMonks/des_sharing_lit_review/blob/main/LICENSE). 
+The materials and data in this repository support: Harper and Monks (2023).  [Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review](https://doi.org/10.1080/17477778.2023.2260772).  All materials are published under an [MIT permissive license](https://github.com/TomMonks/des_sharing_lit_review/blob/main/LICENSE). 
 
 ## Author ORCIDs
 
@@ -17,23 +17,25 @@ The materials and data in this repository support: Harper and Monks (2023).  *DE
 
 ## Write up of study
 
-Methods, and Results are regularly updated in our online Jupyter Book [https://tommonks.github.io/des_sharing_lit_review](https://tommonks.github.io/des_sharing_lit_review)
+Methods, results, and code are available in our online Jupyter Book [https://tommonks.github.io/des_sharing_lit_review](https://tommonks.github.io/des_sharing_lit_review)
 
-A **preprint** of the study is available:
+A full write-up of the work is available **open access** in the Journal of Simulation. If you use this work please cite the paper.
 
-> Monks, T., & Harper, A. (2023, June 5). Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review. https://doi.org/10.31219/osf.io/c4ytf
+> Monks, T., & Harper, A. (2023). Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review. Journal of Simulation, 1–16. https://doi.org/10.1080/17477778.2023.2260772
 
 **Bibtex citation:**
 
 ```bibtex
-@misc{monks_harper_2023,
- title={Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review},
- url={osf.io/c4ytf},
- DOI={10.31219/osf.io/c4ytf},
- publisher={OSF Preprints},
- author={Monks, Thomas and Harper, Alison},
- year={2023},
- month={Jun}
+@article{monks_harper_2023,
+author = {Thomas Monks and Alison Harper},
+title = {Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review},
+journal = {Journal of Simulation},
+pages = {1--16},
+year = {2023},
+publisher = {Taylor \& Francis},
+doi = {10.1080/17477778.2023.2260772},
+URL = {https://doi.org/10.1080/17477778.2023.2260772},
+eprint = {https://doi.org/10.1080/17477778.2023.2260772}
 }
 ```
 
